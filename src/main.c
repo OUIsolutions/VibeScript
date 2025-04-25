@@ -33,16 +33,13 @@ int main(int argc, char  *argv[]){
     int result = -1;
  
     if(action == NULL){
-      printf("%sError: %s%s\n", RED, "No action provided (type --help to get help)", RESET);
+      printf("%sError: %s%s\n", RED, "No  file  provided (type --help to get help)", RESET);
       release_if_not_null(encryption_key,free);
       release_if_not_null(config_path,free);
       release_if_not_null(encryption,dtw.encryption.free);
       return 1;
     }
 
-    if(strcmp(action, START) == 0){
-      result = start_action();
-    }
     if(strcmp(action, CONFIG_MODEL) == 0){
       result = configure_model();
     }
@@ -70,10 +67,8 @@ int main(int argc, char  *argv[]){
         printf("Version: %s\n", VERSION);
         result = 0;
     }
-    
     if(result == -1){
-      printf("%sError: %s%s\n", RED, "Invalid action", RESET);
-      result = 1;
+        result = start_action();       
     }
     
     release_if_not_null(encryption_key,free);

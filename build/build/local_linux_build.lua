@@ -35,7 +35,7 @@ function local_linux_build()
     if LAUNGUAGE == "cpp" then
         compiler = "g++"
     end
-    local compilation =compiler.." -o "..PROJECT_NAME .." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o  libs/LuaCEmbed.o "
+    local compilation =compiler.." -o "..PROJECT_NAME .." src/main.c libs/doTheWorld.o libs/BearHttpsClient.o libs/CArgvParse.o  libs/LuaCEmbed.o -ldl"
     print("compilation: ", compilation)
     os.execute(compilation)
    
