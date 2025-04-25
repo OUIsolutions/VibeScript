@@ -11,6 +11,7 @@ RagCraft
 *.elf
 .cache
 dependencies
+VibeScript
 AiRagTemplate
 globals.assets.c
 .cacherag
