@@ -39,6 +39,19 @@ int start_action(){
     OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
     */
 
+    LuaCEmbed * l = lua_n.newLuaEvaluation();
+    const char *file_to_interpret = args.get_arg(&args_obj, 1);
+
+    lua_n.evaluete_file(l, file_to_interpret);
     
+    if(lua_n.has_errors(l)){
+        char *error = lua_n.get_error_message(l);
+        printf("%sError: %s\n%s",RED, error,RESET);
+        free(error);
+        lua_n.free(l);
+        return 1;
+    }
+    lua_n.free(l);
+
     return 0;
 }

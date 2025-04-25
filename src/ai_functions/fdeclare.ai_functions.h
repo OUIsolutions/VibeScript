@@ -6,9 +6,7 @@
 //silver_chain_scope_end
 
 
-char *agent_get_ai_chosen_asset(cJSON *args, void *pointer);
 
-void configure_read_asset_callbacks(OpenAiInterface *openAi,const char *model);
 
 char *agent_list_recursively(cJSON *args, void *pointer);
 
@@ -30,11 +28,7 @@ char *agent_remove_file(cJSON *args, void *pointer);
 
 void configure_remove_file_callbacks(OpenAiInterface *openAi,const char *model);
 
-char *agent_terminate(cJSON *args, void *pointer);
-
-void configure_terminate_callbacks(OpenAiInterface *openAi,const char *model);
-
-char *agent_clear(cJSON *args, void *pointer);
 
 
-void configure_clear_callbacks(OpenAiInterface *openAi,const char *model);
+
+

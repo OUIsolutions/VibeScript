@@ -10,4 +10,5 @@ void start_namespace(){
     dtw = newDtwNamespace();
     openai = newOpenAiNamespace();
     bear = newBearHttpsNamespace();
+    lua_n = newLuaCEmbedNamespace();
 }
