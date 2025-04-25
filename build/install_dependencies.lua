@@ -12,6 +12,8 @@ function Install_dependencies()
         { url = "https://github.com/OUIsolutions/C-argv-parser/releases/download/0.0.1/CArgvParse.c", path = "dependencies/CArgvParse.c" },
         { url = "https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI/releases/download/0.0.8/SDK_OpenAI.c", path = "dependencies/SDK_OpenAI.c" },
         { url = "https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI/releases/download/0.0.8/SDK_OpenAI.h", path = "dependencies/SDK_OpenAI.h" },
+        {url = "https://github.com/OUIsolutions/LuaCEmbed/releases/download/0.8.0/LuaCEmbed.c", path = "dependencies/LuaCEmbed.c"},
+        {url = "https://github.com/OUIsolutions/LuaCEmbed/releases/download/0.8.0/LuaCEmbed.h", path = "dependencies/LuaCEmbed.h"},
     }
     for _, lib in ipairs(libs) do
         local executor = function()
