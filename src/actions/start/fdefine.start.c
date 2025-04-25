@@ -31,13 +31,12 @@ char * collect_user_input(){
 }
 
 int start_action(){
-    /*
-    ModelProps *props =collect_model_props();
+    
+    props =collect_model_props();
     if(!props){
         return 1;
     }
-    OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
-    */
+    
 
     LuaCEmbed * l = lua_n.newLuaEvaluation();
     const char *file_to_interpret = args.get_arg(&args_obj, 1);
