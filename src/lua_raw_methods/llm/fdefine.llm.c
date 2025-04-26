@@ -12,7 +12,7 @@ LuaCEmbedResponse *add_user_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
     if(lua_n.has_errors(args)){
         return lua_n.response.send_error(lua_n.get_error_message(args));
     }
-    OpenAiInterface_add_user_prompt(openAi, prompt);
+    openai.openai_interface.add_user_prompt(openAi, prompt);
     return NULL;
 }
 
@@ -23,7 +23,7 @@ LuaCEmbedResponse *add_system_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
     if(lua_n.has_errors(args)){
         return lua_n.response.send_error(lua_n.get_error_message(args));
     }
-    OpenAiInterface_add_system_prompt(openAi, prompt);
+    openai.openai_interface.add_system_prompt(openAi, prompt);
     return NULL;
 
 }
@@ -35,7 +35,7 @@ LuaCEmbedResponse *add_assistant_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
     if(lua_n.has_errors(args)){
         return lua_n.response.send_error(lua_n.get_error_message(args));
     }
-    OpenAiInterface_add_assistant_prompt(openAi, prompt);
+    openai.openai_interface.add_assistent_prompt(openAi, prompt);
     return NULL;
 }
 LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
@@ -45,7 +45,7 @@ LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
     if(openai.response.error(response)){
         return lua_n.response.send_error(openai.response.get_error_message(response));
     }
-    char *answer = openai.response.get_content_str(response,0);
+    const char *answer = openai.response.get_content_str(response,0);
     return lua_n.response.send_str(answer);
 }
 
