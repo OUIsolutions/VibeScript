@@ -71,13 +71,6 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
         return lua_n.response.send_error(lua_n.get_error_message(args));
     }
 
-    DtwStringArray *functionsNames = (DtwStringArray *)lua_n.tables.get_long_prop(self,"functionsNames");
-    if(dtw.string_array.find_position(functionsNames,name) != -1){
-        return lua_n.response.send_error("Function already exists");
-    }
-    dtw.string_array.append(functionsNames,name);
-    
-
 
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n curent_clojure_callback = callback  end\n");
     LuaCEmbedTable *functions = (LuaCEmbedTable *)lua_n.tables.get_long_prop(self,"functions");
@@ -109,9 +102,7 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
     LuaCEmbedTable *functions = lua_n.tables.new_anonymous_table(args);
     lua_n.tables.set_long_prop(self,"functions",(PTR_CAST)functions);
 
-    DtwStringArray *functionsNames = dtw.string_array.newStringArray();
-    lua_n.tables.set_long_prop(self,"functionsNames",(PTR_CAST)functionsNames);
-
+   
     lua_n.tables.set_method(self,ADD_USER_PROMPT,add_user_prompt);
     lua_n.tables.set_method(self,ADD_SYSTEM_PROMPT,add_system_prompt);
     lua_n.tables.set_method(self,ADD_ASSISTANT_PROMPT,add_assistant_prompt);
