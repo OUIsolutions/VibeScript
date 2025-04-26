@@ -20,11 +20,11 @@ function, to manipulate files and directories, like hashers, listings, read and 
 ### LuaShip
 [LuaShip](https://github.com/OUIsolutions/LuaShip) its a Podman/Docker wrapper , that its used to create some releases such as:
 
-- release/AiRagTemplate64.exe
-- release/AiRagTemplate.deb
-- release/AiRagTemplatei32.exe
-- release/AiRagTemplate.out
-- release/AiRagTemplate.rpm
+- release/vibescript64.exe
+- release/vibescript.deb
+- release/vibescripti32.exe
+- release/vibescript.out
+- release/vibescript.rpm
 
 all the builds functions,are located  in the [build functions](/build/build) part
 
@@ -139,4 +139,4 @@ end
 ```
 
 ### key_obfuscate
-key obfuscate its responsable to create the encryption key, and its used to create a file called **src/macros.encrypt_key.h** containing a macro called **AiRagTemplate_get_key** that its used to get the encryption key, check [key_obfuscate](https://github.com/OUIsolutions/key_obfuscate) for more details
+key obfuscate its responsable to create the encryption key, and its used to create a file called **src/macros.encrypt_key.h** containing a macro called **vibescript_get_key** that its used to get the encryption key, check [key_obfuscate](https://github.com/OUIsolutions/key_obfuscate) for more details
