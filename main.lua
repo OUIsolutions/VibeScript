@@ -6,7 +6,7 @@ llm = newLLM({
     list = true
 })
 
-llm.add_user_prompt("create a dir called test")
+llm.add_user_prompt("delete README.md")
 
 response = llm.generate()
 print("Response: " .. response)
