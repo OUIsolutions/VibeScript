@@ -27,7 +27,7 @@ function newLLM(permissions)
             {name = "file",description="the file name", type = "string", required = true},
         }
         local callback = function(args)
-            print("Reading file: " .. args.file)
+            print(YELLOW.."Reading file: "..args.file..RESET)
             return dtw.load_file(args.file)
         end
         llm.add_function("read", "read a file and return the content of the file",args,callback)
