@@ -6,7 +6,7 @@ llm = newLLM({
     list = true
 })
 
-llm.add_user_prompt("create a quck explanation of flask in README.md")
+llm.add_user_prompt("create a dir called test")
 
 response = llm.generate()
 print("Response: " .. response)
