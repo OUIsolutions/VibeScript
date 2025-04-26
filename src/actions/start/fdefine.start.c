@@ -9,11 +9,7 @@
 
 int start_action(int argc, char **argv){
     
-    props =collect_model_props();
-    if(!props){
-        return 1;
-    }
-    
+  
 
     LuaCEmbed * l = lua_n.newLuaEvaluation();
     const char *file_to_interpret = args.get_arg(&args_obj, 1);

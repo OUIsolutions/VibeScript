@@ -74,7 +74,11 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 
 LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
 
-
+    ModelProps *props =collect_model_props();
+    if(!props){
+        return lua_n.response.send_error("Failed to collect model props");
+    }
+    
     LuaCEmbedTable *self = lua_n.tables.new_anonymous_table(args);
     OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
 
@@ -84,7 +88,7 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
     lua_n.tables.set_method(self,ADD_ASSISTANT_PROMPT,add_assistant_prompt);
     lua_n.tables.set_method(self,GENERATE,make_question);
     lua_n.tables.set_method(self,"__gc",delete_llm);
-
+    freeModelProps(props);
     return lua_n.response.send_table(self);
 
 }
