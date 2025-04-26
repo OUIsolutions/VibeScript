@@ -55,7 +55,19 @@ function newLLM(permissions)
         llm.add_function("execute", "execute a command and return the output",args,callback)
 
     end
+    if permissions.delete then
+        local args = {
+            {name = "element",description="the element to remove", type = "string", required = true},
+        }
+        local callback = function(args)
+            print(YELLOW.."Deleting element: "..args.element..RESET)
+            dtw.remove_any(args.element)
+            return "element removed"
+        end
+        llm.add_function("delete", "delete a file or a dir",args,callback)
+    end
 
+    
   return llm
 
 
