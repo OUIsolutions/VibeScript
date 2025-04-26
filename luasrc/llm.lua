@@ -1,10 +1,11 @@
 
 function newLLM(permissions)
     local llm = newRawLLM()
-
     if type(permissions) ~= "table" then
         error("permissions must be a table")
     end
+
+
     local validPermissions = {
         "read",
         "write",
@@ -20,6 +21,13 @@ function newLLM(permissions)
             error("Permission must be a boolean")
         end
     end
+    
+    llm.add_file = function(filename)
+        local content = dtw.load_file(filename)
+        local formmtated = "file: " .. filename .. "\n" .. content
+        llm.add_user_prompt(formmtated)
+    end
+   
 
     if permissions.read then
 
@@ -66,6 +74,9 @@ function newLLM(permissions)
         end
         llm.add_function("delete", "delete a file or a dir",args,callback)
     end
+
+
+
     if permissions.list then
         local args = {
             {name = "dir",description="the directory to list", type = "string", required = true},
