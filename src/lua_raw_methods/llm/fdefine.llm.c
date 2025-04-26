@@ -72,16 +72,16 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     if(lua_n.has_errors(args)){
         return lua_n.response.send_error(lua_n.get_error_message(args));
     }
-    for(int i = 0; i < lua_n.args.get_table_size(parameters); i++){
-        LuaCEmbedTable *param = lua_n.args.get_table_index(parameters,i);
+    for(int i = 0; i < lua_n.tables.get_size(parameters); i++){
+        LuaCEmbedTable *param = lua_n.tables.get_sub_table_by_index(parameters,i);
 
         if(lua_n.has_errors(args)){
             return lua_n.response.send_error(lua_n.get_error_message(args));
         }
-        char *param_name = lua_n.tables.get_str(param,"name");
-        char *param_description = lua_n.tables.get_str(param,"description");
-        char *param_type = lua_n.tables.get_str(param,"type");
-        bool required = lua_n.tables.get_bool(param,"required");
+        char *param_name = lua_n.tables.get_string_prop(param,"name");
+        char *param_description = lua_n.tables.get_string_prop(param,"description");
+        char *param_type = lua_n.tables.get_string_prop(param,"type");
+        bool required = lua_n.tables.get_bool_prop(param,"required");
         if(lua_n.has_errors(args)){
             return lua_n.response.send_error(lua_n.get_error_message(args));
         }
@@ -113,13 +113,13 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,public_name, name,description, false);
 
-    for(int i = 0; i < lua_n.args.get_table_size(parameters); i++){
-        LuaCEmbedTable *param = lua_n.args.get_table_index(parameters,i);
-        char *param_name = lua_n.tables.get_str(param,"name");
-        char *param_description = lua_n.tables.get_str(param,"description");
-        char *param_type = lua_n.tables.get_str(param,"type");
-
-        OpenAiInterface_add_parameters_in_callback(callback,param_name,param_description,param_type);
+    for(int i = 0; i < lua_n.tables.get_size(parameters); i++){
+        LuaCEmbedTable *param = lua_n.tables.get_sub_table_by_index(parameters,i);
+        char *param_name = lua_n.tables.get_string_prop(param,"name");
+        char *param_description = lua_n.tables.get_string_prop(param,"description");
+        char *param_type = lua_n.tables.get_string_prop(param,"type");
+        bool required = lua_n.tables.get_bool_prop(param,"required");
+        OpenAiInterface_add_parameters_in_callback(callback,param_name,param_description,param_type,required);
     }
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 
