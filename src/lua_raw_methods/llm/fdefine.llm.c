@@ -72,10 +72,16 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
     LuaCEmbedTable *response = lua_n.globals.run_global_lambda(lua_virtual_machine,public_name,args_array,1);
     
     if(lua_n.has_errors(response)){
-        return lua_n.response.send_error(lua_n.get_error_message(response));
+        return strdup(lua_n.response.send_error(lua_n.get_error_message(response)));
     }
-    
-    return NULL;
+    if(lua_n.tables.get_size(response) == 0){
+        return strdup("Nil");
+    }
+    cJSON *json_response = lua_fluid_json_dump_to_cJSON_array(response);
+    char *json_response_str = cJSON_Print(json_response);
+    cJSON_Delete(json_response);
+
+    return json_response_str;
 }
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
@@ -125,7 +131,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n %s = callback  end\n",public_name);
     
-    OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,public_name, name,description, false);
+    OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,public_name, name,description, true);
 
     for(int i = 0; i < lua_n.tables.get_size(parameters); i++){
         LuaCEmbedTable *param = lua_n.tables.get_sub_table_by_index(parameters,i);
