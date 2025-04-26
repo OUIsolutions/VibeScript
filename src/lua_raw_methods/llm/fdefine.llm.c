@@ -54,7 +54,7 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
     openai.openai_interface.free(openAi);
     return NULL;
 }
-
+/*
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     char *name = lua_n.args.get_str(args,0);
@@ -70,7 +70,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 
     return NULL;
 }
-
+*/
 
 LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
 
