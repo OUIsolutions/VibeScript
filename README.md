@@ -1,1 +1,1 @@
-Flask is a lightweight WSGI web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It's often used for building web APIs and microservices.
+a quick hack to calls llms and make fast automations
