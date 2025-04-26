@@ -77,8 +77,22 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     dtw.string_array.append(functionsNames,name);
 
 
-    
-    lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n curent_clojure_callback = callback  end\n");
+    char *public_name = NULL;
+    while (true){
+        DtwRandonizer *randonizer = dtw.randonizer.newRandonizer();
+        public_name = dtw.randonizer.generate_token(randonizer, 10);
+        
+        if(lua_n.globals.get_type(public_name) == lua.types.NILL){
+            break;
+        }
+        free(public_name);
+        public_name = NULL;
+        dtw.randonizer.free(randonizer);
+    }
+
+
+
+    lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n llm_clojure%s = callback  end\n");
 
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,name_ptr, name,description, false);
 
