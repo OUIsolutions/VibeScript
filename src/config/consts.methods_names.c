@@ -10,4 +10,4 @@
 #define ADD_USER_PROMPT "add_user_prompt"
 #define ADD_ASSISTANT_PROMPT "add_assistant_prompt"
 #define MAKE_QUESTION "make_question"
-#define NEW_RAW_LLM "new_rawLLM"
+#define NEW_RAW_LLM "neRawLLM"
