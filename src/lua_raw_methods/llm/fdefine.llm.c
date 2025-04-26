@@ -41,11 +41,14 @@ LuaCEmbedResponse *add_assistant_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
 LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     
-    char *response = openai.openai_interface.make_question(openAi);
-    LuaCEmbedTable *responseTable = lua_n.tables.new_anonymous_table(args);
-
-    return lua_n.response.send_str(response);
+    OpenAiResponse *response = openai.openai_interface.make_question(openAi);
+    if(openai.response.error(response)){
+        return lua_n.response.send_error(openai.response.get_error_message(response));
+    }
+    char *answer = openai.response.get_content_str(response,0);
+    return lua_n.response.send_str(answer);
 }
+
 LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     openai.openai_interface.free(openAi);
