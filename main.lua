@@ -5,8 +5,9 @@ llm = newLLM({
     delete = true,
     list = true
 })
+llm.add_system_prompt("dont answer me, just execute the function")
 
-llm.add_user_prompt("use the function read to read README.md and bring me a resume")
+llm.add_system_prompt("use the function read to read README.md and bring me a resume dont ask menssages")
 
 response = llm.generate()
 print("Response: " .. response)
