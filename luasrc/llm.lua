@@ -29,7 +29,7 @@ function newLLM(permissions)
         local callback = function(args)
             return dtw.load_file(args.file)
         end
-        llm.add_function("read", "read a file",args,callback)
+        llm.add_function("read", "read a file and return the content of the file",args,callback)
     end
 
   return llm
