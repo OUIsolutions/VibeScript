@@ -150,7 +150,6 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
 
     UniversalGarbage_add(garbage,openai.openai_interface.free,openAi);
     UniversalGarbage_add(garbage,dtw.string_array.free,functionsNames);
-
     lua_n.tables.set_long_prop(self,"garbage",(PTR_CAST)garbage);
   
    
