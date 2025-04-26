@@ -76,7 +76,6 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     LuaCEmbedTable *functions = (LuaCEmbedTable *)lua_n.tables.get_long_prop(self,"functions");
     lua_n.tables.set_evaluation_prop(functions,name_ptr,"curent_clojure_callback");
 
-    
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,name_ptr, name,description, false);
 
 
