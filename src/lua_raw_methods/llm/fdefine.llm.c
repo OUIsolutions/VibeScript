@@ -6,7 +6,7 @@
 //silver_chain_scope_end
 
 LuaCEmbedResponse *add_user_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
-    OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
+    OpenAiInterface *openAi = (OpenAiInterface *)(PTR_CAST)lua_n.tables.get_long_prop(self,"openAi");
     char *prompt = lua_n.args.get_str(args,0);
     if(lua_n.has_errors(args)){
         return lua_n.response.send_error(lua_n.get_error_message(args));
@@ -16,7 +16,7 @@ LuaCEmbedResponse *add_user_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
 }
 
 LuaCEmbedResponse *add_system_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
-    OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
+    OpenAiInterface *openAi = (OpenAiInterface *)(PTR_CAST)lua_n.tables.get_long_prop(self,"openAi");
     
     char *prompt = lua_n.args.get_str(args,0);
     if(lua_n.has_errors(args)){
@@ -28,7 +28,7 @@ LuaCEmbedResponse *add_system_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
 }
 
 LuaCEmbedResponse *add_assistant_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
-    OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
+    OpenAiInterface *openAi = (OpenAiInterface *)(PTR_CAST)lua_n.tables.get_long_prop(self,"openAi");
     
     char *prompt = lua_n.args.get_str(args,0);
     if(lua_n.has_errors(args)){
@@ -38,7 +38,7 @@ LuaCEmbedResponse *add_assistant_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
     return NULL;
 }
 LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
-    OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
+    OpenAiInterface *openAi = (OpenAiInterface *)(PTR_CAST)lua_n.tables.get_long_prop(self,"openAi");
     
     OpenAiResponse *response = OpenAiInterface_make_question_finish_reason_treated(openAi);
     if(openai.response.error(response)){
@@ -49,7 +49,7 @@ LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
 }
 
 LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
-    UniversalGarbage *garbage = (UniversalGarbage *)lua_n.tables.get_long_prop(self,"garbage");
+    UniversalGarbage *garbage = (UniversalGarbage *)(PTR_CAST)lua_n.tables.get_long_prop(self,"garbage");
     UniversalGarbage_free(garbage);
     return NULL;
 }
@@ -85,7 +85,7 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
     return json_response_str;
 }
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
-    OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
+    OpenAiInterface *openAi = (OpenAiInterface *)(PTR_CAST)lua_n.tables.get_long_prop(self,"openAi");
     char *name = lua_n.args.get_str(args,0);
     char *description = lua_n.args.get_str(args,1);
     LuaCEmbedTable *parameters = lua_n.args.get_table(args,2);
@@ -107,7 +107,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
             return lua_n.response.send_error(lua_n.get_error_message(args));
         }
     }
-    DtwStringArray *functionsNames = (DtwStringArray *)lua_n.tables.get_long_prop(self,"functionsNames");
+    DtwStringArray *functionsNames = (DtwStringArray *)(PTR_CAST)lua_n.tables.get_long_prop(self,"functionsNames");
     if(dtw.string_array.find_position(functionsNames,name) != -1){
         return lua_n.response.send_error("Function already exists");
     }
@@ -129,7 +129,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
         dtw.randonizer.free(randonizer);
     }
 
-    UniversalGarbage *garbage =  (UniversalGarbage *)lua_n.tables.get_long_prop(self,"garbage");
+    UniversalGarbage *garbage =  (UniversalGarbage *)(PTR_CAST)lua_n.tables.get_long_prop(self,"garbage");
     UniversalGarbage_add(garbage,dtw.string_array.free,functionsNames);
 
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n %s = callback  end\n",public_name);

@@ -1,1 +1,0 @@
-me da um resumo da doc
