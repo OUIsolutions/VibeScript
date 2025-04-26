@@ -8,6 +8,7 @@ macros.encrypt_key.h
 vgcore*
 RagCraft
 *.obj
+vibeScript
 *.elf
 .cache
 dependencies
