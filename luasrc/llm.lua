@@ -27,6 +27,14 @@ function newLLM(permissions)
     llm.add_file = function(filename)
         files[#files + 1] = {filename = filename,already_added = false}
     end
+
+    llm.add_dir = function(dir)
+        local concat_path = true
+        local dir_files = dtw.list_files_recursively(dir,concat_path)
+        for _, file in ipairs(dir_files) do
+            files[#files + 1] = {filename = file,already_added = false}
+        end
+    end
     llm.generate = function()
         local content = ""
         for _, file in ipairs(files) do
