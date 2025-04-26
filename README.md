@@ -3,6 +3,15 @@
 Vibe script its a custom lua runtime ,that allows you to make fast automations,with quick scripts
 
 ## Releases 
+| File | Description |
+| --- | --- |
+|[VibeScript.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript.c)| final Amalgamation of the project |
+|[VibeScript.deb](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript.deb)| Debian Package |
+|[VibeScript.rpm](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript.rpm)| RPM Package |
+|[VibeScript.out](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript.out)| Linux Executable file |
+|[VibeScript64.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript64.exe)| Windows 64 bit Executable file |
+|[VibeScripti32.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScripti32.exe)| Windows 32 bit Executable file |
+
 
 ## Getting Start
 - 1 Download one of the releases 
