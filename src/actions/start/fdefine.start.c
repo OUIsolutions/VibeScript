@@ -43,7 +43,7 @@ int start_action(){
     lua_n.load_native_libs(l);
 
     lua_n.add_global_callback(l,NEW_RAW_LLM, new_rawLLM);
-    lua_n.load_lib_from_c(l,load_luaDoTheWorld);
+    lua_n.load_lib_from_c(l,load_luaDoTheWorld,"dtw");
     lua_n.evaluete_file(l, file_to_interpret);
     
     if(lua_n.has_errors(l)){
