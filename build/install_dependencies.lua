@@ -15,7 +15,9 @@ function Install_dependencies()
         {url = "https://github.com/OUIsolutions/LuaCEmbed/releases/download/0.8.0/LuaCEmbed.c", path = "dependencies/LuaCEmbed.c"},
         {url = "https://github.com/OUIsolutions/LuaCEmbed/releases/download/0.8.0/LuaCEmbed.h", path = "dependencies/LuaCEmbed.h"},
         {url = "https://github.com/OUIsolutions/LuaDoTheWorld/releases/download/0.7.1/luaDoTheWorld_no_dep.c", path = "dependencies/luaDoTheWorld_no_dep.c"},
-        {url = "https://github.com/OUIsolutions/LuaArgv/releases/download/0.07/luargv.lua", path = "dependencies/luargv.lua"}
+        {url = "https://github.com/OUIsolutions/LuaFluidJson/releases/download/0.6.0/luaFluidJson_no_dep.c", path = "dependencies/luaFluidJson_no_dep.c"},
+        {url = "https://github.com/OUIsolutions/LuaArgv/releases/download/0.07/luargv.lua", path = "dependencies/luargv.lua"},
+        {url="https://github.com/OUIsolutions/LuaShip/releases/download/0.1.4/LuaShip.lua", path = "dependencies/LuaShip.lua"}
     }
     for _, lib in ipairs(libs) do
         local executor = function()
