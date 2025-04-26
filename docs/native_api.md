@@ -1,3 +1,17 @@
+
+
+# Building libs
+vibescript Have The Follow libs native
+
+|  Object Name  | Lib Name |
+|--------------|---------|
+|dtw| [LuaDoTheWorld](https://github.com/OUIsolutions/LuaDoTheWorld)|
+|json|[LuaFluidJson](https://github.com/OUIsolutions/LuaFluidJson) |
+|argv|[LuaFluidJson](https://github.com/OUIsolutions/LuaArgv) |
+|ship|[LuaShip](https://github.com/OUIsolutions/LuaShip)|
+
+# Internal Functions 
+
 ## Creating a LLM
 
 To create a basic LLM connection, you can use the following Lua code:
@@ -94,12 +108,3 @@ print(ai_color..response..RESET)
 This code defines a function `change_ai_color` that allows changing the AI's color. It uses a callback to update the color based on the user's input and then generates a response to confirm the change.
 
 
-## Building libs
-vibescript Have The Follow libs native
-
-|  Object Name  | Lib Name |
-|--------------|---------|
-|dtw| [LuaDoTheWorld](https://github.com/OUIsolutions/LuaDoTheWorld)|
-|json|[LuaFluidJson](https://github.com/OUIsolutions/LuaFluidJson) |
-|argv|[LuaFluidJson](https://github.com/OUIsolutions/LuaArgv) |
-|ship|[LuaShip](https://github.com/OUIsolutions/LuaShip)|
