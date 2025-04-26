@@ -19,9 +19,9 @@ function windowsi32_build()
 
     image.start({
         volumes = {
-            { "./release", "/release" },
-            { "./src",     "/src" },
-            { "./dependencies",     "/dependencies" }
+            { "././release", "/release" },
+            { "././src",     "/src" },
+            { "././dependencies",     "/dependencies" }
         },
         command = compiler.." --static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windowsi32.exe -lws2_32"
     })

@@ -18,9 +18,9 @@ function windowsi64_build()
     end
     image.start({
         volumes = {
-            { "./release", "/release" },
-            { "./src",     "/src" },
-            { "./dependencies",     "/dependencies" }
+            { "././release", "/release" },
+            { "././src",     "/src" },
+            { "././dependencies",     "/dependencies" }
         },
         command = compiler.." --static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windows64.exe -lws2_32"
     })

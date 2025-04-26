@@ -70,9 +70,9 @@ chmod +x %{buildroot}/usr/local/bin/PROJECT_NAME
             "-it "
         },
         volumes = {
-            { ".cache/rpm_static_build/SOURCES", "/root/rpmbuild/SOURCES" },
-            { ".cache/rpm_static_build/SPECS",   "/root/rpmbuild/SPECS" },
-            { ".cache/rpm_static_build/RPMS",    "/root/rpmbuild/RPMS" }
+            { "./.cache/rpm_static_build/SOURCES", "/root/rpmbuild/SOURCES" },
+            { "./.cache/rpm_static_build/SPECS",   "/root/rpmbuild/SPECS" },
+            { "./.cache/rpm_static_build/RPMS",    "/root/rpmbuild/RPMS" }
         },
         command = "rpmbuild -ba ~/rpmbuild/SPECS/project.spec"
     })

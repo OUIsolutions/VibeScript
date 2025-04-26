@@ -49,7 +49,7 @@ Description: SUMARY
     image.start({
         flags = { "-it" },
         volumes = {
-            { ".cache/debian_static_build/project", "/project" },
+            { "./.cache/debian_static_build/project", "/project" },
             { "./release",                          "/release" },
 
         },
