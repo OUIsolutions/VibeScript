@@ -25,6 +25,7 @@ int start_action(int argc, char **argv){
     
     lua_n.add_global_callback(l,NEW_RAW_LLM, new_rawLLM);
     lua_n.load_lib_from_c(l,load_luaDoTheWorld,"dtw");
+    lua_n.load_lib_from_c(l,load_lua_fluid_json,"json");
     lua_n.evaluate(l,get_asset("lua_src.lua")->data);
     lua_n.evaluete_file(l, file_to_interpret);
     

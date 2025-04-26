@@ -7,6 +7,7 @@
 
 #include "../../dependencies/SDK_OpenAI.c"
 #include "../../dependencies/luaDoTheWorld_no_dep.c"
+#include "../../dependencies/luaFluidJson_no_dep.c"
 #ifdef DEFINE_DEPENDENCIES
 #include "../../dependencies/BearHttpsClient.c"
 #include "../../dependencies/CArgvParse.c"
