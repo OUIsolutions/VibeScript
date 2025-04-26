@@ -5,7 +5,6 @@
 #include "../../imports/imports.globals.h"
 //silver_chain_scope_end
 
-
 LuaCEmbedResponse *add_user_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     char *prompt = lua_n.args.get_str(args,0);
@@ -72,8 +71,11 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
     LuaCEmbedTable *response = lua_n.globals.run_global_lambda(lua_virtual_machine,public_name,args_array,1);
     
     if(lua_n.has_errors(lua_virtual_machine)){
+        printf("Error in callback: %s\n",lua_n.get_error_message(lua_virtual_machine));
         return strdup(lua_n.get_error_message(lua_virtual_machine));
     }
+
+
     if(lua_n.tables.get_size(response) == 0){
         return strdup("Nil");
     }
