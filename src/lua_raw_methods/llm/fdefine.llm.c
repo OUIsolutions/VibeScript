@@ -55,6 +55,21 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
     return NULL;
 }
 
+LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
+    OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
+    char *name = lua_n.args.get_str(args,0);
+    char *description = lua_n.args.get_str(args,1);
+    char *parameters = lua_n.args.get_str(args,2);
+
+    lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n curent_clojure_callback = callback  end\n");
+  
+    if(lua_n.has_errors(args)){
+        return lua_n.response.send_error(lua_n.get_error_message(args));
+    }
+   
+
+    return NULL;
+}
 
 
 LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
