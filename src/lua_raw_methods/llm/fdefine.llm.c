@@ -58,18 +58,33 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
 
 char *vibe_callback_handler(cJSON *args, void *pointer){
 
+    char *public_name = (char *)pointer;
+
+    
     return NULL;
 }
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     char *name = lua_n.args.get_str(args,0);
     char *description = lua_n.args.get_str(args,1);
-    char *parameters = lua_n.args.get_str(args,2);
+    LuaCEmbedTable *parameters = lua_n.args.get_table(args,2);
 
     if(lua_n.has_errors(args)){
         return lua_n.response.send_error(lua_n.get_error_message(args));
     }
+    for(int i = 0; i < lua_n.args.get_table_size(parameters); i++){
+        LuaCEmbedTable *param = lua_n.args.get_table_index(parameters,i);
 
+        if(lua_n.has_errors(args)){
+            return lua_n.response.send_error(lua_n.get_error_message(args));
+        }
+        char *param_name = lua_n.tables.get_str(param,"name");
+        char *param_description = lua_n.tables.get_str(param,"description");
+        char *param_type = lua_n.tables.get_str(param,"type");
+        if(lua_n.has_errors(args)){
+            return lua_n.response.send_error(lua_n.get_error_message(args));
+        }
+    }
     DtwStringArray *functionsNames = (DtwStringArray *)lua_n.tables.get_long_prop(self,"functionsNames");
     if(dtw.string_array.find_position(functionsNames,name) != -1){
         return lua_n.response.send_error("Function already exists");
@@ -90,13 +105,22 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
         dtw.randonizer.free(randonizer);
     }
 
-
+    UniversalGarbage *garbage =  (UniversalGarbage *)lua_n.tables.get_long_prop(self,"garbage");
+    UniversalGarbage_add(garbage,dtw.string_array.free,functionsNames);
 
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n llm_clojure%s = callback  end\n");
 
-    OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,name_ptr, name,description, false);
+    OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,public_name, name,description, false);
 
+    for(int i = 0; i < lua_n.args.get_table_size(parameters); i++){
+        LuaCEmbedTable *param = lua_n.args.get_table_index(parameters,i);
+        char *param_name = lua_n.tables.get_str(param,"name");
+        char *param_description = lua_n.tables.get_str(param,"description");
+        char *param_type = lua_n.tables.get_str(param,"type");
 
+        OpenAiInterface_add_parameters_in_callback(callback,param_name,param_description,param_type);
+    }
+    OpenAiInterface_add_callback_function_by_tools(openAi, callback);
 
 
 
