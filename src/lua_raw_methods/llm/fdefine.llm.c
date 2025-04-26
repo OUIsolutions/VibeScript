@@ -63,8 +63,26 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     char *description = lua_n.args.get_str(args,1);
     char *parameters = lua_n.args.get_str(args,2);
 
+    if(lua_n.has_errors(args)){
+        return lua_n.response.send_error(lua_n.get_error_message(args));
+    }
+
+    DtwStringArray *functionsNames = (DtwStringArray *)lua_n.tables.get_long_prop(self,"functionsNames");
+    if(dtw.string_array.find_position(functionsNames,name) != -1){
+        return lua_n.response.send_error("Function already exists");
+    }
+    dtw.string_array.append(functionsNames,name);
+    char *name_ptr = functionsNames->strings[functionsNames->size-1];
+
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n curent_clojure_callback = callback  end\n");
-  
+    LuaCEmbedTable *functions = (LuaCEmbedTable *)lua_n.tables.get_long_prop(self,"functions");
+    lua_n.tables.set_evaluation_prop(functions,name_ptr,"curent_clojure_callback");
+
+    
+    
+
+
+
     if(lua_n.has_errors(args)){
         return lua_n.response.send_error(lua_n.get_error_message(args));
     }
@@ -84,11 +102,12 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
     OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
 
     lua_n.tables.set_long_prop(self,"openAi",(PTR_CAST)openAi);
+   
     LuaCEmbedTable *functions = lua_n.tables.new_anonymous_table(args);
     lua_n.tables.set_long_prop(self,"functions",(PTR_CAST)functions);
 
     DtwStringArray *functionsNames = dtw.string_array.newStringArray();
-    lua_n.tables.set_long_prop(functions,"functionsNames",(PTR_CAST)functionsNames);
+    lua_n.tables.set_long_prop(self,"functionsNames",(PTR_CAST)functionsNames);
 
     lua_n.tables.set_method(self,ADD_USER_PROMPT,add_user_prompt);
     lua_n.tables.set_method(self,ADD_SYSTEM_PROMPT,add_system_prompt);
