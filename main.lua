@@ -7,3 +7,5 @@ llm = newLLM({
 })
 
 llm.add_user_prompt("read the content of README.md file")
+
+llm.generate()
