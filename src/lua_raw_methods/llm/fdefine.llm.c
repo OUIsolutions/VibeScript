@@ -50,9 +50,8 @@ LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
 }
 
 LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
-    OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
-    openai.openai_interface.free(openAi);
-    dtw.string_array.free((DtwStringArray *)lua_n.tables.get_long_prop(self,"functionsNames"));
+    UniversalGarbage *garbage = (UniversalGarbage *)lua_n.tables.get_long_prop(self,"garbage");
+    UniversalGarbage_free(garbage);
     return NULL;
 }
 
@@ -73,7 +72,6 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 
 
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n curent_clojure_callback = callback  end\n");
-    
 
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,name_ptr, name,description, false);
 
@@ -97,6 +95,15 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
 
     lua_n.tables.set_long_prop(self,"openAi",(PTR_CAST)openAi);
    
+    DtwStringArray *functionsNames = dtw.string_array.new();
+    lua_n.tables.set_long_prop(self,"functionsNames",(PTR_CAST)functionsNames);
+
+    UniversalGarbage *garbage = newUniversalGarbage();
+
+    UniversalGarbage_add(garbage,openai.openai_interface.free,openAi);
+    UniversalGarbage_add(garbage,dtw.string_array.free,functionsNames);
+
+    lua_n.tables.set_long_prop(self,"garbage",(PTR_CAST)garbage);
   
    
     lua_n.tables.set_method(self,ADD_USER_PROMPT,add_user_prompt);
