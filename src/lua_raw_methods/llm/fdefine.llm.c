@@ -71,12 +71,13 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
 
     LuaCEmbedTable *response = lua_n.globals.run_global_lambda(lua_virtual_machine,public_name,args_array,1);
     
-    if(lua_n.has_errors(response)){
-        return strdup(lua_n.response.send_error(lua_n.get_error_message(response)));
+    if(lua_n.has_errors(lua_virtual_machine)){
+        return strdup(lua_n.get_error_message(lua_virtual_machine));
     }
     if(lua_n.tables.get_size(response) == 0){
         return strdup("Nil");
     }
+    
     cJSON *json_response = lua_fluid_json_dump_to_cJSON_array(response);
     char *json_response_str = cJSON_Print(json_response);
     cJSON_Delete(json_response);
