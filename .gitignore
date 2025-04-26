@@ -9,6 +9,7 @@ build.sh
 macros.encrypt_key.h
 vgcore*
 RagCraft
+src/encrypt_key.h
 *.obj
 vibeScript
 *.elf
