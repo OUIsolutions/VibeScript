@@ -14,7 +14,7 @@ Vibe script its a custom lua runtime ,that allows you to make fast automations,w
 
 
 ## Getting Start
-- 1 Download one of the releases 
+- 1 Download one of the [releases](https://github.com/OUIsolutions/VibeScript/releases/tag/0.0.2) 
 - 2 Configure a model to be used 
 
 ~~~bash
