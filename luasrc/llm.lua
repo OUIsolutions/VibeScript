@@ -1,6 +1,8 @@
 
 function newLLM(permissions)
     local llm = newRawLLM()
+    local old_generate = llm.generate
+    local files = {}
     if type(permissions) ~= "table" then
         error("permissions must be a table")
     end
@@ -23,11 +25,26 @@ function newLLM(permissions)
     end
     
     llm.add_file = function(filename)
-        local content = dtw.load_file(filename)
-        local formmtated = "file: " .. filename .. "\n" .. content
-        llm.add_user_prompt(formmtated)
+        files[#files + 1] = {filename = filename,already_added = false}
     end
-   
+    llm.generate = function()
+        local content = ""
+        for _, file in ipairs(files) do
+            if not file.already_added then
+                local file_content = dtw.load_file(file.filename)
+                if file_content == nil then
+                    errro("File not found: " .. file.filename)
+                end
+                content = content.."file: " .. file.filename .. "\n" .. file_content .. "\n"
+                file.already_added = true
+            end
+        end
+        llm.add_user_prompt(content)
+        return old_generate()
+    end
+        end
+        return old_generate()
+    end
 
     if permissions.read then
 
