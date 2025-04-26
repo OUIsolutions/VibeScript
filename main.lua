@@ -1,6 +1,6 @@
+local files = dtw.list_files_recursively("src")
 
-llm = neRawLLM()
-llm.add_user_prompt("Qual é o seu nome?")
-
-result = llm.generate()
-print(result)
+for i=1, #files do
+    local file = files[i]
+   print(file)
+end
