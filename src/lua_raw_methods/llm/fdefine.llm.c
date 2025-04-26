@@ -82,7 +82,6 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
     cJSON *json_response = lua_fluid_json_dump_to_cJSON_array(response);
     char *json_response_str = cJSON_Print(json_response);
     cJSON_Delete(json_response);
-
     return json_response_str;
 }
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){

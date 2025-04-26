@@ -1,1 +1,1 @@
-in progress, nothing done yet, the readme of vibescript
+Vibescript its a lua runtime to  make quick scripts combined with llm
