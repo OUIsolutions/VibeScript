@@ -8,7 +8,7 @@ vibescript configure_model --model grok-2-latest --url https://api.x.ai/v1/chat/
 ```
 
 ### Interpret a file 
-to interpret a file, just call 
+to interpret a file, just call ,and the runtime will interpret **main.lua**
 ```bash
 vibescript main.lua
 ```
