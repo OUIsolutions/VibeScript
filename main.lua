@@ -6,7 +6,8 @@ llm = newLLM({
     list = true
 })
 
-llm.add_system_prompt("use the function read to read README.md and bring me a resume,just read the file, do not write anything to it")
+llm.add_system_prompt("dont ask user anything, just execute what its asking")
+llm.add_user_prompt("read the content of README.md file")
 
 response = llm.generate()
 print("Response: " .. response)
