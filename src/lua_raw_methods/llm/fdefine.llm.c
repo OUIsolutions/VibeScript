@@ -41,7 +41,7 @@ LuaCEmbedResponse *add_assistant_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
 LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     
-    OpenAiResponse *response = openai.openai_interface.make_question(openAi);
+    OpenAiResponse *response = OpenAiInterface_make_question_finish_reason_treated(openAi);
     if(openai.response.error(response)){
         return lua_n.response.send_error(openai.response.get_error_message(response));
     }
