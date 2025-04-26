@@ -18,6 +18,24 @@ print("Response: " .. response)
 
 This code initializes an LLM with full permissions to read, write, execute, delete, and list. It then sets a system prompt to define the assistant's role and a user prompt to list and explain the contents of the 'src' directory. The `generate` method is called to get a response from the LLM, which is then printed.
 
+### Adding context 
+if you want to add context, quick, you can call the functions **llm.add_dir** or **llm.add_file**
+~~~lua 
+llm = newLLM({
+    read = true,
+    write = true,
+    execute = true,
+    delete = true,
+    list = true
+})
+llm.add_system_prompt("dont ask the user for anything, just do what i say")
+llm.add_dir("docs/")
+llm.add_file("src/main.c")
+llm.add_user_prompt("make a project overwiew and save it into README.md")
+response = llm.generate()
+print("Response: " .. response)
+~~~
+
 ### Creating a Basic Chatbot Implementation
 
 For a simple chatbot, you can use the following Lua code:
@@ -74,3 +92,4 @@ print(ai_color..response..RESET)
 ~~~
 
 This code defines a function `change_ai_color` that allows changing the AI's color. It uses a callback to update the color based on the user's input and then generates a response to confirm the change.
+
