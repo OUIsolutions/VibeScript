@@ -118,8 +118,10 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     char *public_name = NULL;
     while (true){
         DtwRandonizer *randonizer = dtw.randonizer.newRandonizer();
-        public_name = dtw.randonizer.generate_token(randonizer, 20);
-        
+        char *token = dtw.randonizer.generate_token(randonizer, 20);
+        public_name = malloc(40);
+        sprintf(public_name,"llm_clojure%s",token);
+        free(token);
         if(lua_n.globals.get_type(args, public_name) == lua_n.types.NILL){
             break;
         }

@@ -6,7 +6,7 @@ llm = newLLM({
     list = true
 })
 
-llm.add_user_prompt("read the content of README.md file")
+llm.add_user_prompt("read the content of README.md file and  make a summary of the content")
 
 response = llm.generate()
 print("Response: " .. response)
