@@ -41,6 +41,8 @@ int start_action(){
     LuaCEmbed * l = lua_n.newLuaEvaluation();
     const char *file_to_interpret = args.get_arg(&args_obj, 1);
     lua_n.load_native_libs(l);
+
+    lua_n.add_callback(l,NEW_RAW_LLM, new_rawLLM);
     lua_n.evaluete_file(l, file_to_interpret);
     
     if(lua_n.has_errors(l)){
