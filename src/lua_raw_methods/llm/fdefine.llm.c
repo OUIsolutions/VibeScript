@@ -110,7 +110,6 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     UniversalGarbage_add(garbage,dtw.string_array.free,functionsNames);
 
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n llm_clojure%s = callback  end\n",public_name);
-
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,public_name, name,description, false);
 
     for(int i = 0; i < lua_n.tables.get_size(parameters); i++){
