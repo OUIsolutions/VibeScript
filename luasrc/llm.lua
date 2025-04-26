@@ -24,12 +24,12 @@ function newLLM(permissions)
     if permissions.read then
 
         local args = {
-            {name = "file",descryption="the file name" type = "string", required = true},
+            {name = "file",description="the file name", type = "string", required = true},
         }
         local callback = function(args)
             return dtw.load_file(args.file)
         end
-        llm.add_function("read", "read a file", callback,args)
+        llm.add_function("read", "read a file",args,callback)
     end
 
   return llm
