@@ -64,6 +64,11 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
     OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
 
     lua_n.tables.set_long_prop(self,"openAi",(PTR_CAST)openAi);
+    lua_n.tables.set_method(self,ADD_USER_PROMPT,add_user_prompt);
+    lua_n.tables.set_method(self,ADD_SYSTEM_PROMPT,add_system_prompt);
+    lua_n.tables.set_method(self,ADD_ASSISTANT_PROMPT,add_assistant_prompt);
+    lua_n.tables.set_method(self,MAKE_QUESTION,make_question);
+    lua_n.tables.set_method(self,"__gc",delete_llm);
 
     return lua_n.response.send_table(self);
 
