@@ -73,8 +73,6 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 
 
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n curent_clojure_callback = callback  end\n");
-    LuaCEmbedTable *functions = (LuaCEmbedTable *)lua_n.tables.get_long_prop(self,"functions");
-    lua_n.tables.set_evaluation_prop(functions,name_ptr,"curent_clojure_callback");
 
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,name_ptr, name,description, false);
 
@@ -98,9 +96,6 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
 
     lua_n.tables.set_long_prop(self,"openAi",(PTR_CAST)openAi);
    
-    LuaCEmbedTable *functions = lua_n.tables.new_anonymous_table(args);
-    lua_n.tables.set_long_prop(self,"functions",(PTR_CAST)functions);
-
    
     lua_n.tables.set_method(self,ADD_USER_PROMPT,add_user_prompt);
     lua_n.tables.set_method(self,ADD_SYSTEM_PROMPT,add_system_prompt);
