@@ -9,8 +9,15 @@
 #include "../../dependencies/luaDoTheWorld_no_dep.c"
 #include "../../dependencies/luaFluidJson_no_dep.c"
 #ifdef DEFINE_DEPENDENCIES
+#define error BEAR_HTTPS_ERROR
 #include "../../dependencies/BearHttpsClient.c"
+#undef   error 
+
+
 #include "../../dependencies/CArgvParse.c"
+#define error DTW_ERROR
 #include "../../dependencies/doTheWorld.c"
+#undef   error 
+
 #include "../../dependencies/LuaCEmbed.c"
 #endif 
