@@ -1,12 +1,16 @@
-llm = newLLM({
-    read = true,
-    write = true,
-    execute = true,
-    delete = true,
-    list = true
-})
+llm = newLLM({})
 
-llm.add_user_prompt("liste a src e me fale o que tem nela ")
+user_color = GREEN
+ai_color = BLUE
 
-response = llm.generate()
-print("Response: " .. response)
+local 
+
+llm.add_function("change_ai_color","chamge the ai color",)
+
+
+while true do 
+    io.write(GREEN.."User: ")
+    llm.add_user_prompt(io.read("*l"))
+    response = llm.generate()
+    print(BLUE.."AI: " .. response)
+end 
