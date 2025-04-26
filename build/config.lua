@@ -1,4 +1,4 @@
-PROJECT_NAME = "vibeScript"
+PROJECT_NAME = "vibescript"
 CONTANIZER   = "sudo docker"
 VERSION      = "0.0.1"
 LICENSE      = "MIT"
