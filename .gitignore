@@ -3,6 +3,7 @@
 keys.txt
 # Object files
 *.o
+assets/lua_src.lua
 *.ko
 macros.encrypt_key.h
 vgcore*
