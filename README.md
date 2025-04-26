@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-Unlicense-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub release](https://img.shields.io/github/release/OUIsolutions/VibeScript.svg)](https://github.com/OUIsolutions/VibeScript/releases/)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]() 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/OUIsolutions/VibeScript/pulls)
