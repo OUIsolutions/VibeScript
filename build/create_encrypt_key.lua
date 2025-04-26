@@ -26,10 +26,10 @@ function create_encrypt_key(encrypt_key)
     end
     local executor = function()
         code = key_obfuscate.create_procedural_generation (props)
-        darwin.dtw.write_file("src/macros.encrypt_key.h", code)        
+        darwin.dtw.write_file("src/encrypt_key.h", code)        
     end
     local side_effect_verifier = function()
-        return darwin.dtw.generate_sha_from_file("src/macros.encrypt_key.h")
+        return darwin.dtw.generate_sha_from_file("src/encrypt_key.h")
     end
     cache_execution({"encrypt",array_props}, executor, side_effect_verifier)
 

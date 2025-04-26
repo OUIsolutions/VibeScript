@@ -98,7 +98,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
         DtwRandonizer *randonizer = dtw.randonizer.newRandonizer();
         public_name = dtw.randonizer.generate_token(randonizer, 10);
         
-        if(lua_n.globals.get_type(public_name) == lua.types.NILL){
+        if(lua_n.globals.get_type(args, public_name) == lua_n.types.NILL){
             break;
         }
         free(public_name);
@@ -141,7 +141,7 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
 
     lua_n.tables.set_long_prop(self,"openAi",(PTR_CAST)openAi);
    
-    DtwStringArray *functionsNames = dtw.string_array.new();
+    DtwStringArray *functionsNames = dtw.string_array.newStringArray();
     lua_n.tables.set_long_prop(self,"functionsNames",(PTR_CAST)functionsNames);
 
     UniversalGarbage *garbage = newUniversalGarbage();

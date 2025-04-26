@@ -31,7 +31,6 @@ function main()
         print("Please provide an encrypt_key")
         return
     end
-    darwin.silverchain.remove("src")
     
     create_encrypt_key(encrypt_key)
 
