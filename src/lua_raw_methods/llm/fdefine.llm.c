@@ -57,6 +57,7 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
 
 
 char *vibe_callback_handler(cJSON *args, void *pointer){
+    printf("chamou aqui\n");
 
     char *public_name = (char *)pointer;
     printf("chamou aqui\n");
@@ -118,6 +119,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
         char *param_description = lua_n.tables.get_string_prop(param,"description");
         char *param_type = lua_n.tables.get_string_prop(param,"type");
         bool required = lua_n.tables.get_bool_prop(param,"required");
+
         OpenAiInterface_add_parameters_in_callback(callback,param_name,param_description,param_type,required);
     }
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
