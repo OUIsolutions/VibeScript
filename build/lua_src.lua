@@ -6,7 +6,7 @@ function create_lua_src()
     content = content .. "end\n"
     content = content .. "argv = argv()\n"
     
-    local lua_ship = darwin.dtw.load_file("dependenciesLuaShip.lua")
+    local lua_ship = darwin.dtw.load_file("dependencies/LuaShip.lua")
     
     content = content .. [[ship = function()]]
     content = content .. lua_ship
@@ -17,7 +17,7 @@ function create_lua_src()
     local lua_src_files = darwin.dtw.list_files_recursively("luasrc", false)
     
     for _, file in ipairs(lua_src_files) do
-        local file_content = darwin.dtw.load_file("src/"..file)
+        local file_content = darwin.dtw.load_file("luasrc/"..file)
         content = content .. file_content
     end
 
