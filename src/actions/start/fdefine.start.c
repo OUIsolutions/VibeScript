@@ -42,13 +42,12 @@ int start_action(){
     const char *file_to_interpret = args.get_arg(&args_obj, 1);
     lua_n.load_native_libs(l);
 
-    lua_n.add_callback(l,NEW_RAW_LLM, new_rawLLM);
+    lua_n.add_global_callback(l,NEW_RAW_LLM, new_rawLLM);
     lua_n.evaluete_file(l, file_to_interpret);
     
     if(lua_n.has_errors(l)){
         char *error = lua_n.get_error_message(l);
         printf("%sError: %s\n%s",RED, error,RESET);
-        free(error);
         lua_n.free(l);
         return 1;
     }
