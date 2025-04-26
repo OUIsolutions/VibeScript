@@ -59,8 +59,8 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
 char *vibe_callback_handler(cJSON *args, void *pointer){
 
     char *public_name = (char *)pointer;
+    printf("chamou aqui\n");
 
-    
     return NULL;
 }
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
