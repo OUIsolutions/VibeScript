@@ -57,6 +57,10 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
 }
 
 
+char *vibe_callback_handler(cJSON *args, void *pointer){
+
+    return NULL;
+}
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     char *name = lua_n.args.get_str(args,0);
@@ -72,21 +76,20 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
         return lua_n.response.send_error("Function already exists");
     }
     dtw.string_array.append(functionsNames,name);
-    char *name_ptr = functionsNames->strings[functionsNames->size-1];
+    
+
 
     lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n curent_clojure_callback = callback  end\n");
     LuaCEmbedTable *functions = (LuaCEmbedTable *)lua_n.tables.get_long_prop(self,"functions");
     lua_n.tables.set_evaluation_prop(functions,name_ptr,"curent_clojure_callback");
 
     
-    
+    OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,name_ptr, name,description, false);
 
 
 
-    if(lua_n.has_errors(args)){
-        return lua_n.response.send_error(lua_n.get_error_message(args));
-    }
-   
+
+
 
     return NULL;
 }
