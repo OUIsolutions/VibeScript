@@ -1,2 +1,9 @@
+llm = newLLM({
+    read = true,
+    write = true,
+    execute = true,
+    delete = true,
+    list = true
+})
 
-print(json.dumps_to_string({"a", "b", "c"}))
+llm.add_user_prompt("read the content of README.md file")
