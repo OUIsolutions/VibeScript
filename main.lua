@@ -1,8 +1,5 @@
-print("ta funcionando ")
 
-llm = newLLM()
+llm = newRawLLM()
+llm.add_user_prompt("Qual é o seu nome?")
 
-llm.add_prompt("Você é um assistente de IA útil.")
-
-
-llm.perform()
+result = llm.make_question()

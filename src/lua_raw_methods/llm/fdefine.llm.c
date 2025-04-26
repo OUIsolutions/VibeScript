@@ -67,7 +67,7 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
     lua_n.tables.set_method(self,ADD_USER_PROMPT,add_user_prompt);
     lua_n.tables.set_method(self,ADD_SYSTEM_PROMPT,add_system_prompt);
     lua_n.tables.set_method(self,ADD_ASSISTANT_PROMPT,add_assistant_prompt);
-    lua_n.tables.set_method(self,MAKE_QUESTION,make_question);
+    lua_n.tables.set_method(self,GENERATE,make_question);
     lua_n.tables.set_method(self,"__gc",delete_llm);
 
     return lua_n.response.send_table(self);
