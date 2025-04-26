@@ -37,4 +37,4 @@ the json its encrypted on every save and decrypted on every read, the encryption
 **dtw.encryption.write_string_file_content_hex**  and **dtw.encryption.load_string_file_content_hex** on all the 
 [actions](/src/actions/) files.
 The global encryption object localized at [gobals](/src/globals.main_obj.c) its initialized in the beginning of the [main](/src/main.c) file, and uses the  **--encrypt_key** you pass on the build part, that its transformed on the 
-macro **AiRagTemplate_get_key**
+macro **vibescript_get_key**

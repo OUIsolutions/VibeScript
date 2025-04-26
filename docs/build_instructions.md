@@ -12,7 +12,7 @@ sudo mv darwin.out /usr/bin/darwin
 ```
 
 ### Local Build from Linux
-make a local build to test with the following command it will create the **AiRagTemplatetest.out** file
+make a local build to test with the following command it will create the **vibescripttest.out** file
 ```bash
 darwin run_blueprint build/ --mode folder local_linux_build --encrypt_key "your_encryption_key"
 ```
@@ -26,18 +26,18 @@ if you want to make a full build to all platforms you can use the following comm
 ```
 
 Output files:
-- release/AiRagTemplate64.exe
-- release/AiRagTemplate.c
-- release/AiRagTemplate.deb
-- release/AiRagTemplatei32.exe
-- release/AiRagTemplate.out
-- release/AiRagTemplate.rpm
+- release/vibescript64.exe
+- release/vibescript.c
+- release/vibescript.deb
+- release/vibescripti32.exe
+- release/vibescript.out
+- release/vibescript.rpm
 
 ### Build Configurations
 All build configurations are in the **build/config.lua** file.
 the default its: 
 ```lua
-PROJECT_NAME = "AiRagTemplate"
+PROJECT_NAME = "vibescript"
 CONTANIZER   = "podman"
 VERSION      = "0.0.9"
 LICENSE      = "MIT"

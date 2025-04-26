@@ -7,7 +7,7 @@ globals objects located in [globals](/src/globals.main_obj.c):
 for more details
 
 - **config_path** object to store the path of the [config_json](/docs/json_model_config.md) file
-    that uses the macro **AiRagTemplate_get_key** and **AiRagTemplate_key_size** to get the encryption key
+    that uses the macro **vibescript_get_key** and **vibescript_key_size** to get the encryption key
 
 - **encryption** object to read and write the [config_json](/docs/json_model_config.md) file and encrypt the data
   check [DoTheWorld Encryption Docs](https://github.com/OUIsolutions/DoTheWorld/blob/main/docs/encryption.md) for more details
