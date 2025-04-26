@@ -44,6 +44,17 @@ function newLLM(permissions)
         end
         llm.add_function("write", "write a file and return the content of the file",args,callback)
     end
+    if permissions.execute then
+        local args = {
+            {name = "command",description="the command to execute", type = "string", required = true},
+        }
+        local callback = function(args)
+            print(YELLOW.."Executing command: "..args.command..RESET)
+            return os.execute(args.command)
+        end
+        llm.add_function("execute", "execute a command and return the output",args,callback)
+
+    end
 
   return llm
 
