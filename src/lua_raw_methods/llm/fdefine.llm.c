@@ -52,9 +52,11 @@ LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
 LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     openai.openai_interface.free(openAi);
+    dtw.string_array.free((DtwStringArray *)lua_n.tables.get_long_prop(self,"functionsNames"));
     return NULL;
 }
-/*
+
+
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)lua_n.tables.get_long_prop(self,"openAi");
     char *name = lua_n.args.get_str(args,0);
@@ -70,7 +72,6 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 
     return NULL;
 }
-*/
 
 LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
 
@@ -83,6 +84,12 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
     OpenAiInterface *openAi = openai.openai_interface.newOpenAiInterface(props->url, props->key, props->model);
 
     lua_n.tables.set_long_prop(self,"openAi",(PTR_CAST)openAi);
+    LuaCEmbedTable *functions = lua_n.tables.new_anonymous_table(args);
+    lua_n.tables.set_long_prop(self,"functions",(PTR_CAST)functions);
+
+    DtwStringArray *functionsNames = dtw.string_array.newStringArray();
+    lua_n.tables.set_long_prop(functions,"functionsNames",(PTR_CAST)functionsNames);
+
     lua_n.tables.set_method(self,ADD_USER_PROMPT,add_user_prompt);
     lua_n.tables.set_method(self,ADD_SYSTEM_PROMPT,add_system_prompt);
     lua_n.tables.set_method(self,ADD_ASSISTANT_PROMPT,add_assistant_prompt);
