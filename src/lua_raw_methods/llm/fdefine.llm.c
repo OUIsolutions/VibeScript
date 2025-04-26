@@ -81,6 +81,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
         char *param_name = lua_n.tables.get_str(param,"name");
         char *param_description = lua_n.tables.get_str(param,"description");
         char *param_type = lua_n.tables.get_str(param,"type");
+        bool required = lua_n.tables.get_bool(param,"required");
         if(lua_n.has_errors(args)){
             return lua_n.response.send_error(lua_n.get_error_message(args));
         }
@@ -155,6 +156,7 @@ LuaCEmbedResponse *new_rawLLM(LuaCEmbed *args){
     lua_n.tables.set_method(self,ADD_SYSTEM_PROMPT,add_system_prompt);
     lua_n.tables.set_method(self,ADD_ASSISTANT_PROMPT,add_assistant_prompt);
     lua_n.tables.set_method(self,GENERATE,make_question);
+    lua_n.tables.set_method(self,ADD_FUNCTION,add_function);
     lua_n.tables.set_method(self,"__gc",delete_llm);
     freeModelProps(props);
     return lua_n.response.send_table(self);
