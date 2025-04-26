@@ -66,8 +66,19 @@ function newLLM(permissions)
         end
         llm.add_function("delete", "delete a file or a dir",args,callback)
     end
+    if permissions.list then
+        local args = {
+            {name = "dir",description="the directory to list", type = "string", required = true},
+        }
+        local callback = function(args)
+            print(YELLOW.."Listing directory: "..args.dir..RESET)
+            local files ,size= dtw.list_files_recursively(args.dir)
+            return files
+        end
+        llm.add_function("list", "list a directory and return the content of the directory",args,callback)
+    end
 
-    
+
   return llm
 
 
