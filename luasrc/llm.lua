@@ -39,12 +39,12 @@ function newLLM(permissions)
                 file.already_added = true
             end
         end
-        llm.add_user_prompt(content)
-        return old_generate()
-    end
+        if content ~= "" then
+            llm.add_user_prompt(content)
         end
         return old_generate()
     end
+       
 
     if permissions.read then
 
