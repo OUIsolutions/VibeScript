@@ -1,6 +1,5 @@
-local files = dtw.list_files_recursively("src")
 
-for i=1, #files do
-    local file = files[i]
+for i=1, #arg do
+    local file = arg[i]
    print(file)
 end

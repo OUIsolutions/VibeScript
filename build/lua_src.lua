@@ -1,7 +1,10 @@
 
 function create_lua_src()
     local lua_argv = darwin.dtw.load_file("dependencies/luargv.lua")
-    local content = lua_argv
+    local content = [[argv = function()]]
+    content = content .. lua_argv
+    content = content .. "end\n"
+    content = content .. "argv = argv()\n"
     local lua_src_files = darwin.dtw.list_files_recursively("luasrc", false)
 
     for _, file in ipairs(lua_src_files) do

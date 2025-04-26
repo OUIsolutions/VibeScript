@@ -1,4 +1,4 @@
-
+argv = function()
 
 
 private_luargv =  {}
@@ -366,3 +366,5 @@ private_luargv = private_luargv
 luargv = luargv
 
 return luargv
+end
+argv = argv()

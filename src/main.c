@@ -68,7 +68,7 @@ int main(int argc, char  *argv[]){
         result = 0;
     }
     if(result == -1){
-        result = start_action();       
+        result = start_action(argc, argv);       
     }
     
     release_if_not_null(encryption_key,free);

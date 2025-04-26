@@ -17,7 +17,7 @@ VibeScript
 AiRagTemplate
 globals.assets.c
 .cacherag
-assets/docs
+assets/lua_src.lua
 # Linker output
 *.ilk
 .vscode
