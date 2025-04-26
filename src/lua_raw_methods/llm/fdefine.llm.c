@@ -59,9 +59,22 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
 char *vibe_callback_handler(cJSON *args, void *pointer){
 
     char *public_name = (char *)pointer;
-    
-    
+    LuaCEmbedTable *parsed_args = NULL;
+    if(cJSON_IsObject(args)){
+        parsed_args = private_lua_fluid_parse_object(lua_virtual_machine, args);
+    }
+    else if(cJSON_IsArray(args)){
+        parsed_args = private_lua_fluid_parse_array(lua_virtual_machine, args);
+    }
+    LuaCEmbedTable *args_array = lua_n.tables.new_anonymous_table(lua_virtual_machine);
+    lua_n.tables.append_table(args_array,parsed_args);
 
+    LuaCEmbedTable *response = lua_n.globals.run_global_lambda(lua_virtual_machine,public_name,args_array,1);
+    
+    if(lua_n.has_errors(response)){
+        return lua_n.response.send_error(lua_n.get_error_message(response));
+    }
+    
     return NULL;
 }
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
@@ -97,7 +110,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     char *public_name = NULL;
     while (true){
         DtwRandonizer *randonizer = dtw.randonizer.newRandonizer();
-        public_name = dtw.randonizer.generate_token(randonizer, 10);
+        public_name = dtw.randonizer.generate_token(randonizer, 20);
         
         if(lua_n.globals.get_type(args, public_name) == lua_n.types.NILL){
             break;
@@ -110,7 +123,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     UniversalGarbage *garbage =  (UniversalGarbage *)lua_n.tables.get_long_prop(self,"garbage");
     UniversalGarbage_add(garbage,dtw.string_array.free,functionsNames);
 
-    lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n llm_clojure%s = callback  end\n",public_name);
+    lua_n.args.generate_arg_clojure_evalation(args,3,"function(callback)\n %s = callback  end\n",public_name);
     
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,public_name, name,description, false);
 
