@@ -29,7 +29,7 @@ VibeScript is a specialized Lua runtime environment designed to facilitate fast 
 
 ### Option 1: Download Pre-built Binaries
 
-Download the latest release from our [releases page](https://github.com/OUIsolutions/VibeScript/releases/tag/0.0.2).
+Download the latest release from our [releases page](https://github.com/OUIsolutions/VibeScript/releases/tag/0.0.3).
 
 ### Option 2: Install via Package Manager
 
@@ -84,12 +84,12 @@ Explore the [Native API documentation](/docs/native_api.md) to learn more about 
 
 | File | Description |
 | --- | --- |
-| [vibescript.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript.c) | Amalgamated source code |
-| [vibescript.deb](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript.deb) | Debian Package |
-| [vibescript.rpm](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript.rpm) | RPM Package |
-| [vibescript.out](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript.out) | Linux Executable |
-| [vibescript64.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScript64.exe) | Windows 64-bit Executable |
-| [vibescripti32.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.2/VibeScripti32.exe) | Windows 32-bit Executable |
+| [vibescript.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.3/VibeScript.c) | Amalgamated source code |
+| [vibescript.deb](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.3/VibeScript.deb) | Debian Package |
+| [vibescript.rpm](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.3/VibeScript.rpm) | RPM Package |
+| [vibescript.out](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.3/VibeScript.out) | Linux Executable |
+| [vibescript64.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.3/VibeScript64.exe) | Windows 64-bit Executable |
+| [vibescripti32.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.0.3/VibeScripti32.exe) | Windows 32-bit Executable |
 
 ## 📚 Documentation
 
