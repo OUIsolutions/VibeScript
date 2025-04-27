@@ -42,6 +42,7 @@ function newLLM(permissions)
                 local file_content = dtw.load_file(file.filename)
                 if file_content == nil then
                     error("File not found: " .. file.filename)
+                    return
                 end
                 content = content.."file: " .. file.filename .. "\n" .. file_content .. "\n"
                 file.already_added = true
