@@ -18,7 +18,7 @@ function create_lua_src()
     
     for _, file in ipairs(lua_src_files) do
         local file_content = darwin.dtw.load_file("luasrc/"..file)
-        content = content .. file_content
+        content = content .. file_content .. "\n"
     end
 
     darwin.dtw.write_file("assets/lua_src.lua", content)

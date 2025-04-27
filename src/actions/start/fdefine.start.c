@@ -26,7 +26,8 @@ int start_action(int argc, char **argv){
     lua_n.add_global_callback(lua_virtual_machine,NEW_RAW_LLM, new_rawLLM);
     lua_n.load_lib_from_c(lua_virtual_machine,load_luaDoTheWorld,"dtw");
     lua_n.load_lib_from_c(lua_virtual_machine,load_lua_fluid_json,"json");
-    lua_n.evaluate(lua_virtual_machine,get_asset("lua_src.lua")->data);
+    dtw.write_string_file_content("saida.lua",get_asset("lua_src.lua")->data);
+    lua_n.evaluate(lua_virtual_machine,"%s", get_asset("lua_src.lua")->data);
     lua_n.evaluete_file(lua_virtual_machine, file_to_interpret);
     
     if(lua_n.has_errors(lua_virtual_machine)){
