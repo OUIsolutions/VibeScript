@@ -1,7 +1,7 @@
 
-private_vibescript.save_props = function()
+private_vibescript.save_json_props = function()
 end 
 
-private_vibescript.load_props = function()
-        
+private_vibescript.load_json_props = function()
+
 end
