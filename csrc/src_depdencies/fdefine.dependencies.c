@@ -10,3 +10,4 @@
 #undef error
 #include "../../dependencies/doTheWorld.c"
 #include "../../dependencies/luaDoTheWorld_no_dep.c"
+#include "../../dependencies/luaFluidJson_no_dep.c"

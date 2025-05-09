@@ -1,5 +1,18 @@
 
 
 function main()
- print(argv.one_of_args_exist("help"))
+
+    local user = {
+        name = 'Mateus',
+        age = 27,
+        married = true,
+        children = {
+            {name = 'Child1', married = false}
+        }
+    }
+    
+    local indent = true
+    local jsonString = json.dumps_to_string(user, indent)
+    print(jsonString)
+    
 end 
