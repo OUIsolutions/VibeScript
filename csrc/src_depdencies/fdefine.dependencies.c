@@ -7,4 +7,4 @@
 
 #include "../../dependencies/LuaCEmbed.c"
 #include "../../dependencies/doTheWorld.c"
-#include "../../luaDoTheWorld_no_dep.c"
+#include "../../dependencies/luaDoTheWorld_no_dep.c"
