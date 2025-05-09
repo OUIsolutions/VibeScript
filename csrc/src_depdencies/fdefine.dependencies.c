@@ -6,3 +6,5 @@
 //silver_chain_scope_end
 
 #include "../../dependencies/LuaCEmbed.c"
+#include "../../dependencies/doTheWorld.c"
+#include "../../luaDoTheWorld_no_dep.c"
