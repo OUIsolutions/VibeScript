@@ -1,7 +1,5 @@
 
 
 function main()
- print("dtw",dtw)
- print("argv",argv)
- print("ship",ship)
+ print(argv.one_of_args_exist("help"))
 end 
