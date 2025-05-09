@@ -26,18 +26,22 @@ function amalgamation_build()
         local file = src_files[i]
         project.add_lua_file(file);
     end
-    project.add_lua_code("main()\n")
+    
     project.add_lua_code("argv = function()\n")
     project.add_lua_file("dependencies/luargv.lua")
     project.add_lua_code("end\n")
     project.add_lua_code("argv = argv()\n")
+
+
     project.add_lua_code("ship = function()\n")
-    project.add_lua_file("dependencies/luaship.lua")
+    project.add_lua_file("dependencies/LuaShip.lua")
     project.add_lua_code("end\n")
     project.add_lua_code("ship = ship()\n")
-    
+
+
+    project.add_lua_code("main()\n")
+
     project.add_c_file("csrc/start.c",true)
     project.load_lib_from_c("vibescript_start","cvibescript")
     project.generate_c_file({output="release/amalgamation.c",include_lua_cembed=false})
-
 end
