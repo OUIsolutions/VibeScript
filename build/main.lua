@@ -8,13 +8,13 @@ function main()
 
 
   
-    --local encrypt_key = darwin.argv.get_flag_arg_by_index({ "encrypt_key"}, 1)
-    --if not encrypt_key then
-    --    print("Please provide an encrypt_key")
-    --    return
-    --end
+    local encrypt_key = darwin.argv.get_flag_arg_by_index({ "encrypt_key"}, 1)
+    if not encrypt_key then
+        print("Please provide an encrypt_key")
+        return
+    end
     
-    --create_encrypt_key(encrypt_key)
+    create_encrypt_key(encrypt_key)
 
     Install_dependencies()
     --create_assets()    

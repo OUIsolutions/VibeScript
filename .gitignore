@@ -3,6 +3,7 @@
 keys.txt
 # Object files
 *.o
+csrc/encrypt_key.h
 assets/lua_src.lua
 *.ko
 build.sh
