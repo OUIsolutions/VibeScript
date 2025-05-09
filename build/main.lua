@@ -3,30 +3,11 @@ darwin = darwin
 
 
 function main()
-    local first_action = darwin.argv.get_next_unused()
 
-    if first_action == "test_container" then
-        local container_name = darwin.argv.get_next_unused()
-        if container_name == nil then
-            print("Please provide a container name")
-            return
-        end
-        os.execute("mkdir -p release")
-        local image = darwin.ship.create_machine(container_name .. ":latest")
-        image.provider = CONTANIZER
 
-        image.start({
-            flags = { "-it" },
-            volumes = {
-                { "./release", "/release" },
-            },
-        })
 
-        return
-    end
-
-    create_lua_src()
     
+  
     local encrypt_key = darwin.argv.get_flag_arg_by_index({ "encrypt_key"}, 1)
     if not encrypt_key then
         print("Please provide an encrypt_key")
