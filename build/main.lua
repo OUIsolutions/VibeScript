@@ -6,7 +6,7 @@ function main()
 
 
 
-    
+
   
     local encrypt_key = darwin.argv.get_flag_arg_by_index({ "encrypt_key"}, 1)
     if not encrypt_key then
@@ -17,7 +17,7 @@ function main()
     create_encrypt_key(encrypt_key)
 
     Install_dependencies()
-    create_assets()    
+    --create_assets()    
     silver_chain_organize()
   
     local build_funcs = create_build_funcs()
