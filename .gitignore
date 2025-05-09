@@ -6,6 +6,7 @@ keys.txt
 assets/lua_src.lua
 *.ko
 build.sh
+vibescript
 macros.encrypt_key.h
 vgcore*
 RagCraft
