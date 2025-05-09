@@ -5,6 +5,19 @@ function amalgamation_build()
     end
     alreay_amalamated_done = true
 
+    darwin.silverchain.generate({
+        src = "csrc",
+        project_short_cut = "PROJECT_NAME",
+        tags = { 
+            "dep_declare",
+            "macros",
+            "types",
+            "consts",
+            "fdeclare",
+            'globals',
+            "fdefine",
+    }})
+
 
     local project = darwin.create_project("VibeScript")
 
