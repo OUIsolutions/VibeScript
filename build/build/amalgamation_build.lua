@@ -6,11 +6,15 @@ function amalgamation_build()
     alreay_amalamated_done = true
 
 
-    local runtime = darwin.camalgamator.generate_amalgamation("src/main.c")
-    runtime = "#define DEFINE_DEPENDENCIES\n" .. runtime
-  
-    darwin.dtw.write_file("release/"..PROJECT_NAME..".c", runtime)
+    local project = darwin.create_project("VibeScript")
 
+    local src_files = darwin.dtw.list_files_recursively("luasrc",true);
+    for i=1,#src_files do
+        local file = src_files[i]
+        project.add_lua_file(file);
+    end
+    project.add_lua_code("main()\n")
 
+    project.generate_c_file({output="release/amalgamation.c",include_lua_cembed=true})
 
 end
