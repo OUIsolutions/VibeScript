@@ -5,6 +5,8 @@
 #include "../imports/imports.dep_declare.h"
 //silver_chain_scope_end
 
+#define error LUA_CEMBED_ERROR
 #include "../../dependencies/LuaCEmbed.c"
+#undef error
 #include "../../dependencies/doTheWorld.c"
 #include "../../dependencies/luaDoTheWorld_no_dep.c"

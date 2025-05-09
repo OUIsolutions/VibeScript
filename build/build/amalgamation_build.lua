@@ -28,7 +28,7 @@ function amalgamation_build()
     end
     project.add_lua_code("main()\n")
     project.add_c_file("csrc/start.c",true)
-    
+    project.load_lib_from_c("vibescript_start","cvibescript")
     project.generate_c_file({output="release/amalgamation.c",include_lua_cembed=false})
 
 end
