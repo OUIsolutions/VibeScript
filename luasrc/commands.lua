@@ -1,0 +1,6 @@
+
+private_vibescript.LIST_MODELS = "list_model"
+private_vibescript.SET_MODEL_AS_DEFAULT = "set_model_as_default"
+private_vibescript.CONFIGURE_MODEL = "configure_model"
+private_vibescript.RESSET = "reset"
+

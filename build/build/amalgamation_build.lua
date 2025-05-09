@@ -26,7 +26,7 @@ function amalgamation_build()
         local file = src_files[i]
         project.add_lua_file(file);
     end
-    
+    project.add_lua_code("private_vibescript = {}\n")
     project.add_lua_code("argv = function()\n")
     project.add_lua_file("dependencies/luargv.lua")
     project.add_lua_code("end\n")
