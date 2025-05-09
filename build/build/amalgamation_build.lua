@@ -15,6 +15,7 @@ function amalgamation_build()
     end
     project.add_lua_code("main()\n")
 
-    project.generate_c_file({output="release/amalgamation.c",include_lua_cembed=true})
+    
+    project.generate_c_file({output="release/amalgamation.c",include_lua_cembed=false})
 
 end
