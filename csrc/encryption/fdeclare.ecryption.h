@@ -2,8 +2,7 @@
 //DONT MODIFY THIS COMMENT
 //this import is computationally generated
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
-#include "imports/imports.dep_declare.h"
+#include "../imports/imports.macros.h"
 //silver_chain_scope_end
-#include "encrypt_keys/content_encrypt_key.h"
-#include "encrypt_keys/llm_encrypt_key.h"
-#include "encrypt_keys/name_encrypt_key.h"
+
+LuaCEmbedResponse *get_config_name(LuaCEmbed *args);

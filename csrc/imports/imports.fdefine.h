@@ -1,5 +1,6 @@
-#include "imports.dep_declare.h"
+#include "imports.fdeclare.h"
 #ifndef vibescript_fdefine
 #define vibescript_fdefine
+#include "../encryption/fdefine.encryption.c"
 #include "../src_depdencies/fdefine.dependencies.c"
 #endif

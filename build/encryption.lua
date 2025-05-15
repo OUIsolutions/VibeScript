@@ -59,5 +59,5 @@ function create_encrypt_keys()
     end
     create_encrypt_key(llm_encrypt_key,"llm_encrypt_key")
 
-
+    return true
 end 
