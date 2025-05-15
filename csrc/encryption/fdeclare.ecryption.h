@@ -4,7 +4,7 @@
 //mannaged by SilverChain: https://github.com/OUIsolutions/SilverChain
 #include "../imports/imports.macros.h"
 //silver_chain_scope_end
-
+DtwEncriptionInterface *newDtwAES_Custom_CBC_v1_interface(const char *key);
 LuaCEmbedResponse *get_config_name(LuaCEmbed *args);
 
 //decrypt data with content_encrypt_key_get_key at /csrc/encrypt_keys/content_encrypt_key.h
