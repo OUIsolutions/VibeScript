@@ -1,4 +1,4 @@
-#ifndef PROJECT_NAME_dep_declare
-#define PROJECT_NAME_dep_declare
+#ifndef vibescript_dep_declare
+#define vibescript_dep_declare
 #include "../src_depdencies/dep_declare.depdencies.h"
 #endif

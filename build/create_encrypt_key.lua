@@ -29,7 +29,7 @@ function create_encrypt_key(encrypt_key)
         darwin.dtw.write_file("csrc/encrypt_key.h", code)        
     end
     local side_effect_verifier = function()
-        return darwin.dtw.generate_sha_from_file("src/encrypt_key.h")
+        return darwin.dtw.generate_sha_from_file("csrc/encrypt_key.h")
     end
     cache_execution({"encrypt",array_props}, executor, side_effect_verifier)
 
