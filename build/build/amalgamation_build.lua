@@ -39,7 +39,7 @@ function amalgamation_build()
         local file = src_files[i]
         project.add_lua_file(file);
     end
-    project.add_lua_code("main()\n")
+    project.add_lua_code("private_vibescript.main()\n")
 
     project.add_c_file("csrc/start.c",true)
     project.load_lib_from_c("vibescript_start","cvibescript")
