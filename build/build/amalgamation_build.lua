@@ -7,7 +7,7 @@ function amalgamation_build()
 
     darwin.silverchain.generate({
         src = "csrc",
-        project_short_cut = "PROJECT_NAME",
+        project_short_cut = PROJECT_NAME,
         tags = { 
             "dep_declare",
             "macros",
@@ -19,7 +19,7 @@ function amalgamation_build()
     }})
 
 
-    local project = darwin.create_project("VibeScript")
+    local project = darwin.create_project(PROJECT_NAME)
 
     local src_files = darwin.dtw.list_files_recursively("luasrc",true);
     for i=1,#src_files do
