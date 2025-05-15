@@ -7,15 +7,11 @@ function main()
 
 
 
-  
-    local encrypt_key = darwin.argv.get_flag_arg_by_index({ "encrypt_key"}, 1)
-    if not encrypt_key then
-        print("Please provide an encrypt_key")
-        return
+    local keys_created = create_encrypt_keys()
+    if not keys_created then
+        return 1
     end
     
-    create_encrypt_key(encrypt_key)
-
     Install_dependencies()
     --create_assets()    
   

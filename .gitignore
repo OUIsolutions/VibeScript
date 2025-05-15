@@ -3,12 +3,11 @@
 keys.txt
 # Object files
 *.o
-csrc/encrypt_key.h
+csrc/encrypt_keys
 assets/lua_src.lua
 *.ko
 build.sh
 vibescript
-macros.encrypt_key.h
 vgcore*
 RagCraft
 src/encrypt_key.h
