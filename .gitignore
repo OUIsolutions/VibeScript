@@ -13,6 +13,7 @@ vgcore*
 RagCraft
 src/encrypt_key.h
 *.obj
+local_build.sh
 vibeScript
 *.elf
 .cache
