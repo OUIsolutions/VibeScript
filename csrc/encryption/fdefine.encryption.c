@@ -26,11 +26,17 @@ LuaCEmbedResponse *get_data(LuaCEmbed *args){
     }
     unsigned char *key = (unsigned char *)malloc(content_encrypt_keykey_size+1);
     content_encrypt_key_get_key(key);
-
     DtwEncriptionInterface *enc = newDtwAES_Custom_CBC_v1_interface((char*)key);
     long out_size;
     bool is_binary;
     unsigned char *output = DtwEncriptionInterface_decrypt_buffer_hex(enc,content,&out_size,&is_binary);
+    
+    if(output == NULL){
+        free(key);
+        DtwEncriptionInterface_free(enc);
+        return LuaCEmbed_send_error("The content is invalid");
+    }
+    
     if(is_binary){
         free(key);
         DtwEncriptionInterface_free(enc);
