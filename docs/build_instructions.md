@@ -50,28 +50,6 @@ YOUR_CHANGES = "--"
 ```
 
 
-### Making your own build
-you can make your own build by using the following commands:
-```bash
-darwin run_blueprint build/ --mode folder --encrypt_key "your_encryption_key" 
-```
-
-than you can compile with gcc in the way you want:
-- single unit compilation:
-```bash
- gcc src/main.c -DDEFINE_DEPENDENCIES -o my_executable
-```
-- multi_compilation:
-```bash
-mkdir libs
-#these its required because doTheWorld already have cjson
-gcc -c dependencies/BearHttpsClient.c -o libs/BearHttpsClient.o  -DBEARSSL_HTTPS_MOCK_CJSON_DEFINE
-gcc -c  dependencies/CArgvParse.c -o libs/CArgvParse.o
-gcc -c dependencies/doTheWorld.c -o libs/doTheWorld.o
-gcc src/main.c -o RagCraft libs/BearHttpsClient.o libs/doTheWorld.o libs/CArgvParse.o
-```
-
-
 ### Testing Releases
 you can launch a container to test your releases with the following command:
 these will launch a container with **distro_name** with the **release** folder mounted
