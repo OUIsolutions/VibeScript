@@ -21,11 +21,6 @@ function amalgamation_build()
 
     local project = darwin.create_project(PROJECT_NAME)
 
-    local src_files = darwin.dtw.list_files_recursively("luasrc",true);
-    for i=1,#src_files do
-        local file = src_files[i]
-        project.add_lua_file(file);
-    end
     project.add_lua_code("private_vibescript = {}\n")
     project.add_lua_code("argv = function()\n")
     project.add_lua_file("dependencies/luargv.lua")
@@ -39,6 +34,11 @@ function amalgamation_build()
     project.add_lua_code("ship = ship()\n")
 
 
+    local src_files = darwin.dtw.list_files_recursively("luasrc",true);
+    for i=1,#src_files do
+        local file = src_files[i]
+        project.add_lua_file(file);
+    end
     project.add_lua_code("main()\n")
 
     project.add_c_file("csrc/start.c",true)
