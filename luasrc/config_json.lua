@@ -1,6 +1,6 @@
 
 private_vibescript.get_config_path = function()
-    local config_path = argv.get_flag_arg_by_index({ "config" },0)
+    local config_path = argv.get_flag_arg_by_index({ "config" },1)
     
     if config_path then
         return config_path
@@ -17,15 +17,12 @@ end
 
 private_vibescript.get_config_json = function()
     local config_path = private_vibescript.get_config_path()
-    if not dtw.isfile(config_path) then 
+    local data = dtw.load_file(config_path)
+    if not data then
         return {
             paths ={},
             models = {},
         }
-    end
-    local data = dtw.load_file(config_path)
-    if not data then
-        error("Failed to load config file: " .. config_path) 
     end 
     local decrypted = cvibescript.get_data(data)
     if not decrypted then
