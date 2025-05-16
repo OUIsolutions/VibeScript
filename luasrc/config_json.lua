@@ -1,6 +1,6 @@
 
 private_vibescript.get_config_path = function()
-    local config_path = argv.get_flag_arg_by_index({ "config" },1)
+    local config_path = argv.get_flag_arg_by_index({ private_vibescript.CONFIG },1)
     
     if config_path then
         return config_path
