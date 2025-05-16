@@ -20,7 +20,8 @@ private_vibescript.get_config_json = function()
     local data = dtw.load_file(config_path)
     if not data then
         return {
-            dirs ={},
+            category_scripts = {},
+            scripts ={},
             models = {},
         }
     end 
