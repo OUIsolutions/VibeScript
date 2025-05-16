@@ -8,7 +8,8 @@ private_vibescript.add_category = function(json_props)
     end
 
     for i=1,#json_props.category_scripts do
-        if json_props.category_scripts[i].name == category then
+        local current_category = json_props.category_scripts[i]
+        if current_category == category then
             error("Category already exists",0)
         end
     end
