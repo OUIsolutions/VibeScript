@@ -3,9 +3,6 @@
 private_vibescript.main = function()
     local config_path = private_vibescript.get_config_path()
     
-     local encrypted = cvibescript.set_data("aaaaaaa")
-     dtw.write_file("teste",encrypted)
-
-     local decrypted = cvibescript.get_data(dtw.load_file("teste"))
-        print(decrypted)
+     local config_json = private_vibescript.get_config_json()
+     print(json.dumps_to_string(config_json))
 end 

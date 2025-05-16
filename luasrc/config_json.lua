@@ -13,3 +13,27 @@ private_vibescript.get_config_path = function()
 
     return os.getenv("HOME") ..  "/.config/"..name
 end
+
+
+private_vibescript.get_config_json = function()
+    local config_path = private_vibescript.get_config_path()
+    if not dtw.isfile(config_path) then 
+        return {
+            paths ={},
+            models = {},
+        }
+    end
+    local data = dtw.load_file(config_path)
+    if not data then
+        error("Failed to load config file: " .. config_path) 
+    end 
+    local decrypted = cvibescript.get_data(data)
+    if not decrypted then
+        error("Failed to decrypt config file: " .. config_path) 
+    end
+    local json = dtw.json.loads(decrypted)
+    if not json then
+        error("Failed to parse config file: " .. config_path) 
+    end
+
+end
