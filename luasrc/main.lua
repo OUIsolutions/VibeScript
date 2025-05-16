@@ -14,6 +14,14 @@ private_vibescript.internal_main = function()
      if action == private_vibescript.RESET_CONFIG then
           return private_vibescript.reset()
      end
+     if action == private_vibescript.ADD_SCRIPT then
+          return private_vibescript.add_script(config_json)
+     end
+     if action == private_vibescript.LIST_CATEGORYS then
+          return private_vibescript.list_categorys(config_json)
+     end
+
+     
 
      print("interpreting"..action)
 end 
