@@ -8,7 +8,7 @@ private_vibescript.internal_main = function()
           return private_vibescript.add_category(config_json)
      end
       
-     if action == private_vibescript.RESET_CONGIG then
+     if action == private_vibescript.RESET_CONFIG then
           return private_vibescript.reset()
      end
 
