@@ -7,7 +7,10 @@ private_vibescript.internal_main = function()
      if action == private_vibescript.ADD_CATEGORY then
           return private_vibescript.add_category(config_json)
      end
-      
+     if action == private_vibescript.REMOVE_CATEGORY then
+          return private_vibescript.remove_category(config_json)
+     end
+
      if action == private_vibescript.RESET_CONFIG then
           return private_vibescript.reset()
      end
