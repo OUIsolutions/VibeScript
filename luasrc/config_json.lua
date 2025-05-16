@@ -24,13 +24,14 @@ private_vibescript.get_config_json = function()
             models = {},
         }
     end 
+    
     local decrypted = cvibescript.get_data(data)
     if not decrypted then
-        error("Failed to decrypt config file: " .. config_path) 
+        error("Failed to decrypt config file: " .. config_path,0) 
     end
     local json = dtw.json.loads(decrypted)
     if not json then
-        error("Failed to parse config file: " .. config_path) 
+        error("Failed to parse config file: " .. config_path,0) 
     end
 
 end
