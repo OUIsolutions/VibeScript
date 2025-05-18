@@ -14,3 +14,4 @@ private_vibescript.REMOVE_SCRIPT = "remove_script" -- Added constant for removin
 private_vibescript.LIST_SCRIPTS = "list_scripts" -- Added constant for listing scripts
 private_vibescript.ADD_MODEL = "add_model"
 private_vibescript.LIST_MODELS = "list_models"
+private_vibescript.REMOVE_MODEL = "remove_model" -- Added constant for removing a model
