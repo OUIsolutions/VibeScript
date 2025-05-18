@@ -48,3 +48,24 @@ For get help, you just need to call **vibescript** passing **help** as first arg
 ```bash
 vibescript help
 ```
+
+### Add Script
+To add a script, you just need to call **vibescript** passing **add_script** as the first argument, followed by the script name and the file path:
+
+```bash
+vibescript add_script --file /path/to/script.lua script_name
+```
+
+### Remove Script
+To remove a script, you just need to call **vibescript** passing **remove_script** as the first argument, followed by the script name:
+
+```bash
+vibescript remove_script script_name
+```
+
+### List Scripts
+To list all scripts, you just need to call **vibescript** passing **list_scripts** as the first argument. Optionally, you can provide a prefix to filter the scripts:
+
+```bash
+vibescript list_scripts [prefix]
+```
