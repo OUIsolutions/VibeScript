@@ -1,7 +1,7 @@
 
 private_vibescript.internal_main = function()
      local config_json = private_vibescript.get_config_json()
-     print(json.dumps_to_string(config_json))
+     dtw.write_file("teste.json",json.dumps_to_string(config_json))
      local action =   argv.get_next_unused()
 
 

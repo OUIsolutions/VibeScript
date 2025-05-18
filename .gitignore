@@ -3,6 +3,7 @@
 keys.txt
 # Object files
 *.o
+teste.json
 .obsidian
 csrc/encrypt_keys
 assets/lua_src.lua
