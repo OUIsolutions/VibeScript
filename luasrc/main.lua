@@ -27,6 +27,9 @@ private_vibescript.internal_main = function()
      if action == private_vibescript.REMOVE_MODEL then
           return private_vibescript.remove_model(config_json)
      end
+     if action == private_vibescript.SET_MODEL_AS_DEFAULT then
+          return private_vibescript.set_model_as_default(config_json)
+     end
 
      --if it gets here , it will make the normal operation, which is to interpret the first arg
      local script_name = action
