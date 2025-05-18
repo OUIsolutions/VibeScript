@@ -13,7 +13,9 @@ private_vibescript.internal_main = function()
           return private_vibescript.add_script(config_json)
      end
     
-
+     if action == private_vibescript.REMOVE_SCRIPT then
+          return private_vibescript.remove_script(config_json)
+     end
 
      print("interpreting"..action)
 end 
