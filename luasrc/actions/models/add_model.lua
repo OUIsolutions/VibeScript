@@ -1,4 +1,3 @@
-local add_model = {}
 
 private_vibescript.add_model = function(config_json)
     local model_name = argv.get_flag_arg_by_index({ private_vibescript.MODEL }, 1)
@@ -32,4 +31,3 @@ private_vibescript.add_model = function(config_json)
     private_vibescript.save_config_json(config_json)
 end
 
-return add_model
