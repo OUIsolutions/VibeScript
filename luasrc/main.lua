@@ -18,6 +18,9 @@ private_vibescript.internal_main = function()
      if action == private_vibescript.LIST_SCRIPTS then
           return private_vibescript.list_scripts(config_json)
      end
+     if action == private_vibescript.ADD_MODEL then
+          return private_vibescript.add_model(config_json)
+     end
 
      --if it gets here , it will make the normal operation, which is to interpret the first arg
      local script_name = action
@@ -53,4 +56,4 @@ private_vibescript.main = function()
      end
      os.exit(0)
 
-end 
+end
