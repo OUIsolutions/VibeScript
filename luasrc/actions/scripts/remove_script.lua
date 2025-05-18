@@ -18,5 +18,4 @@ private_vibescript.remove_script = function(config_json)
     end
 
     private_vibescript.save_config_json(config_json)
-    print("Script (" .. name .. ") removed successfully.")
 end
