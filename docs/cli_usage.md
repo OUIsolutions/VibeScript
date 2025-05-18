@@ -39,7 +39,7 @@ vibescript set_model_as_default --model grok-2-latest
 For resset the configuration, you just need to call **vibescript** passing **resset** as first argument:
 
 ```bash
-vibescript resset
+vibescript resset_config
 ```
 
 ### Get Help
