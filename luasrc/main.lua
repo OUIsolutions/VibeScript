@@ -1,7 +1,7 @@
 
 private_vibescript.internal_main = function()
      local config_json = private_vibescript.get_config_json()
-     dtw.write_file("teste.json",json.dumps_to_string(config_json))
+     --dtw.write_file("teste.json",json.dumps_to_string(config_json))
      local action =   argv.get_next_unused()
 
 
@@ -15,6 +15,9 @@ private_vibescript.internal_main = function()
     
      if action == private_vibescript.REMOVE_SCRIPT then
           return private_vibescript.remove_script(config_json)
+     end
+     if action == private_vibescript.LIST_SCRIPTS then
+          return private_vibescript.list_scripts(config_json)
      end
 
      print("interpreting"..action)

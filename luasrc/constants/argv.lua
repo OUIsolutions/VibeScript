@@ -8,3 +8,4 @@ private_vibescript.CONFIGURE_MODEL = "configure_model"
 private_vibescript.RESET_CONFIG = "reset_config"
 private_vibescript.ADD_SCRIPT = "add_script"
 private_vibescript.REMOVE_SCRIPT = "remove_script" -- Added constant for removing a script
+private_vibescript.LIST_SCRIPTS = "list_scripts" -- Added constant for listing scripts
