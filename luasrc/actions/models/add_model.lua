@@ -2,17 +2,17 @@
 private_vibescript.add_model = function(config_json)
     local model_name = argv.get_flag_arg_by_index({ private_vibescript.MODEL }, 1)
     if not model_name then
-        error("No model name provided", 0)
+        error("No model (--"..private_vibescript.MODEL ..") provided", 0)
     end
 
     local model_url = argv.get_flag_arg_by_index({ private_vibescript.URL }, 1)
     if not model_url then
-        error("No model URL provided", 0)
+        error("No url (--" .. private_vibescript.URL .. ") provided", 0)
     end
 
     local model_key = argv.get_flag_arg_by_index({ private_vibescript.KEY }, 1)
     if not model_key then
-        error("No model key provided", 0)
+        error("No model key (--" .. private_vibescript.KEY .. ") provided", 0)
     end
 
     for i = 1, #config_json.models do
