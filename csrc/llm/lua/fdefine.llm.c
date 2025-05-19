@@ -34,7 +34,7 @@ LuaCEmbedResponse *add_assistant_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
     if(LuaCEmbed_has_errors(args)){
         return LuaCEmbed_send_error(LuaCEmbed_get_error_message(args));
     }
-    OpenAiInterface_add_assystent_prompt(openAi, prompt);
+    OpenAiInterface_add_assistent_prompt(openAi, prompt);
     return NULL;
 }
 LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
@@ -72,8 +72,8 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
     LuaCEmbedTable *response  = LuaCEmbed_run_global_lambda(callback_args->lua_virtual_machine,callback_args->function_name,args_array,1);
     
   
-    if(LuaCEmbed_has_errors(args)){
-        return LuaCEmbed_send_error(LuaCEmbed_get_error_message(args));
+    if(LuaCEmbed_has_errors(callback_args->lua_virtual_machine)){
+        return strdup(LuaCEmbed_get_error_message(callback_args->lua_virtual_machine));
     }
 
 
@@ -173,7 +173,7 @@ LuaCEmbedResponse *private_new_raw_llm(LuaCEmbed *args){
     OpenAiInterface *openAi = newOpenAiInterface(url,api_key,model);
 
     LuaCEmbedTable *self = LuaCembed_new_anonymous_table(args);
-    LuaCEmbedTable_set_long_prop(args,"openAi",(ldtw_ptr_cast)openAi);
+    LuaCEmbedTable_set_long_prop(self,"openAi",(ldtw_ptr_cast)openAi);
    
     DtwStringArray *functionsNames = newDtwStringArray();
     LuaCEmbedTable_set_long_prop(self,"functionsNames",(ldtw_ptr_cast)functionsNames);

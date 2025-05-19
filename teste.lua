@@ -1,1 +1,1 @@
-prineeet("aaa")
+print("ssss")

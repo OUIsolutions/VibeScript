@@ -4,6 +4,6 @@
 //silver_chain_scope_end
 
 
-FunctionCallback *newFunctionCallbackArgs(const char *function_name, LuaCEmbed *lua_virtual_machine);
+FunctionCallbackArgs *newFunctionCallbackArgs(const char *function_name, LuaCEmbed *lua_virtual_machine);
 
-void FunctionCallbackArgsfree(FunctionCallback *self);
+void FunctionCallbackArgsfree(FunctionCallbackArgs *self);
