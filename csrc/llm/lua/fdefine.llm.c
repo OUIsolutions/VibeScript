@@ -57,25 +57,27 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
 
 char *vibe_callback_handler(cJSON *args, void *pointer){
 
-    char *public_name = (char *)pointer;
+    FunctionCallbackArgs *callback_args = (FunctionCallbackArgs *)pointer;
+
     LuaCEmbedTable *parsed_args = NULL;
     if(cJSON_IsObject(args)){
-        parsed_args = private_lua_fluid_parse_object(lua_virtual_machine, args);
+        parsed_args = private_lua_fluid_parse_object(callback_args->lua_virtual_machine, args);
     }
     else if(cJSON_IsArray(args)){
-        parsed_args = private_lua_fluid_parse_array(lua_virtual_machine, args);
+        parsed_args = private_lua_fluid_parse_array(callback_args->lua_virtual_machine, args);
     }
-    LuaCEmbedTable *args_array = lua_n.tables.new_anonymous_table(lua_virtual_machine);
-    lua_n.tables.append_table(args_array,parsed_args);
+    LuaCEmbedTable *args_array = LuaCembed_new_anonymous_table(callback_args->lua_virtual_machine);
+    LuaCEmbedTable_append_table(args_array,parsed_args);
 
-    LuaCEmbedTable *response = lua_n.globals.run_global_lambda(lua_virtual_machine,public_name,args_array,1);
+    LuaCEmbedTable *response  = LuaCEmbed_run_global_lambda(callback_args->lua_virtual_machine,callback_args->function_name,args_array,1);
     
-    if(lua_n.has_errors(lua_virtual_machine)){
-        return strdup(lua_n.get_error_message(lua_virtual_machine));
+  
+    if(LuaCEmbed_has_errors(args)){
+        return LuaCEmbed_send_error(LuaCEmbed_get_error_message(args));
     }
 
 
-    if(lua_n.tables.get_size(response) == 0){
+    if(LuaCEmbedTable_get_full_size(response) == 0){
         return strdup("Nil");
     }
     
@@ -147,20 +149,16 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,public_name, name,description, true);
 
-    for(int i = 0; i < lua_n.tables.get_size(parameters); i++){
-        LuaCEmbedTable *param = lua_n.tables.get_sub_table_by_index(parameters,i);
-        char *param_name = lua_n.tables.get_string_prop(param,"name");
-        char *param_description = lua_n.tables.get_string_prop(param,"description");
-        char *param_type = lua_n.tables.get_string_prop(param,"type");
-        bool required = lua_n.tables.get_bool_prop(param,"required");
-
-        OpenAiInterface_add_parameters_in_callback(callback,param_name,param_description,param_type,required);
+    for(int i = 0; i < LuaCEmbedTable_get_full_size(parameters); i++){
+        LuaCEmbedTable *param = LuaCEmbedTable_get_sub_table_by_index(parameters,i);
+        char *param_name = LuaCembedTable_get_string_prop(param,"name");
+        char *param_description = LuaCembedTable_get_string_prop(param,"description");
+        char *param_type = LuaCembedTable_get_string_prop(param,"type");
+        bool required = LuaCembedTable_get_bool_prop(param,"required");
+        OpenAiInterface_add_parameters_in_callback(callback,param_name,param_description,param_type,required);    
     }
+
     OpenAiInterface_add_callback_function_by_tools(openAi, callback);
-
-
-
-
     return NULL;
 }
 
