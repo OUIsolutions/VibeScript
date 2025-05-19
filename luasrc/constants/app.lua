@@ -1,0 +1,1 @@
+private_vibescript.VERSION = "0.1.0"

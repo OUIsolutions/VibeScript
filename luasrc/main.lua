@@ -4,7 +4,10 @@ private_vibescript.internal_main = function()
      local action =   argv.get_next_unused()
      private_vibescript.configure_newRawLLMFunction(config_json)
 
-   
+     if argv.one_of_args_exist({"version","v","--version"}) then 
+          print("vibescript "..private_vibescript.VERSION)
+          return
+     end 
      if action == private_vibescript.RESET_CONFIG then
           return private_vibescript.reset()
      end
