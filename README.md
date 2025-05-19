@@ -97,14 +97,9 @@ Explore the [Native API documentation](/docs/native_api.md) to learn more about 
 | --- | --- |
 | [Native API](/docs/native_api.md) | LLM creation and usage examples |
 | [CLI Usage](/docs/cli_usage.md) | Command line interface reference |
-| [Assets & Embed Variables](/docs/assets_embed_vars.md) | Asset structure and management |
 | [Build Instructions](/docs/build_instructions.md) | Build requirements and commands |
 | [Build Toolchain](/docs/build_toolchain.md) | Build process and dependencies |
-| [Build Workflow](/docs/build_workflow.md) | Build workflow and functions |
-| [JSON Model Config](/docs/json_model_config.md) | JSON configuration structure and encryption |
 | [Licenses](/docs/licenses.md) | List of licenses and copyrights |
-| [Project Dependencies](/docs/project_dependencies.md) | List of project dependencies |
-| [Project Workflow](/docs/project_workflow.md) | Project start and action functions |
 
 ## 🤝 Contributing
 
