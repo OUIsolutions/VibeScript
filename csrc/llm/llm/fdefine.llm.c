@@ -57,8 +57,8 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
 char *vibe_callback_handler(cJSON *args, void *pointer){
     
     FunctionCallbackArgs *callback_args = (FunctionCallbackArgs *)pointer;
-
     LuaCEmbedTable *parsed_args = NULL;
+
     if(cJSON_IsObject(args)){
         parsed_args = private_lua_fluid_parse_object(callback_args->lua_virtual_machine, args);
     }
@@ -68,14 +68,15 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
     LuaCEmbedTable *args_array = LuaCembed_new_anonymous_table(callback_args->lua_virtual_machine);
     LuaCEmbedTable_append_table(args_array,parsed_args);
 
+
     LuaCEmbedTable *response  = LuaCEmbed_run_global_lambda(callback_args->lua_virtual_machine,callback_args->function_name,args_array,1);
-    
+
   
     if(LuaCEmbed_has_errors(callback_args->lua_virtual_machine)){
         return strdup(LuaCEmbed_get_error_message(callback_args->lua_virtual_machine));
     }
 
-
+    
     if(LuaCEmbedTable_get_full_size(response) == 0){
         return strdup("Nil");
     }
@@ -85,6 +86,7 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
         return strdup("Nil");
     }
     char *json_response_str = cJSON_Print(json_response);
+    printf("json_response_str: %s\n",json_response_str);
     cJSON_Delete(json_response);
     return json_response_str;
 }
@@ -142,12 +144,13 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 
     UniversalGarbage *garbage =  (UniversalGarbage *)(ldtw_ptr_cast)LuaCembedTable_get_long_prop(self,"garbage");
     FunctionCallbackArgs * callback_args = newFunctionCallbackArgs(public_name, args);
+
     UniversalGarbage_add(garbage,FunctionCallbackArgsfree,callback_args);
 
 
     LuaCEmbed_generate_arg_clojure_evalation(args,3,"function(callback)\n %s = callback  end\n",callback_args);
     
-    OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,public_name, name,description, true);
+    OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,callback_args, name,description, true);
 
     for(int i = 0; i < LuaCEmbedTable_get_full_size(parameters); i++){
         LuaCEmbedTable *param = LuaCEmbedTable_get_sub_table_by_index(parameters,i);

@@ -86,7 +86,7 @@ function newLLM(permissions)
             {name = "file",description="the file name", type = "string", required = true},
         }
         local callback = function(args)
-            print(YELLOW.."Reading file: "..args.file..RESET)
+            print(private_vibescript.YELLOW.."Reading file: "..args.file..private_vibescript.RESET)
             return dtw.load_file(args.file)
         end
         llm.add_function("read", "read a file and return the content of the file",args,callback)
@@ -97,7 +97,7 @@ function newLLM(permissions)
             {name = "content",description="the content to write", type = "string", required = true},
         }
         local callback = function(args)
-            print(YELLOW.."Writing file: "..args.file..RESET)
+            print(private_vibescript.YELLOW.."Writing file: "..args.file..private_vibescript.RESET)
             dtw.write_file(args.file, args.content)
             return "file written"
         end
@@ -108,7 +108,7 @@ function newLLM(permissions)
             {name = "command",description="the command to execute", type = "string", required = true},
         }
         local callback = function(args)
-            print(YELLOW.."Executing command: "..args.command..RESET)
+            print(private_vibescript.YELLOW.."Executing command: "..args.command..private_vibescript.RESET)
             return os.execute(args.command)
         end
         llm.add_function("execute", "execute a command and return the output",args,callback)
@@ -119,7 +119,7 @@ function newLLM(permissions)
             {name = "element",description="the element to remove", type = "string", required = true},
         }
         local callback = function(args)
-            print(YELLOW.."Deleting element: "..args.element..RESET)
+            print(private_vibescript.YELLOW.."Deleting element: "..args.element..private_vibescript.RESET)
             dtw.remove_any(args.element)
             return "element removed"
         end
@@ -133,7 +133,7 @@ function newLLM(permissions)
             {name = "dir",description="the directory to list", type = "string", required = true},
         }
         local callback = function(args)
-            print(YELLOW.."Listing directory: "..args.dir..RESET)
+            print(private_vibescript.YELLOW.."Listing directory: "..args.dir..private_vibescript.RESET)
             local files ,size= dtw.list_files_recursively(args.dir)
             return files
         end
