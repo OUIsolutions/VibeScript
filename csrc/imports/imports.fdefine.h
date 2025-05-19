@@ -3,6 +3,6 @@
 #define vibescript_fdefine
 #include "../encryption/fdefine.encryption.c"
 #include "../llm/function_callback/fdefine.function_callback.c"
-#include "../llm/lua/fdefine.llm.c"
+#include "../llm/llm/fdefine.llm.c"
 #include "../src_depdencies/fdefine.dependencies.c"
 #endif

@@ -39,7 +39,6 @@ LuaCEmbedResponse *add_assistant_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
 }
 LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)(ldtw_ptr_cast)LuaCembedTable_get_long_prop(self,"openAi");
-    
     OpenAiResponse *response = OpenAiInterface_make_question_finish_reason_treated(openAi);
     if(LuaCEmbed_has_errors(args)){
         return LuaCEmbed_send_error(LuaCEmbed_get_error_message(args));
@@ -56,7 +55,7 @@ LuaCEmbedResponse *delete_llm(LuaCEmbedTable *self, LuaCEmbed *args){
 
 
 char *vibe_callback_handler(cJSON *args, void *pointer){
-
+    
     FunctionCallbackArgs *callback_args = (FunctionCallbackArgs *)pointer;
 
     LuaCEmbedTable *parsed_args = NULL;
@@ -93,6 +92,7 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
 
 LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiInterface *openAi = (OpenAiInterface *)(ldtw_ptr_cast)LuaCembedTable_get_long_prop(self,"openAi");
+  
     char *name = LuaCEmbed_get_str_arg(args,0);
     char *description = LuaCEmbed_get_str_arg(args,1);
     LuaCEmbedTable *parameters = LuaCEmbed_get_arg_table(args,2);
@@ -165,11 +165,13 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
 LuaCEmbedResponse *private_new_raw_llm(LuaCEmbed *args){
     
     char *url = LuaCEmbed_get_str_arg(args,0);
-    char *api_key = LuaCEmbed_get_str_arg(args,2);
-    char *model = LuaCEmbed_get_str_arg(args,1);
+    char *api_key = LuaCEmbed_get_str_arg(args,1);
+    char *model = LuaCEmbed_get_str_arg(args,2);
     if(LuaCEmbed_has_errors(args)){
         return LuaCEmbed_send_error(LuaCEmbed_get_error_message(args));
     }
+
+
     OpenAiInterface *openAi = newOpenAiInterface(url,api_key,model);
 
     LuaCEmbedTable *self = LuaCembed_new_anonymous_table(args);

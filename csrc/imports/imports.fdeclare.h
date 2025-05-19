@@ -3,4 +3,5 @@
 #define vibescript_fdeclare
 #include "../encryption/fdeclare.ecryption.h"
 #include "../llm/function_callback/fdeclare.function_callback.h"
+#include "../llm/llm/fdeclare.llm.h"
 #endif
