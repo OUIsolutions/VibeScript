@@ -69,3 +69,10 @@ To list all scripts, you just need to call **vibescript** passing **list_scripts
 ```bash
 vibescript list_scripts [prefix]
 ```
+### Interpret a Script with a specified name 
+To interpret a script with a specified name, you just need to call **vibescript** passing **interpret_script** as the first argument, followed by the script name:
+
+```bash
+vibescript add_script --file /path/to/script.lua script_name
+vibescript script_name
+```
