@@ -1,5 +1,31 @@
+private_vibescript.configure_newRawLLMFunction = function(config_json)
+    local chosed_model = nil
+    if config_json.default_model  then
+        for i=1,#config_json.models do
+            local current_model = config_json.models[i]
+            if current_model.name == config_json.default_model then
+                chosed_model = current_model
+                break
+            end
+        end 
+    end
+    if chosed_model == nil then
+        chosed_model = config_json.models[1]
+    end
+    if chosed_model == nil then
+        return 
+    end
+    newRawLLM = function()
+        return private_vibescript.private_newRawLLM(chosed_model.url, chosed_model.api_key, chosed_model.model)
+    end
+end
+
 
 function newLLM(permissions)
+    if not newRawLLM then
+        error("no model configured")
+    end
+
     local llm = newRawLLM()
     local old_generate = llm.generate
     local files = {}
