@@ -86,7 +86,6 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
         return strdup("Nil");
     }
     char *json_response_str = cJSON_Print(json_response);
-    printf("json_response_str: %s\n",json_response_str);
     cJSON_Delete(json_response);
     return json_response_str;
 }

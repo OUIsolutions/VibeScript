@@ -6,6 +6,6 @@ llm = newLLM({
     list = true
 })
 llm.add_system_prompt("You are a helpful assistant.")
-llm.add_user_prompt("list the src dir, and explain what's inside")
+llm.add_user_prompt("list the luasrc dir, and explain what's inside")
 response = llm.generate()
 print("Response: " .. response)
