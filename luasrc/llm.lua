@@ -16,7 +16,7 @@ private_vibescript.configure_newRawLLMFunction = function(config_json)
         return 
     end
     newRawLLM = function()
-        return private_vibescript.private_newRawLLM(chosed_model.url, chosed_model.api_key, chosed_model.model)
+        return private_vibescript.newRawLLM(chosed_model.url, chosed_model.api_key, chosed_model.model)
     end
 end
 

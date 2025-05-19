@@ -7,8 +7,11 @@ int vibescript_start(lua_State *state){
     LuaCEmbed_load_lib_from_c(l,load_luaDoTheWorld,"dtw");
     LuaCEmbed_load_lib_from_c(l,load_lua_fluid_json,"json");
     LuaCEmbed_add_callback(l,"get_config_name",get_config_name);
+    LuaCEmbed_add_callback(l,"newRawLLM",private_new_raw_llm);
     LuaCEmbed_add_callback(l,"get_data",get_data);
     LuaCEmbed_add_callback(l,"set_data",set_data);
+    LuaCEmbed_add_callback(l,"get_llm_data",get_llm_data);
+    LuaCEmbed_add_callback(l,"set_llm_data",set_llm_data);
     #ifdef _WIN32
     LuaCEmbed_set_global_string(l,"os_name","windows");
     #elif __APPLE__
