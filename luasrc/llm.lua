@@ -16,7 +16,7 @@ private_vibescript.configure_newRawLLMFunction = function(config_json)
         return 
     end
     newRawLLM = function()
-        return private_vibescript.newRawLLM(chosed_model.url, chosed_model.api_key, chosed_model.model)
+        return cvibescript.newRawLLM(chosed_model.url, chosed_model.key, chosed_model.name)
     end
 end
 
@@ -25,7 +25,6 @@ function newLLM(permissions)
     if not newRawLLM then
         error("no model configured")
     end
-
     local llm = newRawLLM()
     local old_generate = llm.generate
     local files = {}
