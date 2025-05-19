@@ -3,6 +3,7 @@
 keys.txt
 # Object files
 *.o
+full_build.sh
 teste.json
 .obsidian
 csrc/encrypt_keys

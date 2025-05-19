@@ -4,7 +4,7 @@ function windowsi64_build()
         return
     end
     windows_build_done = true
-    silver_chain_organize()
+    amalgamation_build()
 
     os.execute("mkdir -p release")
 
@@ -19,9 +19,7 @@ function windowsi64_build()
     image.start({
         volumes = {
             { "././release", "/release" },
-            { "././src",     "/src" },
-            { "././dependencies",     "/dependencies" }
         },
-        command = compiler.." --static -DDEFINE_DEPENDENCIES  /src/main.c -o /release/windows64.exe -lws2_32"
+        command = compiler.." --static -DDEFINE_DEPENDENCIES  /release/amalgamation. -o /release/windows64.exe -lws2_32"
     })
 end
