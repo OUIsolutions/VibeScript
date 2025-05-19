@@ -10,7 +10,7 @@ LuaCEmbedResponse *add_user_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
     if(LuaCEmbed_has_errors(args)){
         return LuaCEmbed_send_error(LuaCEmbed_get_error_message(args));
     }
-    OnpenAiInterface_add_user_prompt(openAi, prompt);
+    OpenAi(openAi, prompt);
     return NULL;
 }
 
@@ -22,7 +22,7 @@ LuaCEmbedResponse *add_system_prompt(LuaCEmbedTable *self, LuaCEmbed *args){
     if(LuaCEmbed_has_errors(args)){
         return LuaCEmbed_send_error(LuaCEmbed_get_error_message(args));
     }
-    OpenAiInterface_add_system_prompt(openAi, prompt);
+    OpenAiINte(openAi, prompt);
     return NULL;
 
 }
