@@ -4,7 +4,7 @@ private_vibescript.internal_main = function()
      local action =   argv.get_next_unused()
      private_vibescript.configure_newRawLLMFunction(config_json)
 
-     if argv.one_of_args_exist({"version","v","--version"}) then 
+     if argv.one_of_args_exist({"version"}) or argv.flags_exist({"version","v"}) then 
           print("vibescript "..private_vibescript.VERSION)
           return
      end 
