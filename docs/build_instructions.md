@@ -1,7 +1,7 @@
 ## Build Instructions
 
 ### Build Requirements 
-#### Darwin 
+#### [Darwin](https://github.com/OUIsolutions/Darwin)  
 For Build the project you must have [Darwin](https://github.com/OUIsolutions/Darwin) installed on version 0.2.0
 if you are on linux you can install darwin with:
 
@@ -10,11 +10,30 @@ curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.2.0/darwin.c 
 gcc darwin.c -o darwin.out &&
 sudo mv darwin.out /usr/bin/darwin
 ```
+#### [Key Obfuscate](https://github.com/OUIsolutions/key_obfuscate)  
+you must have [Key Obfuscate](https://github.com/OUIsolutions/key_obfuscate) installed on version 0.1.0  to generate the encription keys required to build the project
+
+
+
+### Creating your keys
+for making the build, you need to setup  the encryption keys , required for the project to work, you can generate them with the following command:
+```bash
+mkdir -p keys
+KeyObfuscate --entry 'your content encryption  key' --project_name 'content' --output 'keys/content.h'
+KeyObfuscate --entry 'your llm encryption  key' --project_name 'llm' --output 'keys/llm.h'
+KeyObfuscate --entry 'your name encryption  key' --project_name 'name' --output 'keys/name.h'
+```
+### Copiling from the amalgamation
+you can now compile, direct from the [release/amalgamation](/release/amalgamation) directly, with the following command:
+```bash
+gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -o vibescript
+```
+
 
 ### Local Build from Linux
 make a local build to test with the following command it will create the **vibescripttest.out** file
 ```bash
-darwin run_blueprint build/ --mode folder local_linux_build  --json_name_encrypt_key  "json_name_encrypt_key" --json_content_encrypt_key "json_content_encrypt_key" --json_llm_encrypt_key "json_llm_encrypt_key" 
+darwin run_blueprint build/ --mode folder local_linux_build  
 ```
 
 ### Full Build from Docker or Podman
@@ -22,8 +41,7 @@ You must have podman or docker installed on your machine to build in these way, 
 
 if you want to make a full build to all platforms you can use the following command, it will create the following files:
 ```bash
- darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windows64_build rpm_static_build debian_static_build  --json_name_encrypt_key  "json_name_encrypt_key" --json_content_encrypt_key "json_content_encrypt_key" --json_llm_encrypt_key "json_llm_encrypt_key" 
-
+ darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windows64_build rpm_static_build debian_static_build  
 ```
 
 Output files:
