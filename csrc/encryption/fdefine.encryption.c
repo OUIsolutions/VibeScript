@@ -106,7 +106,7 @@ LuaCEmbedResponse *set_llm_data(LuaCEmbed *args){
         return LuaCEmbed_send_error(msg);
     }
     unsigned char *key = (unsigned char *)malloc(llmkey_size+1);
-    llm_encrypt_key_get_key(key);
+    llm_get_key(key);
     DtwEncriptionInterface *enc = newDtwAES_Custom_CBC_v1_interface((char*)key);
     char *output = DtwEncriptionInterface_encrypt_buffer_hex(enc,content,(long)content_size);
     LuaCEmbedResponse *response = LuaCEmbed_send_str(output);
