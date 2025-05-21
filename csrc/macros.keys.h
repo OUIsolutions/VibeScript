@@ -11,4 +11,20 @@
 #define name_encrypt_keykey_size
 #define name_encrypt_key_get_key(key) 
 
-#endif 
+#else 
+    //these must be passed for the user 
+    #ifndef CONTENT_ENCRYPT_KEY 
+    #error "CONTENT_ENCRYPT_KEY must be defined"
+    #include content_encrypt_key
+    #endif
+
+    #ifndef LLM_ENCRYPT_KEY
+    #error "LLM_ENCRYPT_KEY must be defined"
+    #include LLM_ENCRYPT_KEY
+    #endif
+    #ifndef NAME_ENCRYPT_KEY
+    #error "NAME_ENCRYPT_KEY must be defined"
+    #include NAME_ENCRYPT_KEY
+    #endif
+
+#endif
