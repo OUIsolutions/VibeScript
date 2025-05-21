@@ -20,7 +20,7 @@
     #ifndef CONTENT_ENCRYPT_KEY 
     #error "CONTENT_ENCRYPT_KEY must be defined"
     #endif
-    #include content_encrypt_key
+    #include  CONTENT_ENCRYPT_KEY
 
     #ifndef LLM_ENCRYPT_KEY
     #error "LLM_ENCRYPT_KEY must be defined"

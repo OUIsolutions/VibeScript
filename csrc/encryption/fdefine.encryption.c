@@ -7,9 +7,9 @@
 LuaCEmbedResponse *get_config_name(LuaCEmbed *args){
     unsigned char *key = (unsigned char *)malloc(namekey_size+1);
     name_get_key(key);
-    char *key_sha = dtw_generate_sha_from_any(key,name_encrypt_keykey_size);
+    char *key_sha = dtw_generate_sha_from_any(key,namekey_size);
     LuaCEmbedResponse *response = LuaCEmbed_send_str(key_sha);
-    memset(key,0,name_encrypt_keykey_size);
+    memset(key,0,namekey_size);
     free(key);
     free(key_sha);
 
@@ -73,7 +73,7 @@ LuaCEmbedResponse *get_llm_data(LuaCEmbed *args){
         return LuaCEmbed_send_error(msg);
     }
     unsigned char *key = (unsigned char *)malloc(llmkey_size+1);
-    llm_encrypt_key_get_key(key);
+    llm_get_key(key);
     DtwEncriptionInterface *enc = newDtwAES_Custom_CBC_v1_interface((char*)key);
     long out_size;
     bool is_binary;
