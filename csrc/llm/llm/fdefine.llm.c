@@ -172,10 +172,17 @@ LuaCEmbedResponse *private_new_raw_llm(LuaCEmbed *args){
     if(LuaCEmbed_has_errors(args)){
         return LuaCEmbed_send_error(LuaCEmbed_get_error_message(args));
     }
+    unsigned char *llm_key = (unsigned char *)malloc(llmkey_size+1);
+    llm_get_key(llm_key);
 
+    DtwEncriptionInterface *enc = newDtwAES_Custom_CBC_v1_interface((char*)llm_key);
+    char *converted_key = DtwEncriptionInterface_encrypt_buffer_hex(enc,api_key,(long)strlen(api_key));
 
-    OpenAiInterface *openAi = newOpenAiInterface(url,api_key,model);
-
+    free(llm_key);
+    OpenAiInterface *openAi = newOpenAiInterface(url,converted_key,model);
+    free(converted_key);
+    DtwEncriptionInterface_free(enc);
+    
     LuaCEmbedTable *self = LuaCembed_new_anonymous_table(args);
     LuaCEmbedTable_set_long_prop(self,"openAi",(ldtw_ptr_cast)openAi);
    
