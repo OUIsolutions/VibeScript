@@ -15,11 +15,11 @@ private_vibescript.add_model = function(config_json)
         error("No model key (--" .. private_vibescript.KEY .. ") provided", 0)
     end
     
-    model_key = cvibescript.get_llm_data(model_key)
+    encrypted_model_key = cvibescript.set_llm_data(model_key)
     local model = {
         name = model_name,
         url = model_url,
-        key = model_key,
+        key = encrypted_model_key,
     }
     local alreay_exists = false
     for i = 1, #config_json.models do
@@ -29,8 +29,7 @@ private_vibescript.add_model = function(config_json)
 
         end
     end
-        end
-    end
+        
 
     if not alreay_exists then 
         config_json.models[#config_json.models + 1] = model

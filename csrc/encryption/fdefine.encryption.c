@@ -66,37 +66,7 @@ LuaCEmbedResponse *set_data(LuaCEmbed *args){
     return response;    
 }
 
-LuaCEmbedResponse *get_llm_data(LuaCEmbed *args){
-    char *content = LuaCEmbed_get_str_arg(args,0);
-    if(LuaCEmbed_has_errors(args)){
-        char *msg = LuaCEmbed_get_error_message(args);
-        return LuaCEmbed_send_error(msg);
-    }
-    unsigned char *key = (unsigned char *)malloc(llmkey_size+1);
-    llm_get_key(key);
-    DtwEncriptionInterface *enc = newDtwAES_Custom_CBC_v1_interface((char*)key);
-    long out_size;
-    bool is_binary;
-    unsigned char *output = DtwEncriptionInterface_decrypt_buffer_hex(enc,content,&out_size,&is_binary);
-    
-    if(output == NULL){
-        free(key);
-        DtwEncriptionInterface_free(enc);
-        return LuaCEmbed_send_error("The content is invalid");
-    }
-    
-    if(is_binary){
-        free(key);
-        DtwEncriptionInterface_free(enc);
-        free(output);
-        return LuaCEmbed_send_error("The content is binary");
-    }
-    LuaCEmbedResponse *response = LuaCEmbed_send_str((char*)output);
-    free(key);
-    DtwEncriptionInterface_free(enc);
-    free(output);
-    return response;
-}
+
 
 LuaCEmbedResponse *set_llm_data(LuaCEmbed *args){
     lua_Integer content_size;
