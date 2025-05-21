@@ -7,7 +7,7 @@
 //they are not used in the code
 #ifndef  VIBE_AMALGAMATION
 #define contentkey_size 1
-#define contentkey_size(key) 
+#define content_get_key(key) 
 
 #define llmkey_size 1
 #define llm_get_key(key)
