@@ -34,16 +34,13 @@ if you want just to create the **amalgamation.c** file you can use the following
 ```bash
 darwin run_blueprint build/ --mode folder amalgamation_build
 ```
-it will create the **amalgamation.c** file in the **release** folder, you can now compile it with the command:
-```bash
-gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -o vibescript
-```
-
+it will create the **amalgamation.c** file in the **release** folder
 
 ### Local Build from Linux
-make a local build to test with the following command it will create the **vibescripttest.out** file
+make a local build to test with the following command it will create the **vibescript** file
 ```bash
 darwin run_blueprint build/ --mode folder local_linux_build  
+
 ```
 
 ### Full Build from Docker or Podman
