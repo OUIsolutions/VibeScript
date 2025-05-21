@@ -174,10 +174,10 @@ LuaCEmbedResponse *private_new_raw_llm(LuaCEmbed *args){
     }
     unsigned char *llm_key = (unsigned char *)malloc(llmkey_size+1);
     llm_get_key(llm_key);
-
     DtwEncriptionInterface *enc = newDtwAES_Custom_CBC_v1_interface((char*)llm_key);
-    char *converted_key = DtwEncriptionInterface_encrypt_buffer_hex(enc,api_key,(long)strlen(api_key));
-
+    long out_size;
+    bool is_binary;
+    char *converted_key = (char*)DtwEncriptionInterface_decrypt_buffer_hex(enc,api_key,&out_size,&is_binary);
     free(llm_key);
     OpenAiInterface *openAi = newOpenAiInterface(url,converted_key,model);
     free(converted_key);
