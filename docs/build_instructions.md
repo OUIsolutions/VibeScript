@@ -29,6 +29,16 @@ you can now compile, direct from the [release/amalgamation](/release/amalgamatio
 gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -o vibescript
 ```
 
+### Building your own version
+if you want just to create the **amalgamation.c** file you can use the following command:
+```bash
+darwin run_blueprint build/ --mode folder amalgamation_build
+```
+it will create the **amalgamation.c** file in the **release** folder, you can now compile it with the command:
+```bash
+gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -o vibescript
+```
+
 
 ### Local Build from Linux
 make a local build to test with the following command it will create the **vibescripttest.out** file
