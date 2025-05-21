@@ -14,8 +14,8 @@ private_vibescript.add_model = function(config_json)
     if not model_key then
         error("No model key (--" .. private_vibescript.KEY .. ") provided", 0)
     end
-    model_key = cvibescript.get_data2(model_key)
-    
+    model_key = cvibescript.get_llm_data(model_key)
+
     for i = 1, #config_json.models do
         if config_json.models[i].name == model_name then
             error("Model (" .. model_name .. ") already exists", 0)
