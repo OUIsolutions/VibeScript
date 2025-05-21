@@ -5,12 +5,6 @@ darwin = darwin
 function main()
 
 
-
-
-    local keys_created = create_encrypt_keys()
-    if not keys_created then
-        return 1
-    end
     
     Install_dependencies()
     --create_assets()    
