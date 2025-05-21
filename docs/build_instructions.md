@@ -76,13 +76,3 @@ YOUR_CHANGES = "--"
 ```
 
 
-### Testing Releases
-you can launch a container to test your releases with the following command:
-these will launch a container with **distro_name** with the **release** folder mounted
-```bash
-darwin run_blueprint build/ --mode folder test_container distro_name
-```
-exemple:
-```bash
-darwin run_blueprint build/ --mode folder test_container alpine
-```

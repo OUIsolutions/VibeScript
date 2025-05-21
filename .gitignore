@@ -2,6 +2,7 @@
 *.d
 keys.txt
 # Object files
+local_buil.sh
 keys
 create_keys.sh
 *.o
