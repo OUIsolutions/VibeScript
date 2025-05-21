@@ -19,16 +19,17 @@
     //these must be passed for the user 
     #ifndef CONTENT_ENCRYPT_KEY 
     #error "CONTENT_ENCRYPT_KEY must be defined"
-    #include content_encrypt_key
     #endif
+    #include content_encrypt_key
 
     #ifndef LLM_ENCRYPT_KEY
     #error "LLM_ENCRYPT_KEY must be defined"
-    #include LLM_ENCRYPT_KEY
     #endif
+    #include LLM_ENCRYPT_KEY
+
     #ifndef NAME_ENCRYPT_KEY
     #error "NAME_ENCRYPT_KEY must be defined"
-    #include NAME_ENCRYPT_KEY
     #endif
+    #include NAME_ENCRYPT_KEY
 
 #endif
