@@ -6,14 +6,14 @@
 //these its just for the intelisense
 //they are not used in the code
 #ifndef  VIBE_AMALGAMATION
-#define content_encrypt_keykey_size
-#define content_encrypt_key_get_key(key) 
+#define contentkey_size 1
+#define contentkey_size(key) 
 
-#define llm_encrypt_key_get_key_size(key)
-#define llm_encrypt_key_get_key(key)
+#define llmkey_size 1
+#define llm_get_key(key)
 
-#define name_encrypt_keykey_size
-#define name_encrypt_key_get_key(key) 
+#define namekey_size 1
+#define name_get_key(key) 
 
 #else 
     //these must be passed for the user 
