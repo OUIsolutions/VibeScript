@@ -80,7 +80,8 @@ char *vibe_callback_handler(cJSON *args, void *pointer){
     if(LuaCEmbedTable_get_full_size(response) == 0){
         return strdup("Nil");
     }
-    
+   
+
     cJSON *json_response = lua_fluid_json_dump_to_cJSON_array(response);
     if(json_response == NULL){
         return strdup("Nil");
@@ -147,7 +148,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     UniversalGarbage_add(garbage,FunctionCallbackArgsfree,callback_args);
 
 
-    LuaCEmbed_generate_arg_clojure_evalation(args,3,"function(callback)\n %s = callback  end\n",callback_args);
+    LuaCEmbed_generate_arg_clojure_evalation(args,3,"function(callback)\n %s = callback  end\n",callback_args->function_name);
     
     OpenAiCallback *callback = new_OpenAiCallback(vibe_callback_handler,callback_args, name,description, true);
 
