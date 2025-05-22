@@ -7,6 +7,7 @@ keys
 create_keys.sh
 *.o
 full_build.sh
+.commit_changes.txt
 teste.json
 teste.lua
 .obsidian
