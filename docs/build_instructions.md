@@ -6,13 +6,16 @@ For Build the project you must have [Darwin](https://github.com/OUIsolutions/Dar
 if you are on linux you can install darwin with:
 
 ```bash
-curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.2.0/darwin.c -o darwin.c &&
-gcc darwin.c -o darwin.out &&
-sudo mv darwin.out /usr/bin/darwin
+curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.3.0/darwin.out -o darwin.out && sudo chmod +x darwin.out &&  sudo  mv darwin.out /usr/bin/darwin
+
 ```
 #### [Key Obfuscate](https://github.com/OUIsolutions/key_obfuscate)  
 you must have [Key Obfuscate](https://github.com/OUIsolutions/key_obfuscate) installed on version 0.1.0  to generate the encription keys required to build the project
+if you are on linux you can install key obfuscate with:
 
+```bash
+curl -L https://github.com/OUIsolutions/key_obfuscate/releases/download/0.0.1/KeyObfuscate.out -o KeyObfuscate  && sudo chmod +x  KeyObfuscate  && sudo mv KeyObfuscate  /bin/KeyObfuscate 
+```
 
 
 ### Creating your keys
