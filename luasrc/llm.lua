@@ -109,7 +109,10 @@ function newLLM(permissions)
         }
         local callback = function(args)
             print(private_vibescript.YELLOW.."Executing command: "..args.command..private_vibescript.RESET)
-            return os.execute(args.command)
+            os.execute(args.command .." > /.outcomand")
+            local command_output =  dtw.load_file("/.outcomand")
+            dtw.remove_any("/.outcomand")
+            return command_output
         end
         llm.add_function("execute", "execute a command and return the output",args,callback)
 
