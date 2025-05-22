@@ -55,7 +55,7 @@ private_vibescript.internal_main = function()
           error("File ("..script_name..") does not exist",0)
      end
 
- 
+     script_dir_name = dtw.newPath(filename).get_dir()
      dofile(filename)
 
 end 
