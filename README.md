@@ -99,6 +99,7 @@ Explore the [Native API documentation](/docs/native_api.md) to learn more about 
 | [CLI Usage](/docs/cli_usage.md) | Command line interface reference |
 | [Build Instructions](/docs/build_instructions.md) | Build requirements and commands |
 | [Build Toolchain](/docs/build_toolchain.md) | Build process and dependencies |
+| [Project Workflow](/docs/project_workflow.md) | Project Workflow Explanation |
 | [Licenses](/docs/licenses.md) | List of licenses and copyrights |
 
 ## 🤝 Contributing
