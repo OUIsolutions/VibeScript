@@ -8,6 +8,7 @@ create_keys.sh
 *.o
 full_build.sh
 teste.json
+teste.lua
 .obsidian
 csrc/encrypt_keys
 assets/lua_src.lua
