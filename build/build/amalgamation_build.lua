@@ -20,8 +20,9 @@ function amalgamation_build()
 
 
     local project = darwin.create_project(PROJECT_NAME)
-
     project.add_lua_code("private_vibescript = {}\n")
+    project.embed_global("PRIVATE_VIBESCRIPT_HELP_TEXT",darwin.dtw.load_file("assets/help.txt"))
+
     project.add_lua_code("argv = function()\n")
     project.add_lua_file("dependencies/luargv.lua")
     project.add_lua_code("end\n")

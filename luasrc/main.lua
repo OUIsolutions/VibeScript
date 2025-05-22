@@ -8,6 +8,11 @@ private_vibescript.internal_main = function()
           print("vibescript "..private_vibescript.VERSION)
           return
      end 
+     if action == private_vibescript.HELP or argv.flags_exist({"help","h"}) then
+          print(PRIVATE_VIBESCRIPT_HELP_TEXT)
+          return
+     end
+
      if action == private_vibescript.RESET_CONFIG then
           return private_vibescript.reset()
      end
