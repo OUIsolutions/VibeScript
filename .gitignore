@@ -8,6 +8,8 @@ create_keys.sh
 *.o
 full_build.sh
 .commit_changes.txt
+prompt.md
+response.md
 teste.json
 teste.lua
 .obsidian
