@@ -9,6 +9,7 @@ This document provides a comprehensive guide to the native API of VibeScript, a 
 - [Building a Basic Chatbot](#building-a-basic-chatbot)
 - [Defining Custom Functions for LLM](#defining-custom-functions-for-llm)
 - [Managing Persistent Properties](#managing-persistent-properties)
+- [Relative Loading of Scripts](#relative-loading-of-scripts)
 - [Error Handling and Permissions](#error-handling-and-permissions)
 
 ## Built-in Libraries
@@ -250,6 +251,33 @@ print(ai_color .. "AI color updated to yellow and saved." .. private_vibescript.
 
 **Note**: Since the configuration is encrypted, properties are secure and cannot be easily accessed outside of VibeScript.
 
+## Relative Loading of Scripts
+
+VibeScript provides a `relative_load()` function to load and execute Lua scripts relative to the directory of the currently running script. This mechanism is useful for modularizing code by allowing scripts to include other scripts located in the same or a relative directory.
+
+### Using `relative_load()`
+
+The `relative_load()` function takes a single parameter, `path`, which specifies the relative path to the script to be loaded. The function constructs the full path by concatenating the current script's directory (`script_dir_name`) with the provided relative path.
+
+Here’s an example of using `relative_load()` to include a utility script:
+
+```lua
+-- Load a utility script located in a subdirectory 'utils' relative to the current script
+relative_load("utils/helpers.lua")
+
+-- Now you can use functions or variables defined in helpers.lua
+print("Helper functions loaded and ready to use.")
+```
+
+### How It Works
+
+- **Path Resolution**: The function temporarily changes the global `filename` variable to the resolved path of the target script using `dtw.concat_path(script_dir_name, path)`.
+- **File Existence Check**: It checks if the target file exists using `dtw.isfile()`. If the file does not exist, it throws an error with the path of the missing file.
+- **Execution**: If the file exists, it is executed using `dofile()`, which runs the Lua code in the current environment.
+- **State Restoration**: After execution, the original values of `script_dir_name` and `filename` are restored to ensure that the loading process does not affect the state of the calling script.
+
+**Note**: If the specified file does not exist, an error is thrown with a message indicating the missing file's path. Ensure the path is correct and the file exists before calling `relative_load()`.
+
 ## Error Handling and Permissions
 
 VibeScript includes robust error handling to prevent crashes and provide meaningful feedback. Errors are typically thrown as Lua exceptions and can be caught using `pcall()` if needed.
@@ -290,4 +318,4 @@ print("Response: " .. response)
 
 ## Conclusion
 
-The VibeScript Native API provides a rich set of tools for interacting with LLMs, managing files, and maintaining state through persistent properties. By leveraging built-in libraries, custom functions, and secure configuration management, developers can create powerful AI-driven scripts and chatbots. This documentation, with its detailed examples, should serve as a comprehensive guide to harnessing the full potential of VibeScript.
+The VibeScript Native API provides a rich set of tools for interacting with LLMs, managing files, and maintaining state through persistent properties. By leveraging built-in libraries, custom functions, relative script loading, and secure configuration management, developers can create powerful AI-driven scripts and chatbots. This documentation, with its detailed examples, should serve as a comprehensive guide to harnessing the full potential of VibeScript.
