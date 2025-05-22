@@ -2,7 +2,7 @@
 
 ### Build Requirements 
 #### [Darwin](https://github.com/OUIsolutions/Darwin)  
-For Build the project you must have [Darwin](https://github.com/OUIsolutions/Darwin) installed on version 0.2.0
+For Build the project you must have [Darwin](https://github.com/OUIsolutions/Darwin) installed on version 0.3.0
 if you are on linux you can install darwin with:
 
 ```bash
@@ -27,7 +27,7 @@ KeyObfuscate --entry 'your llm encryption  key' --project_name 'llm' --output 'k
 KeyObfuscate --entry 'your name encryption  key' --project_name 'name' --output 'keys/name.h'
 ```
 ### Copiling from the amalgamation
-you can now compile, direct from the [release/amalgamation](/release/amalgamation) directly, with the following command:
+you can now compile, direct from the [https://github.com/OUIsolutions/VibeScript/releases/download/0.2.1/amalgamation.c](/release/amalgamation) directly, with the following command:
 ```bash
 gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -o vibescript
 ```
