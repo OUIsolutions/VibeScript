@@ -1,18 +1,50 @@
-Usage: vibescript [COMMAND] [OPTIONS]
-Commands:
-configure_model    Configure an AI model with API endpoint and authentication
-set_default_model  Set a model as the default model
-remove_model      Remove a configured model
-list_models       List all configured models
---help             Display this help information
-Examples:
-vibescript configure_model --model grok-2-latest --url test  --key your_key
-vibescript main.lua (will interpret the file)
-vibescript set_default_model --model grok-2-latest
-vibescript remove_model --model grok-2-latest
-vibescript list_models
-vibescript --help
-Options:
---model STRING     Specify which AI model to use (default: gpt-4o)
---url STRING       Specify the API endpoint URL
---key STRING       Specify the API authentication key
+CLI Usage Help for Vibescript
+
+This document provides detailed information on how to use the Vibescript CLI tool.
+
+1. Configure a Model
+   To configure a model, use the following command:
+   vibescript configure_model --model grok-2-latest --url https://api.x.ai/v1/chat/completions --key "your key"
+
+2. Interpret a File
+   To interpret a file, simply call Vibescript with the file name. The runtime will interpret 'main.lua':
+   vibescript main.lua
+
+3. List Models
+   To list all configured models, use:
+   vibescript list_models
+
+4. Remove Model
+   To remove a model, specify the model name with the command:
+   vibescript remove_model --model grok-2-latest
+
+5. Set Model as Default
+   To set a model as the default for future operations, use:
+   vibescript set_model_as_default --model grok-2-latest
+
+6. Reset Configuration
+   To reset the configuration to default settings, use:
+   vibescript resset_config
+
+7. Get Help
+   To display help information on the terminal, use:
+   vibescript help
+
+8. Add Script
+   To add a script, specify the file path and script name:
+   vibescript add_script --file /path/to/script.lua script_name
+
+9. Remove Script
+   To remove a script, specify the script name:
+   vibescript remove_script script_name
+
+10. List Scripts
+    To list all scripts, optionally with a prefix to filter:
+    vibescript list_scripts [prefix]
+
+11. Interpret a Script with a Specified Name
+    To interpret a script by its name, first add it if not already added, then call it directly:
+    vibescript add_script --file /path/to/script.lua script_name
+    vibescript script_name
+
+For further assistance or to report issues, please refer to the project documentation or contact support.
