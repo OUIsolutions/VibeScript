@@ -22,6 +22,7 @@ private_vibescript.get_config_json = function()
         return {
             scripts ={},
             models = {},
+            props = {},
         }
     end 
     
