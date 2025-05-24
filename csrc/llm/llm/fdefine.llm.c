@@ -131,7 +131,7 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     while (true){
         DtwRandonizer *randonizer = newDtwRandonizer();
         char *token = DtwRandonizer_generate_token(randonizer, 20);
-        public_name = malloc(40);
+        public_name = calloc(40, sizeof(char));
         sprintf(public_name,"llm_clojure%s",token);
         free(token);
         if(LuaCEmbed_get_global_type(args, public_name) == LUA_CEMBED_NIL){

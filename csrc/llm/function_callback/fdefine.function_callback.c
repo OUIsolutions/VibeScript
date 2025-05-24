@@ -6,6 +6,7 @@
 
 FunctionCallbackArgs *newFunctionCallbackArgs(const char *function_name, LuaCEmbed *lua_virtual_machine){
     FunctionCallbackArgs *self = (FunctionCallbackArgs *)malloc(sizeof(FunctionCallbackArgs));
+    *self = (FunctionCallbackArgs){0};
     strcpy(self->function_name, function_name);
     self->lua_virtual_machine = lua_virtual_machine;
     return self;
