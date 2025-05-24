@@ -67,9 +67,7 @@ end
 private_vibescript.main = function()
      argv.get_next_unused()
 
-     private_vibescript.internal_main()
-     if true then return 0 end
-
+   
      local ok, error = pcall(private_vibescript.internal_main)
      if not ok then
          print(private_vibescript.RED..error..private_vibescript.RESET)
