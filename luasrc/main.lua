@@ -69,7 +69,6 @@ private_vibescript.main = function()
      local ok, error = pcall(private_vibescript.internal_main)
      if not ok then
          print(private_vibescript.RED..error..private_vibescript.RESET)
-         os.exit(1)
      end
      return 0
 
