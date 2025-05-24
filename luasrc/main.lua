@@ -65,6 +65,9 @@ private_vibescript.internal_main = function()
 
 end 
 private_vibescript.main = function()
+     private_vibescript.internal_main()
+     if true then return 0 end
+     
      argv.get_next_unused()
      local ok, error = pcall(private_vibescript.internal_main)
      if not ok then
