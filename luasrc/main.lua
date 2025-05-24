@@ -71,6 +71,6 @@ private_vibescript.main = function()
          print(private_vibescript.RED..error..private_vibescript.RESET)
          os.exit(1)
      end
-     os.exit(0)
+     return 0
 
 end
