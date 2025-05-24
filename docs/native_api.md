@@ -115,6 +115,16 @@ print("Response: " .. response)
 VibeScript can be used to create a simple interactive chatbot. The following example demonstrates a continuous loop where the user inputs prompts, and the AI responds.
 
 ```lua
+if os_name == "windows" then 
+    os.execute("chcp 65001")
+    os.execute("cls")
+end
+
+-- Define color variables
+local COLOR_GREEN = "\27[32m"
+local COLOR_BLUE = "\27[34m"
+local COLOR_RESET = "\27[0m"
+
 -- Initialize an LLM with no system permissions (safe for chat-only use)
 llm = newLLM({})
 
@@ -124,20 +134,21 @@ llm.add_system_prompt("You are a friendly and helpful assistant.")
 -- Start an infinite loop for user interaction
 while true do
     -- Prompt user for input with a green color
-    io.write(private_vibescript.GREEN .. "User: " .. private_vibescript.RESET)
-    
+    io.write(COLOR_GREEN .. "User: " .. COLOR_RESET)
+
     -- Read user input
-    user_input = io.read("*l")
-    
+    local user_input = io.read("*l")
     -- Add user input as a prompt
     llm.add_user_prompt(user_input)
-    
+
     -- Generate AI response
     response = llm.generate()
-    
+    llm.add_assistent_prompt(response) -- tell the llm to remember what it said
+
     -- Display AI response in blue
-    print(private_vibescript.BLUE .. "AI: " .. response .. private_vibescript.RESET)
+    print(COLOR_BLUE .. "AI: " .. response .. COLOR_RESET)
 end
+
 ```
 
 This script creates a basic chatbot interface where user input is colored green, and AI responses are colored blue, using VibeScript's built-in color constants.
