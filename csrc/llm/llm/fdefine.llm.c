@@ -126,26 +126,8 @@ LuaCEmbedResponse *add_function(LuaCEmbedTable *self, LuaCEmbed *args){
     }
     DtwStringArray_append(functionsNames,name);
 
-
-    char *public_name = NULL;
-    while (true){
-        DtwRandonizer *randonizer = newDtwRandonizer();
-        char *token = DtwRandonizer_generate_token(randonizer, 20);
-        public_name = calloc(40, sizeof(char));
-        sprintf(public_name,"llm_clojure%s",token);
-        free(token);
-        if(LuaCEmbed_get_global_type(args, public_name) == LUA_CEMBED_NIL){
-            DtwRandonizer_free(randonizer);
-            break;
-        }
-        free(public_name);
-        public_name = NULL;
-        DtwRandonizer_free(randonizer);
-    }
-
     UniversalGarbage *garbage =  (UniversalGarbage *)(ldtw_ptr_cast)LuaCembedTable_get_long_prop(self,"garbage");
-    FunctionCallbackArgs * callback_args = newFunctionCallbackArgs(public_name, args);
-    free(public_name);
+    FunctionCallbackArgs * callback_args = newFunctionCallbackArgs(name, args);
 
     UniversalGarbage_add(garbage,FunctionCallbackArgsfree,callback_args);
 
