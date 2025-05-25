@@ -1,9 +1,9 @@
 private_vibescript.configure_props_functions = function(config_json)
 
 
-    function get_prop(prop_name)
+    function get_prop(prop_name,default)
         if not config_json.props[prop_name] then
-            return {}
+            return default
         end
         return config_json.props[prop_name]
     end 
