@@ -393,6 +393,38 @@ print(json.is_table_a_object(array))  -- false (it's an array)
 local object = {a = 20, b = 30}
 print(json.is_table_a_object(object))  -- true (it's an object)
 ```
+## Lua Ship 
+```lua
+local ship = require("LuaShip")
+
+-- Create a new container machine
+local image = ship.create_machine("alpine:latest")
+
+-- Configure container runtime
+image.provider = "podman"
+
+-- Add build-time commands
+image.add_comptime_command("apk update")
+image.add_comptime_command("apk add --no-cache gcc musl-dev curl")
+
+-- Copy files
+image.copy("source.c", "source.c")
+
+-- Start container with specific configuration
+image.start({
+    flags = {
+        "--memory=200m",
+        "--network=host"
+    },
+    volumes = {
+        { ".", "/output" }
+    },
+    command = {"gcc --static source.c -o /output/binary", 'echo "end"'}
+    -- Or
+    -- command = "echo 'You can also use '\\''comand'\\'' by passing just a string.'"
+})
+```
+
 
 ## Summary
 VibeScript's Native API enables interaction with LLMs through `newLLM()`, permissions, context addition, custom functions, and persistent properties. Use built-in libraries (`dtw`, `json`, etc.) for file and data operations. This simplified guide covers the most critical aspects for effective LLM integration.
