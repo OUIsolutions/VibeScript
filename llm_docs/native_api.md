@@ -1,8 +1,22 @@
-# VibeScript Native API - Simplified for LLM
+# VibeScript: LLM-Optimized Native API Documentation
 
-This document is a concise guide to the core features of VibeScript's Native API, tailored for easy interpretation by Large Language Models (LLMs). It focuses on the essential components for interacting with LLMs, managing scripts, and permissions.
+## 📋 Overview
 
-## Core Concepts
+VibeScript is a specialized Lua runtime environment designed to facilitate fast automations through quick scripts. It seamlessly integrates LLM capabilities into Lua, enabling powerful AI-driven workflows with minimal setup. This document provides a concise guide to VibeScript's Native API, tailored for easy interpretation by Large Language Models (LLMs).
+
+## ✨ Key Features
+
+- **LLM Integration**: Direct access to LLM models from Lua scripts.
+- **File System Operations**: Secure read/write/execute/delete/list capabilities for automation, controlled by permissions.
+- **Multi-platform Support**: Designed to work on various operating systems.
+- **Simple API**: Intuitive Lua interface for complex LLM operations.
+- **Configurable Models**: Support for various LLM providers (configuration managed via CLI).
+- **Custom Functions**: Extend LLM capabilities by defining Lua functions callable by the LLM.
+- **Persistent Properties**: Store and retrieve data across script executions.
+- **Built-in Libraries**: Includes utilities for file operations (`dtw`), JSON (`json`), argument parsing (`argv`), and container management (`ship`).
+- **Relative Script Loading**: Modularize code by loading Lua scripts relative to the current script's path.
+
+## Native API Functionality
 
 ### 1. Built-in Libraries
 VibeScript provides native Lua libraries for essential tasks. These are automatically available:
@@ -49,7 +63,7 @@ response = llm.generate()
 print("Response: " .. response)
 ```
 
-### 4. Building a Chatbot
+### 4. Building a Basic Chatbot
 Create a simple interactive chatbot with a loop for user input and AI responses.
 ```lua
 llm = newLLM({})  -- No permissions for safety
@@ -99,7 +113,28 @@ set_prop("ai_response_color", "yellow")
 print("AI color updated to yellow and saved.")
 ```
 
-### 7. Error Handling
+### 7. Relative Loading of Scripts
+VibeScript allows loading Lua scripts relative to the directory of the currently running script using `relative_load()`. This helps in organizing code into modules.
+
+#### Usage
+```lua
+-- Assuming utils/helpers.lua exists relative to the current script
+-- This will execute helpers.lua in the current Lua environment
+relative_load("utils/helpers.lua")
+
+-- Functions and variables from helpers.lua are now available
+-- e.g., if helpers.lua defines: function utility_function() print("Hello from helper") end
+-- utility_function() -- This would now work
+```
+
+#### How it Works
+- `relative_load(path_to_script)`:
+  - `path_to_script` is a string representing the relative path (e.g., "lib/utils.lua", "../common.lua").
+  - The function resolves the full path based on the directory of the script calling `relative_load()`.
+  - It checks if the target file exists. If not, an error is thrown.
+  - If the file exists, it's executed using `dofile()`.
+
+### 8. Error Handling
 Handle errors using `pcall()` for safe execution.
 ```lua
 local status, llm = pcall(function()
@@ -114,13 +149,13 @@ response = llm.generate()
 print("Response: " .. response)
 ```
 
-### Argv
+## Utility Libraries In-Depth
 
+### Argv (Command-Line Argument Parsing)
 
-## Getting  normal args
+#### Getting normal args
 ```lua
 ---@type Argv
-
 
 local size = argv.get_total_args_size()
 for i = 1, size do
@@ -128,10 +163,9 @@ for i = 1, size do
 end
 ```
 
-## Geting flags
-you can get flags by:
+#### Getting flags
+You can get flags by:
 ```lua
----@type Argv
 ---@type Argv
 
 local index = 1
@@ -139,17 +173,16 @@ local default = "test"
 local first_out_flag = argv.get_flag_arg_by_index({ "out", "output", "o" }, index, default)
 print(first_out_flag)
 ```
-if you run:
+If you run:
 ```shell
 lua teste.lua -out test
 ```
-it will appear these:
+It will appear these:
 ```txt
 test
 ```
 
-
-## Getting Flags Size
+#### Getting Flags Size
 ```lua
 ---@type Argv
 
@@ -157,8 +190,8 @@ local size = argv.get_flag_size({ "out", "o" })
 print(size)
 ```
 
-## Checking if a flag exist
-you can check if a flag its present our not, by:
+#### Checking if a flag exist
+You can check if a flag is present or not, by:
 ```lua
 ---@type Argv
 
@@ -167,9 +200,8 @@ local exist = argv.flags_exist({ "case_sensitive", "cs" })
 print(exist)
 ```
 
-## Getting Flags by index Consider only the first
-Considerring only first arg of flag, can make your conde more solid, and
-easy to read:
+#### Getting Flags by index Consider only the first
+Considering only the first arg of a flag can make your code more solid and easy to read:
 ```lua
 ---@type Argv
 
@@ -179,7 +211,7 @@ local first_out_flag = argv.get_flag_arg_by_index_consider_only_first({ "out", "
 print(first_out_flag)
 ```
 
-### Getting Flags Size Consider only the first
+#### Getting Flags Size Consider only the first
 ```lua
 ---@type Argv
 
@@ -187,11 +219,8 @@ local size = argv.get_flag_size_consider_only_first({ "out", "o" })
 print(size)
 ```
 
-
-## Compact flags
-its also possible to get comppact flags (the gcc model), witch increases
-readiability of the software:
-
+#### Compact flags
+It's also possible to get compact flags (the gcc model), which increases readability of the software:
 ```lua
 ---@type Argv
 
@@ -200,17 +229,19 @@ local default = "my default conf"
 local first_conf = argv.get_compact_flags({ "conf:", "conf=" }, index, default)
 print(first_conf)
 ```
-if you run:
+If you run:
 ```shell
 lua teste.lua conf:test a b
 ```
-if will show:
+It will show:
 ```txt
 test
 ```
-## Compact Flags size
-You also can get the compact flags size
+
+#### Compact Flags size
+You also can get the compact flags size:
 ```lua
+---@type Argv
 
 local conf_flags = { "conf:", "conf=" }
 local size = argv.get_compact_flags_size(conf_flags)
@@ -219,21 +250,22 @@ for i = 1, size do
     print("conf " .. i .. ":" .. current_conf)
 end
 ```
-if you run:
+If you run:
 ```shell
  lua teste.lua conf=a conf:b
 ```
-the output will be:
+The output will be:
 ```txt
 conf 1:b
 conf 2:a
 ```
-## Unused flags
-with unsed and unused flags, you can make complex CLIS, by combining flags and args
 
+#### Unused flags
+With unused flags, you can make complex CLIs by combining flags and args:
 ```lua
+---@type Argv
 
---these its required to mark as used
+--these are required to mark as used
 argv.get_arg_by_index(1)
 argv.get_arg_by_index(2)
 local output = argv.get_flag_arg_by_index({ "out", "o" }, 1)
@@ -254,21 +286,16 @@ end
 
 print("output:", output)
 print("entry:", entry)
-
 ```
-
-
 
 ### Json Operations 
 
-### Dumping JSON
+#### Dumping JSON
 
-#### To File
-
+##### To File
 Dump a Lua table to a JSON file:
-
 ```lua
-
+---@type Json
 
 local user = {
     name = 'Mateus',
@@ -284,12 +311,10 @@ local indent = true
 json.dumps_to_file(user, "output.json", indent)
 ```
 
-#### To String
-
+##### To String
 Convert a Lua table to a JSON string:
-
 ```lua
-
+---@type Json
 
 local user = {
     name = 'Mateus',
@@ -305,14 +330,12 @@ local jsonString = json.dumps_to_string(user, indent)
 print(jsonString)
 ```
 
-### Loading JSON
+#### Loading JSON
 
-#### From File
-
+##### From File
 Parse a JSON file into a Lua table:
-
 ```lua
-
+---@type Json
 
 local parsed = json.load_from_file("data.json")
 
@@ -325,12 +348,10 @@ for i, child in ipairs(parsed.children) do
 end
 ```
 
-#### From String
-
+##### From String
 Parse a JSON string into a Lua table:
-
 ```lua
-
+---@type Json
 
 local jsonString = '{"name":"Mateus","age":27}'
 local parsed = json.load_from_string(jsonString)
@@ -339,14 +360,12 @@ print("Name: " .. parsed.name)
 print("Age: " .. parsed.age)
 ```
 
-### Handling NULL Values
+#### Handling NULL Values
 
-#### Default NULL Handling
-
+##### Default NULL Handling
 Since Lua's `nil` doesn't work the same way as `null` in other languages, the library treats the string `"null"` as a JSON null value:
-
 ```lua
-
+---@type Json
 
 local user = {
     name = 'Mateus',
@@ -359,12 +378,10 @@ local indent = true
 json.dumps_to_file(user, "output.json", indent)
 ```
 
-#### Custom NULL Value
-
+##### Custom NULL Value
 You can set a custom string to represent null values:
-
 ```lua
-
+---@type Json
 
 -- Set a custom null identifier
 json.set_null_code("custom_null")
@@ -380,12 +397,10 @@ local indent = true
 json.dumps_to_file(user, "output.json", indent)
 ```
 
-### Type Detection
-
+#### Type Detection
 If you need to ensure that a table is parsed as a JSON object (rather than an array), you can use the `is_table_a_object` function:
-
 ```lua
-
+---@type Json
 
 local array = {1, 2, 3}
 print(json.is_table_a_object(array))  -- false (it's an array)
@@ -393,9 +408,11 @@ print(json.is_table_a_object(array))  -- false (it's an array)
 local object = {a = 20, b = 30}
 print(json.is_table_a_object(object))  -- true (it's an object)
 ```
-## Lua Ship 
+
+### Lua Ship (Container Management)
 ```lua
-local ship = require("LuaShip")
+---@type LuaShip
+local ship = require("LuaShip") -- Note: LuaShip might be globally available or require specific loading
 
 -- Create a new container machine
 local image = ship.create_machine("alpine:latest")
@@ -421,10 +438,9 @@ image.start({
     },
     command = {"gcc --static source.c -o /output/binary", 'echo "end"'}
     -- Or
-    -- command = "echo 'You can also use '\\''comand'\\'' by passing just a string.'"
+    -- command = "echo 'You can also use \\'\\\\'\\'comand\\'\\\\'\\' by passing just a string.'"
 })
 ```
 
-
 ## Summary
-VibeScript's Native API enables interaction with LLMs through `newLLM()`, permissions, context addition, custom functions, and persistent properties. Use built-in libraries (`dtw`, `json`, etc.) for file and data operations. This simplified guide covers the most critical aspects for effective LLM integration.
+VibeScript's Native API enables interaction with LLMs through `newLLM()`, permissions, context addition, custom functions, and persistent properties. Use built-in libraries (`dtw`, `json`, `argv`, `ship`) for file operations, data handling, argument parsing, and container management. This simplified guide covers the most critical aspects for effective LLM integration.
