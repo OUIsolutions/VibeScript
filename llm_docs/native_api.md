@@ -114,5 +114,285 @@ response = llm.generate()
 print("Response: " .. response)
 ```
 
+### Argv
+
+
+## Getting  normal args
+```lua
+---@type Argv
+
+
+local size = argv.get_total_args_size()
+for i = 1, size do
+    print(argv.get_arg_by_index(i))
+end
+```
+
+## Geting flags
+you can get flags by:
+```lua
+---@type Argv
+---@type Argv
+
+local index = 1
+local default = "test"
+local first_out_flag = argv.get_flag_arg_by_index({ "out", "output", "o" }, index, default)
+print(first_out_flag)
+```
+if you run:
+```shell
+lua teste.lua -out test
+```
+it will appear these:
+```txt
+test
+```
+
+
+## Getting Flags Size
+```lua
+---@type Argv
+
+local size = argv.get_flag_size({ "out", "o" })
+print(size)
+```
+
+## Checking if a flag exist
+you can check if a flag its present our not, by:
+```lua
+---@type Argv
+
+---@type boolean
+local exist = argv.flags_exist({ "case_sensitive", "cs" })
+print(exist)
+```
+
+## Getting Flags by index Consider only the first
+Considerring only first arg of flag, can make your conde more solid, and
+easy to read:
+```lua
+---@type Argv
+
+local index = 1
+local default = "test"
+local first_out_flag = argv.get_flag_arg_by_index_consider_only_first({ "out", "output", "o" }, index, default)
+print(first_out_flag)
+```
+
+### Getting Flags Size Consider only the first
+```lua
+---@type Argv
+
+local size = argv.get_flag_size_consider_only_first({ "out", "o" })
+print(size)
+```
+
+
+## Compact flags
+its also possible to get comppact flags (the gcc model), witch increases
+readiability of the software:
+
+```lua
+---@type Argv
+
+local index = 1
+local default = "my default conf"
+local first_conf = argv.get_compact_flags({ "conf:", "conf=" }, index, default)
+print(first_conf)
+```
+if you run:
+```shell
+lua teste.lua conf:test a b
+```
+if will show:
+```txt
+test
+```
+## Compact Flags size
+You also can get the compact flags size
+```lua
+
+local conf_flags = { "conf:", "conf=" }
+local size = argv.get_compact_flags_size(conf_flags)
+for i = 1, size do
+    local current_conf = argv.get_compact_flags(conf_flags, i)
+    print("conf " .. i .. ":" .. current_conf)
+end
+```
+if you run:
+```shell
+ lua teste.lua conf=a conf:b
+```
+the output will be:
+```txt
+conf 1:b
+conf 2:a
+```
+## Unused flags
+with unsed and unused flags, you can make complex CLIS, by combining flags and args
+
+```lua
+
+--these its required to mark as used
+argv.get_arg_by_index(1)
+argv.get_arg_by_index(2)
+local output = argv.get_flag_arg_by_index({ "out", "o" }, 1)
+if not output then
+    print("output its required")
+    return
+end
+local entry = argv.get_next_unused()
+if not entry then
+    print("entry its required")
+    return
+end
+local error_flag = argv.get_next_unused()
+if error_flag then
+    print("unused flag", error_flag)
+    return
+end
+
+print("output:", output)
+print("entry:", entry)
+
+```
+
+
+
+### Json Operations 
+
+### Dumping JSON
+
+#### To File
+
+Dump a Lua table to a JSON file:
+
+```lua
+
+
+local user = {
+    name = 'Mateus',
+    age = 27,
+    married = false,
+    children = {
+        {name = 'Child1', married = 'null'}
+    }
+}
+
+-- The second parameter is the file path, third parameter enables indentation
+local indent = true
+json.dumps_to_file(user, "output.json", indent)
+```
+
+#### To String
+
+Convert a Lua table to a JSON string:
+
+```lua
+
+
+local user = {
+    name = 'Mateus',
+    age = 27,
+    married = true,
+    children = {
+        {name = 'Child1', married = false}
+    }
+}
+
+local indent = true
+local jsonString = json.dumps_to_string(user, indent)
+print(jsonString)
+```
+
+### Loading JSON
+
+#### From File
+
+Parse a JSON file into a Lua table:
+
+```lua
+
+
+local parsed = json.load_from_file("data.json")
+
+print("Name: " .. parsed.name)
+print("Age: " .. parsed.age)
+print("Married: " .. tostring(parsed.married))
+
+for i, child in ipairs(parsed.children) do
+    print("Child name: " .. child.name)
+end
+```
+
+#### From String
+
+Parse a JSON string into a Lua table:
+
+```lua
+
+
+local jsonString = '{"name":"Mateus","age":27}'
+local parsed = json.load_from_string(jsonString)
+
+print("Name: " .. parsed.name)
+print("Age: " .. parsed.age)
+```
+
+### Handling NULL Values
+
+#### Default NULL Handling
+
+Since Lua's `nil` doesn't work the same way as `null` in other languages, the library treats the string `"null"` as a JSON null value:
+
+```lua
+
+
+local user = {
+    name = 'Mateus',
+    age = 27,
+    married = false,
+    children = 'null'  -- This will be parsed as JSON null
+}
+
+local indent = true
+json.dumps_to_file(user, "output.json", indent)
+```
+
+#### Custom NULL Value
+
+You can set a custom string to represent null values:
+
+```lua
+
+
+-- Set a custom null identifier
+json.set_null_code("custom_null")
+
+local user = {
+    name = 'Mateus',
+    age = 27,
+    married = false,
+    children = 'custom_null'  -- This will be parsed as JSON null
+}
+
+local indent = true
+json.dumps_to_file(user, "output.json", indent)
+```
+
+### Type Detection
+
+If you need to ensure that a table is parsed as a JSON object (rather than an array), you can use the `is_table_a_object` function:
+
+```lua
+
+
+local array = {1, 2, 3}
+print(json.is_table_a_object(array))  -- false (it's an array)
+
+local object = {a = 20, b = 30}
+print(json.is_table_a_object(object))  -- true (it's an object)
+```
+
 ## Summary
 VibeScript's Native API enables interaction with LLMs through `newLLM()`, permissions, context addition, custom functions, and persistent properties. Use built-in libraries (`dtw`, `json`, etc.) for file and data operations. This simplified guide covers the most critical aspects for effective LLM integration.
