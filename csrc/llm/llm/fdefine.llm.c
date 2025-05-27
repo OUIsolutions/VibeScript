@@ -42,7 +42,7 @@ LuaCEmbedResponse *make_question(LuaCEmbedTable *self, LuaCEmbed *args){
     OpenAiResponse *response = OpenAiInterface_make_question_finish_reason_treated(openAi);
     const char *answer = OpenAiResponse_get_content_str(response,0);
     if(answer == NULL){
-        return LuaCEmbed_send_error("No answer received from OpenAI");
+        return LuaCEmbed_send_error("No answer received from AI");
     }
     return LuaCEmbed_send_str(answer);
 }
