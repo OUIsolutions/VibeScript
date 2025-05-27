@@ -1,47 +1,68 @@
 private_vibescript.configure_newRawLLMFunction = function(config_json)
-    local chosed_model = nil
-    if config_json.default_model  then
-        for i=1,#config_json.models do
-            local current_model = config_json.models[i]
-            if current_model.name == config_json.default_model then
-                chosed_model = current_model
-                break
+    newRawLLM = function(model)
+        local chosed_model = nil
+    
+        -- Priority 1: Use the provided model if it exists in config_json.models
+        if model then
+            for _, current_model in ipairs(config_json.models) do
+                if current_model.name == model then
+                    chosed_model = current_model
+                    break
+                end
             end
-        end 
-    end
-    if chosed_model == nil then
-        chosed_model = config_json.models[1]
-    end
-    if chosed_model == nil then
-        return 
-    end
-    newRawLLM = function()
+            if not chosed_model then
+                error("Model not found in configuration: " .. model)
+            end
+        end
+    
+        -- Priority 2: Use the default_model if no model is provided
+        if not chosed_model and config_json.default_model then
+            for _, current_model in ipairs(config_json.models) do
+                if current_model.name == config_json.default_model then
+                    chosed_model = current_model
+                    break
+                end
+            end
+            if not chosed_model then
+                error("Default model not found in configuration: " .. config_json.default_model)
+            end
+        end
+    
+        -- Priority 3: Use the first model if no model is provided and no default_model is set
+        if not chosed_model then
+            if #config_json.models == 0 then
+                error("No models available in configuration")
+            end
+            chosed_model = config_json.models[1]
+        end
+    
         return cvibescript.newRawLLM(chosed_model.url, chosed_model.key, chosed_model.name)
     end
 end
 
 
-function newLLM(permissions)
+function newLLM(props)
     if not newRawLLM then
         error("no model configured")
     end
-    local llm = newRawLLM()
+    local llm = newRawLLM(props.model)
     local old_generate = llm.generate
     local files = {}
-    if type(permissions) ~= "table" then
-        error("permissions must be a table")
+    if type(props) ~= "table" then
+        error("props must be a table")
     end
 
 
-    local validPermissions = {
+    local validprops = {
         "read",
         "write",
         "execute",
         "delete",
-        "list"
+        "list",
+        "model"
     }
-    for _, permission in ipairs(permissions) do
-        if not table.contains(validPermissions, permission) then
+    for _, permission in ipairs(props) do
+        if not table.contains(validprops, permission) then
             error("Invalid permission: " .. permission)
         end
         if type(permission) ~= "boolean" then
@@ -80,7 +101,7 @@ function newLLM(permissions)
     end
        
 
-    if permissions.read then
+    if props.read then
 
         local args = {
             {name = "file",description="the file name", type = "string", required = true},
@@ -91,7 +112,7 @@ function newLLM(permissions)
         end
         llm.add_function("read", "read a file and return the content of the file",args,callback)
     end
-    if permissions.write then
+    if props.write then
         local args = {
             {name = "file",description="the file name", type = "string", required = true},
             {name = "content",description="the content to write", type = "string", required = true},
@@ -103,7 +124,7 @@ function newLLM(permissions)
         end
         llm.add_function("write", "write a file and return the content of the file",args,callback)
     end
-    if permissions.execute then
+    if props.execute then
         local args = {
             {name = "command",description="the command to execute", type = "string", required = true},
         }
@@ -117,7 +138,7 @@ function newLLM(permissions)
         llm.add_function("execute", "execute a command and return the output",args,callback)
 
     end
-    if permissions.delete then
+    if props.delete then
         local args = {
             {name = "element",description="the element to remove", type = "string", required = true},
         }
@@ -131,7 +152,7 @@ function newLLM(permissions)
 
 
 
-    if permissions.list then
+    if props.list then
         local args = {
             {name = "dir",description="the directory to list", type = "string", required = true},
         }
