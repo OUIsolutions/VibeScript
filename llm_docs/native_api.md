@@ -18,31 +18,31 @@ Creates a new LLM instance with specified permissions.
   - `list`: (boolean) Allow directory listing
 - **Returns**: LLM object with the following methods:
 
-#### `llm:add_system_prompt(text) -> nil`
+#### `llm.add_system_prompt(text) -> nil`
 Sets system instructions for the LLM.
 - **text**: (string) System instructions
 
-#### `llm:add_user_prompt(text) -> nil`
+#### `llm.add_user_prompt(text) -> nil`
 Adds user message to conversation.
 - **text**: (string) User message
 
-#### `llm:add_assistant_prompt(text) -> nil`
+#### `llm.add_assistant_prompt(text) -> nil`
 Adds assistant response to conversation history.
 - **text**: (string) Assistant response
 
-#### `llm:add_file(path) -> nil`
+#### `llm.add_file(path) -> nil`
 Adds file content to LLM context.
 - **path**: (string) Path to file
 
-#### `llm:add_dir(path) -> nil`
+#### `llm.add_dir(path) -> nil`
 Adds directory content to LLM context.
 - **path**: (string) Path to directory
 
-#### `llm:generate() -> string`
+#### `llm.generate() -> string`
 Generates LLM response based on conversation history.
 - **Returns**: (string) LLM response text
 
-#### `llm:add_function(name, description, parameters, callback) -> nil`
+#### `llm.add_function(name, description, parameters, callback) -> nil`
 Registers a function that LLM can call.
 - **name**: (string) Function name
 - **description**: (string) Function description
@@ -211,10 +211,10 @@ Generates SHA-256 hash based on folder's last modification times.
 #### `dtw.newHasher() -> hasher_object`
 Creates a new hasher object for combining multiple hashes.
 - **Returns**: Hasher object with methods:
-  - `hasher:digest(content) -> nil`: Add content to hash
-  - `hasher:digest_file(path) -> nil`: Add file content to hash
-  - `hasher:digest_folder_by_content(path) -> nil`: Add folder content to hash
-  - `hasher:get_value() -> string`: Get combined SHA-256 hash
+  - `hasher.digest(content) -> nil`: Add content to hash
+  - `hasher.digest_file(path) -> nil`: Add file content to hash
+  - `hasher.digest_folder_by_content(path) -> nil`: Add folder content to hash
+  - `hasher.get_value() -> string`: Get combined SHA-256 hash
 
 ### Path Manipulation
 
@@ -222,30 +222,30 @@ Creates a new hasher object for combining multiple hashes.
 Creates a path object for manipulating paths.
 - **path_string**: (string) Path string
 - **Returns**: Path object with methods:
-  - `path:get_name() -> string`: Get filename
-  - `path:get_dir() -> string`: Get directory part
-  - `path:get_extension() -> string`: Get file extension
-  - `path:get_full_path() -> string`: Get full path string
-  - `path:get_sub_dirs_from_index(start, end) -> string`: Extract subdirectories
-  - `path:set_dir(dir) -> nil`: Set directory part
-  - `path:set_name(name) -> nil`: Set filename
-  - `path:set_extension(extension) -> nil`: Set extension
-  - `path:insert_dir_after(ref_dir, new_dir) -> nil`: Insert directory after reference
-  - `path:insert_dir_before(ref_dir, new_dir) -> nil`: Insert directory before reference
-  - `path:insert_dir_at_index(index, new_dir) -> nil`: Insert directory at specific position
-  - `path:replace_dirs(old_dir, new_dir) -> nil`: Replace directory in path
+  - `path.get_name() -> string`: Get filename
+  - `path.get_dir() -> string`: Get directory part
+  - `path.get_extension() -> string`: Get file extension
+  - `path.get_full_path() -> string`: Get full path string
+  - `path.get_sub_dirs_from_index(start, end) -> string`: Extract subdirectories
+  - `path.set_dir(dir) -> nil`: Set directory part
+  - `path.set_name(name) -> nil`: Set filename
+  - `path.set_extension(extension) -> nil`: Set extension
+  - `path.insert_dir_after(ref_dir, new_dir) -> nil`: Insert directory after reference
+  - `path.insert_dir_before(ref_dir, new_dir) -> nil`: Insert directory before reference
+  - `path.insert_dir_at_index(index, new_dir) -> nil`: Insert directory at specific position
+  - `path.replace_dirs(old_dir, new_dir) -> nil`: Replace directory in path
 
 ### Transactions
 
 #### `dtw.newTransaction() -> transaction_object`
 Creates a transaction for atomic file operations.
 - **Returns**: Transaction object with methods:
-  - `transaction:write(path, content) -> nil`: Add write operation
-  - `transaction:remove_any(path) -> nil`: Add remove operation
-  - `transaction:copy_any(source, dest) -> nil`: Add copy operation
-  - `transaction:commit() -> nil`: Execute all operations
-  - `transaction:dump_to_json_string() -> string`: Serialize transaction to JSON
-  - `transaction:each(callback) -> nil`: Iterate through operations
+  - `transaction.write(path, content) -> nil`: Add write operation
+  - `transaction.remove_any(path) -> nil`: Add remove operation
+  - `transaction.copy_any(source, dest) -> nil`: Add copy operation
+  - `transaction.commit() -> nil`: Execute all operations
+  - `transaction.dump_to_json_string() -> string`: Serialize transaction to JSON
+  - `transaction.each(callback) -> nil`: Iterate through operations
 
 #### `dtw.new_transaction_from_file(path) -> transaction_object`
 Loads a transaction from a JSON file.
@@ -258,48 +258,48 @@ Loads a transaction from a JSON file.
 Creates a resource object for managing files and folders.
 - **path**: (string) Path to resource
 - **Returns**: Resource object with methods:
-  - `resource:get_value() -> string`: Get file content
-  - `resource:set_value(content) -> nil`: Set file content
-  - `resource:sub_resource(name) -> resource_object`: Get child resource
-  - `resource:get_value_from_sub_resource(name) -> string`: Get child resource content
-  - `resource:set_value_in_sub_resource(name, content) -> nil`: Set child resource content
-  - `resource:commit() -> nil`: Apply all changes
-  - `resource:destroy() -> nil`: Delete the resource
-  - `resource:list() -> table, number`: List child resources
-  - `resource:each(callback) -> nil`: Iterate through child resources
-  - `resource:map(callback) -> table, number`: Transform child resources
-  - `resource:find(predicate) -> resource_object`: Find child resource
-  - `resource:filter(predicate) -> table, number`: Filter child resources
-  - `resource:sub_resource_now(extension) -> resource_object`: Create timestamped resource
-  - `resource:sub_resource_now_in_unix(extension) -> resource_object`: Create Unix timestamped resource
-  - `resource:sub_resource_random(extension) -> resource_object`: Create random named resource
-  - `resource:sub_resource_next(extension) -> resource_object`: Create sequentially named resource
+  - `resource.get_value() -> string`: Get file content
+  - `resource.set_value(content) -> nil`: Set file content
+  - `resource.sub_resource(name) -> resource_object`: Get child resource
+  - `resource.get_value_from_sub_resource(name) -> string`: Get child resource content
+  - `resource.set_value_in_sub_resource(name, content) -> nil`: Set child resource content
+  - `resource.commit() -> nil`: Apply all changes
+  - `resource.destroy() -> nil`: Delete the resource
+  - `resource.list() -> table, number`: List child resources
+  - `resource.each(callback) -> nil`: Iterate through child resources
+  - `resource.map(callback) -> table, number`: Transform child resources
+  - `resource.find(predicate) -> resource_object`: Find child resource
+  - `resource.filter(predicate) -> table, number`: Filter child resources
+  - `resource.sub_resource_now(extension) -> resource_object`: Create timestamped resource
+  - `resource.sub_resource_now_in_unix(extension) -> resource_object`: Create Unix timestamped resource
+  - `resource.sub_resource_random(extension) -> resource_object`: Create random named resource
+  - `resource.sub_resource_next(extension) -> resource_object`: Create sequentially named resource
 
 ### Database Schema
 
-#### `resource:newDatabaseSchema() -> schema_object`
+#### `resource.newDatabaseSchema() -> schema_object`
 Creates a database schema for resource.
 - **Returns**: Schema object with methods:
-  - `schema:sub_schema(name) -> schema_object`: Create subschema
-  - `schema:add_primary_keys(keys) -> nil`: Define primary keys
-  - `schema:schema_new_insertion() -> resource_object`: Create new record
-  - `schema:get_resource_matching_primary_key(key, value) -> resource_object`: Find by primary key
-  - `schema:schema_list() -> table, number`: List all records
-  - `schema:schema_each(callback) -> nil`: Iterate through records
-  - `schema:schema_map(callback) -> table, number`: Transform records
-  - `schema:schema_filter(predicate) -> table, number`: Filter records
+  - `schema.sub_schema(name) -> schema_object`: Create subschema
+  - `schema.add_primary_keys(keys) -> nil`: Define primary keys
+  - `schema.schema_new_insertion() -> resource_object`: Create new record
+  - `schema.get_resource_matching_primary_key(key, value) -> resource_object`: Find by primary key
+  - `schema.schema_list() -> table, number`: List all records
+  - `schema.schema_each(callback) -> nil`: Iterate through records
+  - `schema.schema_map(callback) -> table, number`: Transform records
+  - `schema.schema_filter(predicate) -> table, number`: Filter records
 
 ### Tree Management
 
 #### `dtw.newTree() -> tree_object`
 Creates an empty tree for managing a set of files.
 - **Returns**: Tree object with methods:
-  - `tree:newTreePart_empty(path) -> tree_part`: Create empty tree part
-  - `tree:commit() -> nil`: Apply all changes
-  - `tree:each(callback) -> nil`: Iterate through tree parts
-  - `tree:map(callback) -> table, number`: Transform tree parts
-  - `tree:count(predicate) -> number`: Count matching tree parts
-  - `tree:find(predicate) -> tree_part`: Find matching tree part
+  - `tree.newTreePart_empty(path) -> tree_part`: Create empty tree part
+  - `tree.commit() -> nil`: Apply all changes
+  - `tree.each(callback) -> nil`: Iterate through tree parts
+  - `tree.map(callback) -> table, number`: Transform tree parts
+  - `tree.count(predicate) -> number`: Count matching tree parts
+  - `tree.find(predicate) -> tree_part`: Find matching tree part
 
 #### `dtw.newTree_from_hardware(path) -> tree_object`
 Creates a tree from existing directory.
@@ -308,11 +308,11 @@ Creates a tree from existing directory.
 
 #### Tree Part Operations
 Tree parts have the following methods:
-- `tree_part:get_value() -> string`: Get file content
-- `tree_part:set_value(content) -> nil`: Set file content
-- `tree_part:hardware_write() -> nil`: Write changes (create new if path changed)
-- `tree_part:hardware_modify() -> nil`: Apply changes (rename if path changed)
-- `tree_part:hardware_remove() -> nil`: Remove file
+- `tree_part.get_value() -> string`: Get file content
+- `tree_part.set_value(content) -> nil`: Set file content
+- `tree_part.hardware_write() -> nil`: Write changes (create new if path changed)
+- `tree_part.hardware_modify() -> nil`: Apply changes (rename if path changed)
+- `tree_part.hardware_remove() -> nil`: Remove file
 
 ### Process Management
 
@@ -320,17 +320,17 @@ Tree parts have the following methods:
 Creates a forked process.
 - **callback**: (function) Function to run in forked process
 - **Returns**: Fork object with methods:
-  - `fork:wait(timeout_ms) -> nil`: Wait for process to complete
-  - `fork:is_alive() -> boolean`: Check if process is running
-  - `fork:kill() -> nil`: Terminate the process
+  - `fork.wait(timeout_ms) -> nil`: Wait for process to complete
+  - `fork.is_alive() -> boolean`: Check if process is running
+  - `fork.kill() -> nil`: Terminate the process
 
 ### Concurrency Control
 
 #### `dtw.newLocker() -> locker_object`
 Creates a file-based locking mechanism.
 - **Returns**: Locker object with methods:
-  - `locker:lock(resource_name) -> nil`: Acquire lock
-  - `locker:unlock(resource_name) -> nil`: Release lock
+  - `locker.lock(resource_name) -> nil`: Acquire lock
+  - `locker.unlock(resource_name) -> nil`: Release lock
 
 ## BUILT-IN LIBRARIES
 
@@ -380,12 +380,12 @@ local llm = newLLM({
 })
 
 -- Set instructions and context
-llm:add_system_prompt("You are a helpful assistant.")
-llm:add_file("data.txt")
-llm:add_user_prompt("Summarize the data from the file.")
+llm.add_system_prompt("You are a helpful assistant.")
+llm.add_file("data.txt")
+llm.add_user_prompt("Summarize the data from the file.")
 
 -- Generate response
-local response = llm:generate()
+local response = llm.generate()
 print(response)
 ```
 
@@ -433,7 +433,7 @@ local function math_callback(args)
 end
 
 -- Register function with LLM
-llm:add_function(
+llm.add_function(
     "calculate", 
     "Perform math operations", 
     parameters, 
@@ -441,8 +441,8 @@ llm:add_function(
 )
 
 -- Test the function
-llm:add_user_prompt("Calculate 5 + 10 + 15")
-local response = llm:generate()
+llm.add_user_prompt("Calculate 5 + 10 + 15")
+local response = llm.generate()
 print(response)
 ```
 
@@ -460,14 +460,14 @@ end
 
 -- Create a resource
 local res = dtw.newResource("data")
-res:set_value_in_sub_resource("config.json", '{"enabled":true}')
-res:commit()
+res.set_value_in_sub_resource("config.json", '{"enabled":true}')
+res.commit()
 
 -- Create a tree from directory
 local tree = dtw.newTree_from_hardware("src")
-tree:each(function(part)
-    if part.path:get_extension() == "lua" then
-        print("Lua file: " .. part.path:get_full_path())
+tree.each(function(part)
+    if part.path.get_extension() == "lua" then
+        print("Lua file: " .. part.path.get_full_path())
     end
 end)
 ```
@@ -512,5 +512,5 @@ if not status then
 end
 
 -- Continue with LLM operations
-local response = llm:generate()
+local response = llm.generate()
 ```
