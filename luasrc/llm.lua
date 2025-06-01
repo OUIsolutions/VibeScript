@@ -42,6 +42,10 @@ end
 
 
 function newLLM(props)
+
+    if not props then 
+        props = {} 
+    end
     if not newRawLLM then
         error("no model configured")
     end
