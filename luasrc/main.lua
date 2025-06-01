@@ -42,26 +42,26 @@ private_vibescript.internal_main = function()
      --if it gets here , it will make the normal operation, which is to interpret the first arg
      local script_name = action
      
-     filename = script_name
-     local found_filename = false
+     path = script_name
+     local found_path = false
 
      for i = 1 , #config_json.scripts do
           if config_json.scripts[i].name == script_name then
-               filename = config_json.scripts[i].file
-               found_filename = true
+               path = config_json.scripts[i].file
+               found_path = true
                break
           end
      end
      
-     if not found_filename then 
-          filename = dtw.get_absolute_path(script_name)          
+     if not found_path then 
+          path = dtw.get_absolute_path(script_name)          
      end
-     if not filename then
+     if not path then
           error("File ("..script_name..") does not exist",0)
      end
 
-     script_dir_name = dtw.newPath(filename).get_dir()
-     dofile(filename)
+     script_dir_name = dtw.newPath(path).get_dir()
+     dofile(path)
 
 end 
 private_vibescript.main = function()
