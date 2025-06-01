@@ -9,3 +9,4 @@
 #include "../../dependencies/doTheWorld.c"
 #include "../../dependencies/BearHttpsClient.c"
 #include "../../dependencies/SDK_OpenAI.c"
+#include "../../dependencies/CWebStudio.c"
