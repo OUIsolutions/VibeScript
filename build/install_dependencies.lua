@@ -18,7 +18,7 @@ function Install_dependencies()
         {url="https://github.com/OUIsolutions/CWebStudio/releases/download/4.0.0/CWebStudio.c", path = "dependencies/CWebStudio.c"},
         {url="https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V6/serjao_no_dep.c", path = "dependencies/serjao_no_dep.c"},
         {url = "https://github.com/OUIsolutions/LuaArgv/releases/download/0.07/luargv.lua", path = "dependencies/luargv.lua"},
-        {url="https://github.com/OUIsolutions/LuaShip/releases/download/0.1.4/LuaShip.lua", path = "dependencies/LuaShip.lua"}
+        {url="https://github.com/OUIsolutions/LuaShip/releases/download/0.1.5/LuaShip.lua", path = "dependencies/LuaShip.lua"}
     }
     for _, lib in ipairs(libs) do
         local executor = function()
