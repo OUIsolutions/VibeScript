@@ -23,6 +23,7 @@ VibeScript comes with several native Lua libraries that provide essential functi
 | `argv` | [LuaArgv](https://github.com/OUIsolutions/LuaArgv) | A library for parsing command-line arguments, enabling script customization via CLI. |
 | `ship` | [LuaShip](https://github.com/OUIsolutions/LuaShip) | A Podman/Docker wrapper for container management, useful for advanced deployment scenarios. |
 | `serjao` | [SerjaoBerranteiro](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer) | Full web server implementation for lua|
+| `luabear` | [Lua-Bear](https://github.com/OUIsolutions/Lua-Bear) | A Complete Https Client |
 
 These libraries can be directly used within your VibeScript scripts to perform various operations. For example, `dtw.load_file()` can read a file's content, and `json.dumps_to_string()` can serialize a Lua table to a JSON string.
 
