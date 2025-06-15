@@ -14,6 +14,7 @@ function Install_dependencies()
         {url = "https://github.com/OUIsolutions/LuaCEmbed/releases/download/0.8.3/LuaCEmbed.h", path = "dependencies/LuaCEmbed.h"},
         {url = "https://github.com/OUIsolutions/LuaDoTheWorld/releases/download/0.7.1/luaDoTheWorld_no_dep.c", path = "dependencies/luaDoTheWorld_no_dep.c"},
         {url = "https://github.com/OUIsolutions/LuaFluidJson/releases/download/0.6.1/luaFluidJson_no_dep.c", path = "dependencies/luaFluidJson_no_dep.c"},
+        {url="https://github.com/OUIsolutions/Lua-Bear/releases/download/0.1.0/luaBear_no_dep.c", path = "dependencies/luaBear_no_dep.c"},
         {url="https://github.com/OUIsolutions/CWebStudio/releases/download/4.0.0/CWebStudio.h", path = "dependencies/CWebStudio.h"},
         {url="https://github.com/OUIsolutions/CWebStudio/releases/download/4.0.0/CWebStudio.c", path = "dependencies/CWebStudio.c"},
         {url="https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V6/serjao_no_dep.c", path = "dependencies/serjao_no_dep.c"},

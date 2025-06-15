@@ -9,3 +9,4 @@
 #include "../../dependencies/luaDoTheWorld_no_dep.c"
 #include "../../dependencies/luaFluidJson_no_dep.c"
 #include "../../dependencies/serjao_no_dep.c"
+#include "../../dependencies/luaBear_no_dep.c"
