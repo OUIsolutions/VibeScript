@@ -46,7 +46,7 @@ You have two main options to build VibeScript:
 
 ### Option A: Quick Build (Easiest - Recommended for Beginners)
 
-This uses a pre-made file called `amalgamation.c` - think of it as a recipe that has all ingredients already mixed.
+This uses a pre-made file called [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.9.0/amalgamation.c) - think of it as a recipe that has all ingredients already mixed.
 
 ```bash
 gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -o vibescript
