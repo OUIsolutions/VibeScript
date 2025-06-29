@@ -1,4 +1,4 @@
-# 🚀 VibeScript Build Instructions for Beginners
+# 🚀 VibeScript Build Instructions d
 
 Welcome! This guide will help you build VibeScript step by step. Don't worry if you're new to this - we'll explain everything!
 
