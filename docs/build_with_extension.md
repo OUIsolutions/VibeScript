@@ -56,8 +56,14 @@ KeyObfuscate --entry 'my-secret-name-password' --project_name 'name' --output 'k
 now you can compile your custom vibescript version with:
 
 ```bash
- gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\"
- -DNAME_ENCRYPT_KEY=\"keys/name.h\"  -DVIBE_EXTENSION_MODULE=\"extension.c\" -DVIBE_EXTENSION_FUNC=custom_extension -DVIBE_EXTENSION_LIB_NA
-ME=\"custom_extension\" -o custom_vibescript
+ gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\"  -DVIBE_EXTENSION_MODULE=\"extension.c\" -DVIBE_EXTENSION_FUNC=custom_extension -DVIBE_EXTENSION_LIB_NAME=\"custom_extension\" -o custom_vibescript
 ```
 ## step 6: test if your extension its working
+create a **main.lua** file with the following content:
+```lua
+print(custom_extension.custom_message)
+```
+then test with:
+```bash
+./custom_vibescript main.lua 
+```
