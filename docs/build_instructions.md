@@ -32,7 +32,7 @@ you can now compile, direct from the [https://github.com/OUIsolutions/VibeScript
 gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -o vibescript
 ```
 
-### Building your own version
+### Building your own **amalgamation.c** version
 if you want just to create the **amalgamation.c** file you can use the following command:
 ```bash
 darwin run_blueprint build/ --mode folder amalgamation_build
@@ -41,6 +41,8 @@ it will create the **amalgamation.c** file in the **release** folder
 
 ### Local Build from Linux
 make a local build to test with the following command it will create the **vibescript** file
+note, that (**keys/content.h**,**keys/llm.h**,**keys/name.h** ) must be configured in your path
+for these command works.
 ```bash
 darwin run_blueprint build/ --mode folder local_linux_build  
 
@@ -50,6 +52,9 @@ darwin run_blueprint build/ --mode folder local_linux_build
 You must have podman or docker installed on your machine to build in these way, you can set what you want to use on the [build/config.lua](/build/config.lua) file.
 
 if you want to make a full build to all platforms you can use the following command, it will create the following files:
+note, that (**keys/content.h**,**keys/llm.h**,**keys/name.h** ) must be configured in your path
+for these command works.
+
 ```bash
  darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windows64_build rpm_static_build debian_static_build  --contanizer podman
 ```
