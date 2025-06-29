@@ -1,69 +1,145 @@
 
-vibescript allows you to create customizible extensions for the module project, allowing you 
-to change the behavior of the runtime itself .
+# Building VibeScript with Custom Extensions 🚀
 
-## step 1: create a Lib Extension
- create a `luaCEmbed lib` file called **extension.c** following [LuaCEmbed](https://github.com/OUIsolutions/LuaCEmbed.git) especification.
+**What is this?** VibeScript lets you add your own custom features! Think of it like adding new superpowers to the program.
 
- ```c
- int custom_extension(lua_State *state){
+**Who is this for?** Complete beginners who want to customize VibeScript.
+
+**Time needed:** About 10 minutes
+
+---
+
+## 📋 What You'll Need
+
+- A computer with Linux
+- A terminal (command line)
+- Basic copy-paste skills
+
+**That's it!** No programming experience required.
+
+---
+
+## 🛠️ Step 1: Create Your Custom Feature
+
+First, we'll create a simple custom feature. Don't worry about understanding the code - just copy and paste!
+
+**Create a file called `extension.c` and put this code inside:**
+
+```c
+int custom_extension(lua_State *state){
     LuaCEmbed * l  = newLuaCEmbedLib(state);
-    printf("hello from extension\n");
+    printf("🎉 Hello from your custom extension!\n");
 
-    LuaCEmbed_set_string_lib_prop(l, "custom_message", "This is a custom message from custom_extension");
+    LuaCEmbed_set_string_lib_prop(l, "custom_message", "This is YOUR custom message!");
 
     return LuaCembed_perform(l);
 }
- ```
+```
 
-## Step 2: Download the **amalgamation.c** 
-download the [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c) with:
+**What does this do?** This creates a simple custom feature that will show a message when you use it.
+
+---
+
+## 📥 Step 2: Download the Main VibeScript Code
+
+We need to download the main VibeScript code to build on top of.
+
+**Copy and paste this command in your terminal:**
 
 ```bash
 curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c -o amalgamation.c
 ```
 
+**What happened?** You just downloaded a big file with all the VibeScript code!
 
-### Step 3: Install [Key Obfuscate](https://github.com/OUIsolutions/key_obfuscate) (Security Tool)
-This tool creates security keys to protect your application. It's like creating passwords for your app.
+---
 
-**On Linux, copy and paste this command in your terminal:**
+## 🔐 Step 3: Install the Security Tool
+
+VibeScript needs a security tool to keep your custom version safe.
+
+**Copy and paste this command:**
+
 ```bash
 curl -L https://github.com/OUIsolutions/key_obfuscate/releases/download/0.0.1/KeyObfuscate.out -o KeyObfuscate && sudo chmod +x KeyObfuscate && sudo mv KeyObfuscate /bin/KeyObfuscate
 ```
 
+**What's this?** A security tool that creates special passwords for your VibeScript. Like putting locks on your doors!
 
-## 🔐 Step 4: Create Your Security Keys
+---
 
-Every VibeScript build needs security keys. These are like passwords that protect different parts of your app.
+## � Step 4: Create Security Passwords
 
-**Run these commands one by one:**
+Every custom VibeScript needs 3 special passwords. Think of them as 3 different keys for 3 different doors.
 
+**First, create a folder for your passwords:**
 ```bash
-# Create a folder for your keys
 mkdir -p keys
-
-# Create three different security keys (replace the text in quotes with your own passwords)
-KeyObfuscate --entry 'my-secret-content-password' --project_name 'content' --output 'keys/content.h'
-KeyObfuscate --entry 'my-secret-llm-password' --project_name 'llm' --output 'keys/llm.h'  
-KeyObfuscate --entry 'my-secret-name-password' --project_name 'name' --output 'keys/name.h'
 ```
 
-**💡 Tip:** Replace the text in quotes with your own secret passwords. Make them hard to guess!
-
-
-## Step 5: Compile your custom vibescript version:
-now you can compile your custom vibescript version with:
+**Now create your 3 passwords (you can change the words in quotes to anything you want):**
 
 ```bash
- gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\"  -DVIBE_EXTENSION_MODULE=\"extension.c\" -DVIBE_EXTENSION_FUNC=custom_extension -DVIBE_EXTENSION_LIB_NAME=\"custom_extension\" -o custom_vibescript
+KeyObfuscate --entry 'my-super-secret-content-password' --project_name 'content' --output 'keys/content.h'
+KeyObfuscate --entry 'my-awesome-llm-password' --project_name 'llm' --output 'keys/llm.h'  
+KeyObfuscate --entry 'my-fantastic-name-password' --project_name 'name' --output 'keys/name.h'
 ```
-## step 6: test if your extension its working
-create a **main.lua** file with the following content:
+
+**💡 Pro Tip:** Make your passwords long and unique! Like "pizza-loving-cat-2025" instead of just "password123"
+
+---
+
+## 🔨 Step 5: Build Your Custom VibeScript
+
+Now we'll combine everything together to create your custom VibeScript!
+
+**Copy and paste this command (it's long, but just copy the whole thing):**
+
+```bash
+gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -DVIBE_EXTENSION_MODULE=\"extension.c\" -DVIBE_EXTENSION_FUNC=custom_extension -DVIBE_EXTENSION_LIB_NAME=\"custom_extension\" -o custom_vibescript
+```
+
+**What's happening?** Your computer is building your custom VibeScript with your new feature inside!
+
+---
+
+## 🧪 Step 6: Test Your Custom VibeScript
+
+Let's make sure your custom feature works!
+
+**Create a test file called `main.lua` with this content:**
+
 ```lua
+print("Testing my custom VibeScript...")
 print(custom_extension.custom_message)
+print("It works! 🎉")
 ```
-then test with:
+
+**Now test it:**
+
 ```bash
 ./custom_vibescript main.lua 
 ```
+
+**What you should see:**
+```
+Testing my custom VibeScript...
+🎉 Hello from your custom extension!
+This is YOUR custom message!
+It works! 🎉
+```
+
+---
+
+## 🎉 Congratulations!
+
+You just built your first custom VibeScript! 
+
+**What you accomplished:**
+- ✅ Created a custom feature
+- ✅ Downloaded the VibeScript code
+- ✅ Set up security
+- ✅ Built your custom version
+- ✅ Tested it successfully
+
+**What's next?** You can now modify the `extension.c` file to add your own custom features!
