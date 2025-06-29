@@ -17,10 +17,10 @@ to change the behavior of the runtime itself .
  ```
 
 ## Step 2: Download the **amalgamation.c** 
-download the [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.9.0/amalgamation.c) with:
+download the [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c) with:
 
 ```bash
-curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.9.0/amalgamation.c -o amalgamation.c
+curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c -o amalgamation.c
 ```
 
 

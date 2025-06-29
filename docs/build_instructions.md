@@ -46,12 +46,12 @@ You have two main options to build VibeScript:
 
 ### Option A: Quick Build (Easiest - Recommended for Beginners)
 
-This uses a pre-made file called [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.9.0/amalgamation.c) - think of it as a recipe that has all ingredients already mixed.
+This uses a pre-made file called [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c) - think of it as a recipe that has all ingredients already mixed.
 
-download the [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.9.0/amalgamation.c) with:
+download the [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c) with:
 
 ```bash
-curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.9.0/amalgamation.c -o amalgamation.c
+curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c -o amalgamation.c
 ```
 compile the amalgamation with:
 ```bash

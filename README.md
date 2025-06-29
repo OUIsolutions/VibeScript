@@ -29,7 +29,7 @@ VibeScript is a specialized Lua runtime environment designed to facilitate fast 
 
 ### Option 1: Download Pre-built Binaries
 
-Download the latest release from our [releases page](https://github.com/OUIsolutions/VibeScript/releases/tag/0.9.0).
+Download the latest release from our [releases page](https://github.com/OUIsolutions/VibeScript/releases/tag/0.10.0).
 
 ### Option 2: Install via Package Manager
 
