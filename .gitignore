@@ -2,13 +2,17 @@
 *.d
 keys.txt
 # Object files
+custom_vibescript
 local_buil.sh
 keys
 create_keys.sh
+amalgamation.c
+extension.c
 *.o
 full_build.sh
 .commit_changes.txt
 prompt.md
+test.c
 response.md
 refs
 teste.json
