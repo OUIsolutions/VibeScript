@@ -1,9 +1,17 @@
 
 
 #include "imports/imports.fdefine.h"
-
+#ifdef VIBE_EXTENSION_MODULE 
+#include VIBE_EXTENSION_MODULE
+#endif
 int vibescript_start(lua_State *state){
     LuaCEmbed * l  = newLuaCEmbedLib(state);
+
+    #if defined(VIBE_EXTENSION_FUNC) && defined(VIBE_EXTENSION_LIB_NAME)
+        LuaCEmbed_load_lib_from_c(l,VIBE_EXTENSION_FUNC,VIBE_EXTENSION_LIB_NAME);
+    #endif  
+
+
     LuaCEmbed_load_lib_from_c(l,load_luaDoTheWorld,"dtw");
     LuaCEmbed_load_lib_from_c(l,load_lua_fluid_json,"json");
     LuaCEmbed_load_lib_from_c(l,serjao_berranteiro_start_point,"serjao");
