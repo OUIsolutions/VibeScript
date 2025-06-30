@@ -64,6 +64,11 @@ private_vibescript.internal_main = function()
 
 end 
 private_vibescript.main = function()
+   
+     if vibescript_extension_main then 
+          return vibescript_extension_main()
+     end
+   
      argv.get_next_unused()
 
    
