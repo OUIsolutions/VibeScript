@@ -1,2 +1,0 @@
-
-print(custom_extension.custom_message)
