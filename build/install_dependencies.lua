@@ -6,8 +6,8 @@ function Install_dependencies()
     local libs = {
         { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.1/doTheWorld.h", path = "dependencies/doTheWorld.h" },
         { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/10.0.1/doTheWorld.c", path = "dependencies/doTheWorld.c" },
-        { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.3.0/BearHttpsClient.h", path = "dependencies/BearHttpsClient.h" },
-        { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.3.0/BearHttpsClient.c", path = "dependencies/BearHttpsClient.c" },
+        { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.4.0/BearHttpsClient.h", path = "dependencies/BearHttpsClient.h" },
+        { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.4.0/BearHttpsClient.c", path = "dependencies/BearHttpsClient.c" },
         { url = "https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI/releases/download/0.0.10/SDK_OpenAI.c", path = "dependencies/SDK_OpenAI.c" },
         { url = "https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI/releases/download/0.0.10/SDK_OpenAI.h", path = "dependencies/SDK_OpenAI.h" },
         {url = "https://github.com/OUIsolutions/LuaCEmbed/releases/download/0.8.3/LuaCEmbed.c", path = "dependencies/LuaCEmbed.c"},
