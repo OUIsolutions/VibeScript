@@ -33,6 +33,16 @@ function amalgamation_build()
     project.add_lua_code("end\n")
     project.add_lua_code("ship = ship()\n")
 
+    project.add_lua_code("webdriver = function()\n")
+    project.add_lua_file("dependencies/luaWebDriver.lua")
+    project.add_lua_code("end\n")
+    project.add_lua_code("webdriver = webdriver()\n")
+
+    project.add_lua_code("luaberrante = function()\n")
+    project.add_lua_file("dependencies/LuaBerrante.lua")
+    project.add_lua_code("end\n")
+    project.add_lua_code("luaberrante = luaberrante()\n")
+
 
     local src_files = darwin.dtw.list_files_recursively("luasrc",true);
     for i=1,#src_files do
