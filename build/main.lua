@@ -32,4 +32,7 @@ function main()
     darwin.dtw.move_any_overwriting("release/debian_static.deb","release/"..PROJECT_NAME..".deb")
     darwin.dtw.move_any_overwriting("release/rpm_static_build.rpm","release/"..PROJECT_NAME..".rpm")
 
+    if darwin.argv.flags_exist({ "local_linux_install" }) then
+        os.execute("sudo chmod +x release/"..PROJECT_NAME..".out && sudo cp release/"..PROJECT_NAME..".out /bin/"..PROJECT_NAME)
+    end
 end
