@@ -5,9 +5,9 @@ darwin = darwin
 function main()
 
 
-    
-    Install_dependencies()
-    
+    if not argv.flags_exist({ "no_dep_install" }) then 
+        Install_dependencies()
+    end 
   
     local build_funcs = create_build_funcs()
 
