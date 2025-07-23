@@ -20,7 +20,7 @@ function Install_dependencies()
         {url="https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V6/serjao_no_dep.c", path = "dependencies/serjao_no_dep.c"},
         {url = "https://github.com/OUIsolutions/LuaArgv/releases/download/0.07/luargv.lua", path = "dependencies/luargv.lua"},
         {url="https://github.com/OUIsolutions/LuaShip/releases/download/0.2.0/LuaShip.lua", path = "dependencies/LuaShip.lua"},
-        {url="https://github.com/OUIsolutions/LuaWebDriver/releases/download/1.1.2/luaWebDriver.lua", path = "dependencies/luaWebDriver.lua"},
+        {url="https://github.com/OUIsolutions/LuaWebDriver/releases/download/1.1.3/luaWebDriver.lua", path = "dependencies/luaWebDriver.lua"},
         {url="https://github.com/SamuelHenriqueDeMoraisVitrio/LuaBerrante/releases/download/V0.0.1/LuaBerrante.lua", path = "dependencies/LuaBerrante.lua"}
     }
     for _, lib in ipairs(libs) do
