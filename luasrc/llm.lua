@@ -35,7 +35,7 @@ private_vibescript.configure_newRawLLMFunction = function(config_json)
             end
             chosed_model = config_json.models[1]
         end
-    
+        llm_model_name = chosed_model.name
         return cvibescript.newRawLLM(chosed_model.url, chosed_model.key, chosed_model.name)
     end
 end
