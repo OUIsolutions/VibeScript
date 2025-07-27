@@ -43,7 +43,11 @@ function amalgamation_build()
     project.add_lua_code("end\n")
     project.add_lua_code("luaberrante = luaberrante()\n")
 
-
+    project.add_lua_code("heregitage = function()\n")
+    project.add_lua_file("dependencies/heregitage.lua")
+    project.add_lua_code("end\n")
+    project.add_lua_code("heregitage = heregitage()\n")
+    
     local src_files = darwin.dtw.list_files_recursively("luasrc",true);
     for i=1,#src_files do
         local file = src_files[i]

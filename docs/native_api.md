@@ -26,6 +26,7 @@ VibeScript comes with several native Lua libraries that provide essential functi
 | `luabear` | [Lua-Bear](https://github.com/OUIsolutions/Lua-Bear) | A Complete Https Client |
 | `webdriver` | [LuaWebDriver](https://github.com/OUIsolutions/LuaWebDriver) | A WebDriver lib for control chrome browser (similar to selenium) |
 | `luaberrante` | [LuaBerrante](https://github.com/SamuelHenriqueDeMoraisVitrio/LuaBerrante) | A lib to control Telegram over lua |
+| `heregitage` | [LuaHeritage](https://github.com/mateusmoutinho/LuaHeritage) | A lib make complex POO in lua |
 
 These libraries can be directly used within your VibeScript scripts to perform various operations. For example, `dtw.load_file()` can read a file's content, and `json.dumps_to_string()` can serialize a Lua table to a JSON string.
 
