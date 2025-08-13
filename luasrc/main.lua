@@ -4,6 +4,25 @@ private_vibescript.internal_main = function()
      local action =   argv.get_next_unused()
      private_vibescript.configure_newRawLLMFunction(config_json)
      private_vibescript.configure_props_functions(config_json)
+     
+     if action == "set_prop" then 
+          local prop_key = argv.get_next_unused()
+          local prop_value = argv.get_next_unused()
+          set_prop(prop_key, prop_value)
+          return  0
+     end 
+     if action == "get_prop" then 
+          local prop_key = argv.get_next_unused()
+          local prop_value = get_prop(prop_key)
+          if not prop_value then
+               print(private_vibescript.RED.."Property not found: "..prop_key..private_vibescript.RESET)
+          else
+               print(private_vibescript.GREEN..prop_value..private_vibescript.RESET)
+          end
+          return 0
+     end
+
+     
      if argv.one_of_args_exist({"version"}) or argv.flags_exist({"version","v"}) then 
           print("vibescript "..private_vibescript.VERSION)
           return
