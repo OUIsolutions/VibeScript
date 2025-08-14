@@ -23,11 +23,11 @@ private_vibescript.internal_main = function()
      end
 
      
-     if argv.one_of_args_exist({"version"}) or argv.flags_exist({"version","v"}) then 
+     if action == "version" or action == "--version"  then 
           print("vibescript "..private_vibescript.VERSION)
           return
      end 
-     if action == private_vibescript.HELP or argv.flags_exist({"help","h"}) then
+     if action == "help" or action == "--help" then
           print(PRIVATE_VIBESCRIPT_HELP_TEXT)
           return
      end
