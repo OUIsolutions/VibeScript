@@ -6,7 +6,7 @@ private_vibescript.list_scripts = function(config_json)
         local current_script = config_json.scripts[i]
         local print_script = false         
         if start_filtrage then
-            if dtw.starts_with(current_script.name, start_filtrage) then
+            if private_vibescript.is_str_inside(current_script.name, start_filtrage) then
                 print_script = true
             end
         end 
