@@ -48,12 +48,16 @@ function amalgamation_build()
     project.add_lua_code("end\n")
     project.add_lua_code("heregitage = heregitage()\n")
     
+    project.add_lua_code("clpr_module = ")
+    project.add_lua_file("dependencies/clpr.lua")
+    project.add_lua_code("\n")
+    project.add_lua_file("clpr_start.lua")
     local src_files = darwin.dtw.list_files_recursively("luasrc",true);
     for i=1,#src_files do
         local file = src_files[i]
         project.add_lua_file(file);
     end
-    project.add_lua_code("private_vibescript.main()\n")
+    project.add_lua_code("clpr.add_main(private_vibescript.main)")
     project.c_external_code[#project.c_external_code + 1] ="#define VIBE_AMALGAMATION\n"
     project.add_c_file("csrc/start.c",true)
     project.load_lib_from_c("vibescript_start","cvibescript")

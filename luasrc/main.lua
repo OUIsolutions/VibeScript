@@ -90,6 +90,7 @@ private_vibescript.internal_main = function()
      dofile(filename)
 
 end 
+
 private_vibescript.main = function()
    
      if vibescript_extension_main then 
@@ -98,7 +99,6 @@ private_vibescript.main = function()
    
      argv.get_next_unused()
 
-   
      local ok, error = pcall(private_vibescript.internal_main)
      if not ok then
          print(private_vibescript.RED..error..private_vibescript.RESET)

@@ -23,6 +23,8 @@ function Install_dependencies()
         {url="https://github.com/OUIsolutions/LuaWebDriver/releases/download/1.6.0/luaWebDriver.lua", path = "dependencies/luaWebDriver.lua"},
         {url="https://github.com/SamuelHenriqueDeMoraisVitrio/LuaBerrante/releases/download/V0.0.1/LuaBerrante.lua", path = "dependencies/LuaBerrante.lua"},
         {url="https://github.com/mateusmoutinho/LuaHeritage/releases/download/1.0.0/heregitage.lua", path = "dependencies/heregitage.lua"},
+        {url="https://github.com/OUIsolutions/clpr/releases/download/0.1.0/embed.lua", path = "dependencies/clpr.lua"},
+
     }
     for _, lib in ipairs(libs) do
         local executor = function()
