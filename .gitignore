@@ -11,6 +11,7 @@ extension.c
 *.o
 full_build.sh
 .commit_changes.txt
+.clpr
 prompt.md
 test.c
 response.md
