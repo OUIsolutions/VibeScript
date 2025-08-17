@@ -57,7 +57,7 @@ function amalgamation_build()
         local file = src_files[i]
         project.add_lua_file(file);
     end
-    project.add_lua_code("clpr.add_main(private_vibescript.main)")
+    project.add_lua_code("private_vibescript.main()\n")
     project.c_external_code[#project.c_external_code + 1] ="#define VIBE_AMALGAMATION\n"
     project.add_c_file("csrc/start.c",true)
     project.load_lib_from_c("vibescript_start","cvibescript")
