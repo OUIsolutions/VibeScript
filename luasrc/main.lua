@@ -64,19 +64,21 @@ private_vibescript.internal_main = function()
      filename = script_name
      local found_filename = false
 
-     local exec_flag = argv.get_compact_flags({ "exec:", "exec=" }, 1)
-     if exec_flag then 
-          print("Executing script: "..exec_flag)
-     end 
-     
+     local name_num = tonumber(script_name)
      for i = 1 , #config_json.scripts do
           if config_json.scripts[i].name == script_name then
                filename = config_json.scripts[i].file
                found_filename = true
                break
           end
+          if name_num == i then
+               filename = config_json.scripts[i].file
+               found_filename = true
+               break
+          end
+
      end
-     
+
      if not found_filename then 
           filename = dtw.get_absolute_path(script_name)          
      end
