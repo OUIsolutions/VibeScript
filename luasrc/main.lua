@@ -42,9 +42,10 @@ private_vibescript.internal_main = function()
      if action == private_vibescript.REMOVE_SCRIPT then
           return private_vibescript.remove_script(config_json)
      end
-     if action == private_vibescript.LIST_SCRIPTS then
+     if action == private_vibescript.LIST_SCRIPTS or action == private_vibescript.LIST_SCRIPTS_OPTION2 then
           return private_vibescript.list_scripts(config_json)
      end
+     
      if action == private_vibescript.CONFIGURE_MODEL then
           return private_vibescript.add_model(config_json)
      end
