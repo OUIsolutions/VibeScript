@@ -45,7 +45,7 @@ private_vibescript.internal_main = function()
      if action == private_vibescript.LIST_SCRIPTS or action == private_vibescript.LIST_SCRIPTS_OPTION2 then
           return private_vibescript.list_scripts(config_json)
      end
-     
+
      if action == private_vibescript.CONFIGURE_MODEL then
           return private_vibescript.add_model(config_json)
      end
@@ -64,6 +64,11 @@ private_vibescript.internal_main = function()
      filename = script_name
      local found_filename = false
 
+     local exec_flag = argv.get_compact_flags({ "exec:", "exec=" }, 1)
+     if exec_flag then 
+          print("Executing script: "..exec_flag)
+     end 
+     
      for i = 1 , #config_json.scripts do
           if config_json.scripts[i].name == script_name then
                filename = config_json.scripts[i].file
