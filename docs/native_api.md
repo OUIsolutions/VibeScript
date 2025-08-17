@@ -27,9 +27,10 @@ VibeScript comes with several native Lua libraries that provide essential functi
 | `webdriver` | [LuaWebDriver](https://github.com/OUIsolutions/LuaWebDriver) | A WebDriver lib for control chrome browser (similar to selenium) |
 | `luaberrante` | [LuaBerrante](https://github.com/SamuelHenriqueDeMoraisVitrio/LuaBerrante) | A lib to control Telegram over lua |
 | `heregitage` | [LuaHeritage](https://github.com/mateusmoutinho/LuaHeritage) | A lib make complex POO in lua |
+| `clpr` | [clpr](https://github.com/OUIsolutions/clpr) | A lib for multprocess execution in comand line |
 
 These libraries can be directly used within your VibeScript scripts to perform various operations. For example, `dtw.load_file()` can read a file's content, and `json.dumps_to_string()` can serialize a Lua table to a JSON string.
-
+    
 ## Creating an LLM Instance
 
 VibeScript allows you to create instances of Large Language Models (LLMs) to interact with AI services. The `newLLM()` function initializes an LLM with specific permissions, which control the operations the model can perform on your system.
