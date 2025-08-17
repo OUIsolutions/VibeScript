@@ -51,7 +51,6 @@ function amalgamation_build()
     project.add_lua_code("clpr_module = ")
     project.add_lua_file("dependencies/clpr.lua")
     project.add_lua_code("\n")
-    project.add_lua_file("clpr_start.lua")
     local src_files = darwin.dtw.list_files_recursively("luasrc",true);
     for i=1,#src_files do
         local file = src_files[i]
