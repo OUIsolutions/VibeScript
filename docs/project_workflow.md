@@ -210,10 +210,13 @@ Below is a deeper dive into the specific actions supported by VibeScript, as ref
   if not file or not name then error("Missing file or name")
   if not dtw.isfile(file) then error("File does not exist")
   absolute_path = dtw.get_absolute_path(file)
+  description = argv.get_flag_arg_by_index({private_vibescript.DESCRIPTION}, 1)
   for each script in config_json.scripts do
       if script.name == name then error("Script name already exists")
   end
-  config_json.scripts.append({name = name, file = absolute_path})
+  script = {name = name, file = absolute_path}
+  if description then script.description = description end
+  config_json.scripts.append(script)
   private_vibescript.save_config_json(config_json)
   ```
 

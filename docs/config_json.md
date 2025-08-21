@@ -29,7 +29,8 @@ The configuration JSON has the following structure:
   "scripts": [
     {
       "name": "script-alias",
-      "file": "/absolute/path/to/script.lua"
+      "file": "/absolute/path/to/script.lua",
+      "description": "Optional description of the script"
     }
   ],
   "default_model": "model-name"
@@ -54,6 +55,7 @@ Each script object has the following properties:
 
 - `name`: The alias or shortname for the script.
 - `file`: The absolute path to the Lua script file.
+- `description`: (optional) A human-readable description of what the script does.
 
 ### Default Model
 
@@ -76,7 +78,7 @@ You don't need to manually edit this JSON file. VibeScript provides several comm
 - **List models**: `vibescript list_models`
 - **Set default model**: `vibescript set_model_as_default --model <name>`
 - **Reset configuration**: `vibescript reset_config`
-- **Add a script alias**: `vibescript add_script --file /path/to/script.lua script_name`
+- **Add a script alias**: `vibescript add_script --file /path/to/script.lua script_name [--description "Description"]`
 - **Remove a script alias**: `vibescript remove_script script_name`
 - **List scripts**: `vibescript list_scripts [prefix]`
 
