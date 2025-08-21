@@ -199,7 +199,7 @@ Below is a deeper dive into the specific actions supported by VibeScript, as ref
 ### Action: Add Script (`add_script`)
 
 - **Purpose**: Registers a new script alias in the configuration for easy reference.
-- **Operation**: Validates the provided file path and name, ensures no duplicate exists, and adds the script to `config_json.scripts`.
+- **Operation**: Validates the provided file path and name, ensures no duplicate exists, and adds the script to `config_json.scripts`. Optionally stores a description.
 - **Conditions**:
   - File must exist.
   - Name must not already be in use.
@@ -207,13 +207,14 @@ Below is a deeper dive into the specific actions supported by VibeScript, as ref
   ```
   file = argv.get_flag_arg_by_index({private_vibescript.FILE}, 1)
   name = argv.get_next_unused()
+  description = argv.get_next_unused()  // optional
   if not file or not name then error("Missing file or name")
   if not dtw.isfile(file) then error("File does not exist")
   absolute_path = dtw.get_absolute_path(file)
   for each script in config_json.scripts do
       if script.name == name then error("Script name already exists")
   end
-  config_json.scripts.append({name = name, file = absolute_path})
+  config_json.scripts.append({name = name, file = absolute_path, description = description or ""})
   private_vibescript.save_config_json(config_json)
   ```
 
