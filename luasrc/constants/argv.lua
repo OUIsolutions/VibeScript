@@ -4,6 +4,7 @@ private_vibescript.FILE = "file"
 private_vibescript.MODEL = "model"
 private_vibescript.URL = "url"
 private_vibescript.KEY = "key"
+private_vibescript.DESCRIPTION = "description"
 --- actions
 private_vibescript.LIST_MODELS = "list_model"
 private_vibescript.SET_MODEL_AS_DEFAULT = "set_model_as_default"

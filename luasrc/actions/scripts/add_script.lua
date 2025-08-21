@@ -23,10 +23,16 @@ private_vibescript.add_script  = function(config_json)
         end
     end
     
+    local description = argv.get_flag_arg_by_index({ private_vibescript.DESCRIPTION },1)
+    
     local script = {
         name = name,
         file = absolute,
     }
+    
+    if description then
+        script.description = description
+    end
     config_json.scripts[#config_json.scripts+1] = script
     private_vibescript.save_config_json(config_json)
 end 

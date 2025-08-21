@@ -50,10 +50,16 @@ vibescript help
 ```
 
 ### Add Script
-To add a script, you just need to call **vibescript** passing **add_script** as the first argument, followed by the script name and the file path:
+To add a script, you just need to call **vibescript** passing **add_script** as the first argument, followed by the script name and the file path. Optionally, you can add a description:
 
 ```bash
 vibescript add_script --file /path/to/script.lua script_name
+```
+
+Or with a description:
+
+```bash
+vibescript add_script --file /path/to/script.lua script_name --description "Your script description"
 ```
 
 ### Remove Script
