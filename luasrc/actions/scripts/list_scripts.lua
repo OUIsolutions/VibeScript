@@ -14,7 +14,11 @@ private_vibescript.list_scripts = function(config_json)
             print_script = true 
         end     
         if print_script then 
-            print(i..": "..current_script.name)
+            local output = i..": "..current_script.name
+            if current_script.description and current_script.description ~= "" then
+                output = output .. " - " .. current_script.description
+            end
+            print(output)
         end 
     end
 end

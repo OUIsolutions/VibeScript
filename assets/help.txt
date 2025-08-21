@@ -31,8 +31,8 @@ This document provides detailed information on how to use the Vibescript CLI too
    vibescript help
 
 8. Add Script
-   To add a script, specify the file path and script name:
-   vibescript add_script --file /path/to/script.lua script_name
+   To add a script, specify the file path and script name. Optionally, provide a description:
+   vibescript add_script --file /path/to/script.lua script_name [description]
 
 9. Remove Script
    To remove a script, specify the script name:

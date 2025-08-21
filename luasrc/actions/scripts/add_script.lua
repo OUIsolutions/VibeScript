@@ -23,9 +23,13 @@ private_vibescript.add_script  = function(config_json)
         end
     end
     
+    -- Get optional description argument
+    local description = argv.get_next_unused()
+    
     local script = {
         name = name,
         file = absolute,
+        description = description or ""
     }
     config_json.scripts[#config_json.scripts+1] = script
     private_vibescript.save_config_json(config_json)
