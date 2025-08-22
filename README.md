@@ -27,22 +27,9 @@ VibeScript is a specialized Lua runtime environment designed to facilitate fast 
 
 ## 🚀 Installation
 
-### Option 1: Download Pre-built Binaries
-
-Download the latest release from our [releases page](https://github.com/OUIsolutions/VibeScript/releases/tag/0.32.0).
-
-### Option 2: Install via Package Manager
-
-**Debian/Ubuntu:**
+### Linux One Line:
 ```bash
-# Download the .deb package from releases page
-sudo dpkg -i vibescript.deb
-```
-
-**Fedora/RHEL:**
-```bash
-# Download the .rpm package from releases page
-sudo rpm -i vibescript.rpm
+curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/vibescript.out -o vibescript.out && chmod +x vibescript.out && mv vibescript.out /usr/local/bin/vibescript
 ```
 
 ## 🏁 Quick Start
