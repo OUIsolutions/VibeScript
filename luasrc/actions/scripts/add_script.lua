@@ -35,4 +35,9 @@ private_vibescript.add_script  = function(config_json)
     end
     config_json.scripts[#config_json.scripts+1] = script
     private_vibescript.save_config_json(config_json)
+    if os_name == "linux" or os_name == "macos" then 
+        local code = string.format("vibescript %s \"$@\"", name)
+        dtw.write_file("/usr/local/bin/"..name..".sh", code)
+    end 
+      
 end 
