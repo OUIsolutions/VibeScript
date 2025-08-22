@@ -27,7 +27,7 @@ VibeScript is a specialized Lua runtime environment designed to facilitate fast 
 
 ## 🚀 Installation
 
-### Linux One Line:
+### Run These to install on Linux:
 ```bash
 curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/vibescript.out -o vibescript.out && chmod +x vibescript.out && mv vibescript.out /usr/local/bin/vibescript
 ```
