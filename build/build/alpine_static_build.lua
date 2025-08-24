@@ -25,7 +25,7 @@ function alpine_static_build()
 
 
         },
-        command = compiler..[[ --static /release/amalgamation.c  -DCONTENT_ENCRYPT_KEY=\\"../keys/content.h\\" -DLLM_ENCRYPT_KEY=\\"../keys/llm.h\\" -DNAME_ENCRYPT_KEY=\\"../keys/name.h\\"  -DDEFINE_DEPENDENCIES -o /release/alpine_static_bin.out]]
+        command = compiler..[[ --static /release/amalgamation.c    -DDEFINE_DEPENDENCIES -o /release/alpine_static_bin.out]]
 
     })
 end
