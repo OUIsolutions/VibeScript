@@ -25,15 +25,15 @@ private_vibescript.add_model = function(config_json)
     for i = 1, #config_json.models do
         if config_json.models[i].name == model_name then
             alreay_exists = true
-            config_json.models[#config_json.models + 1] = model
-
         end
     end
         
-
     if not alreay_exists then 
         config_json.models[#config_json.models + 1] = model
     end 
+    if alreay_exists then
+        error("Model with name " .. model_name .. " already exists", 0)
+    end
 
     private_vibescript.save_config_json(config_json)
 end
