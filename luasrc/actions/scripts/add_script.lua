@@ -37,7 +37,7 @@ private_vibescript.add_script  = function(config_json)
     private_vibescript.save_config_json(config_json)
     if os_name == "linux" or os_name == "macos" then 
         local code = string.format("vibescript %s \"$@\"", name)
-        local path = "/usr/local/bin/"..name
+        local path = os.getenv("HOME").."/.local/bin/"..name
         os.execute("chmod +x "..path)
         dtw.write_file(path, code)
     end
