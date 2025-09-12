@@ -17,7 +17,7 @@ function Install_dependencies()
         {url="https://github.com/OUIsolutions/Lua-Bear/releases/download/0.3.2/luaBear_no_dep.c", path = "dependencies/luaBear_no_dep.c"},
         {url="https://github.com/OUIsolutions/CWebStudio/releases/download/5.0.0/CWebStudio.h", path = "dependencies/CWebStudio.h"},
         {url="https://github.com/OUIsolutions/CWebStudio/releases/download/5.0.0/CWebStudio.c", path = "dependencies/CWebStudio.c"},
-        {url="https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V6/serjao_no_dep.c", path = "dependencies/serjao_no_dep.c"},
+        {url="https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V6.1/serjao_no_dep.c", path = "dependencies/serjao_no_dep.c"},
         {url = "https://github.com/OUIsolutions/LuaArgv/releases/download/0.07/luargv.lua", path = "dependencies/luargv.lua"},
         {url="https://github.com/OUIsolutions/LuaShip/releases/download/0.2.0/LuaShip.lua", path = "dependencies/LuaShip.lua"},
         {url="https://github.com/OUIsolutions/LuaWebDriver/releases/download/1.7.0/luaWebDriver.lua", path = "dependencies/luaWebDriver.lua"},
