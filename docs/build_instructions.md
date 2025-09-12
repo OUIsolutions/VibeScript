@@ -13,20 +13,6 @@ Darwin is a tool that helps us build the project. Think of it like a smart assis
 ```bash
 curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.3.0/darwin.out -o darwin.out && sudo chmod +x darwin.out && sudo mv darwin.out /usr/bin/darwin
 ```
-
-## 🔐 Step 1: Create Your Security Keys
-
-Every VibeScript build needs security keys. These are like passwords that protect different parts of your app.
-
-**Run these commands one by one:**
-
-```bash
-# Create a folder for your keys
-
-## 🔐 Step 1: Prepare for Build
-
-You no longer need to generate security keys. Just make sure you have Darwin installed and proceed to the build steps below.
-
 ## 🎯 Step 2: Choose Your Build Method
 
 You have two main options to build VibeScript:
@@ -42,7 +28,7 @@ curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amal
 ```
 compile the amalgamation with:
 ```bash
-gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -o vibescript
+gcc amalgamation.c  -o vibescript
 ```
 
 **What this does:** Creates a program called `vibescript` that you can run on your computer.
