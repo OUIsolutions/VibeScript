@@ -14,14 +14,6 @@ Darwin is a tool that helps us build the project. Think of it like a smart assis
 curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.3.0/darwin.out -o darwin.out && sudo chmod +x darwin.out && sudo mv darwin.out /usr/bin/darwin
 ```
 
-### 2. Install Key Obfuscate (Security Tool)
-This tool creates security keys to protect your application. It's like creating passwords for your app.
-
-**On Linux, copy and paste this command in your terminal:**
-```bash
-curl -L https://github.com/OUIsolutions/key_obfuscate/releases/download/0.0.1/KeyObfuscate.out -o KeyObfuscate && sudo chmod +x KeyObfuscate && sudo mv KeyObfuscate /bin/KeyObfuscate
-```
-
 ## 🔐 Step 1: Create Your Security Keys
 
 Every VibeScript build needs security keys. These are like passwords that protect different parts of your app.
@@ -30,15 +22,10 @@ Every VibeScript build needs security keys. These are like passwords that protec
 
 ```bash
 # Create a folder for your keys
-mkdir -p keys
 
-# Create three different security keys (replace the text in quotes with your own passwords)
-KeyObfuscate --entry 'my-secret-content-password' --project_name 'content' --output 'keys/content.h'
-KeyObfuscate --entry 'my-secret-llm-password' --project_name 'llm' --output 'keys/llm.h'  
-KeyObfuscate --entry 'my-secret-name-password' --project_name 'name' --output 'keys/name.h'
-```
+## 🔐 Step 1: Prepare for Build
 
-**💡 Tip:** Replace the text in quotes with your own secret passwords. Make them hard to guess!
+You no longer need to generate security keys. Just make sure you have Darwin installed and proceed to the build steps below.
 
 ## 🎯 Step 2: Choose Your Build Method
 

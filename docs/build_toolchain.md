@@ -138,5 +138,3 @@ end
 
 ```
 
-### key_obfuscate
-key obfuscate its responsable to create the encryption key, and its used to create a file called **src/macros.encrypt_key.h** containing a macro called **vibescript_get_key** that its used to get the encryption key, check [key_obfuscate](https://github.com/OUIsolutions/key_obfuscate) for more details
