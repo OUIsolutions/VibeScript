@@ -4,15 +4,15 @@ function Install_dependencies()
     os.execute("mkdir -p dependencies")
 
     local libs = {
-        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/11.0.0/doTheWorld.h", path = "dependencies/doTheWorld.h" },
-        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/11.0.0/doTheWorld.c", path = "dependencies/doTheWorld.c" },
+        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/11.1.0/doTheWorld.h", path = "dependencies/doTheWorld.h" },
+        { url = "https://github.com/OUIsolutions/DoTheWorld/releases/download/11.1.0/doTheWorldOne.c", path = "dependencies/doTheWorld.c" },
         { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.9.2/BearHttpsClient.h", path = "dependencies/BearHttpsClient.h" },
         { url = "https://github.com/OUIsolutions/BearHttpsClient/releases/download/0.9.2/BearHttpsClient.c", path = "dependencies/BearHttpsClient.c" },
         { url = "https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI/releases/download/0.0.10/SDK_OpenAI.c", path = "dependencies/SDK_OpenAI.c" },
         { url = "https://github.com/SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI/releases/download/0.0.10/SDK_OpenAI.h", path = "dependencies/SDK_OpenAI.h" },
         {url = "https://github.com/OUIsolutions/LuaCEmbed/releases/download/0.11.0/LuaCEmbed.c", path = "dependencies/LuaCEmbed.c"},
         {url = "https://github.com/OUIsolutions/LuaCEmbed/releases/download/0.11.0/LuaCEmbed.h", path = "dependencies/LuaCEmbed.h"},
-        {url = "https://github.com/OUIsolutions/LuaDoTheWorld/releases/download/0.11.0/luaDoTheWorld_no_dep.c", path = "dependencies/luaDoTheWorld_no_dep.c"},
+        {url = "https://github.com/OUIsolutions/LuaDoTheWorld/releases/download/0.14.0/luaDoTheWorld_no_dep.c", path = "dependencies/luaDoTheWorld_no_dep.c"},
         {url = "https://github.com/OUIsolutions/LuaFluidJson/releases/download/0.6.1/luaFluidJson_no_dep.c", path = "dependencies/luaFluidJson_no_dep.c"},
         {url="https://github.com/OUIsolutions/Lua-Bear/releases/download/0.3.2/luaBear_no_dep.c", path = "dependencies/luaBear_no_dep.c"},
         {url="https://github.com/OUIsolutions/CWebStudio/releases/download/5.0.1/CWebStudio.h", path = "dependencies/CWebStudio.h"},
