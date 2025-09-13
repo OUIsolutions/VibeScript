@@ -1,9 +1,10 @@
 private_vibescript.internal_main = function()
-     local config_json = private_vibescript.get_config_json()
+    
+     private_vibescript.configure_props_functions()
      --dtw.write_file("teste.json",json.dumps_to_string(config_json))
      local action =   argv.get_next_unused()
      private_vibescript.configure_newRawLLMFunction(config_json)
-     private_vibescript.configure_props_functions(config_json)
+    
      
      if action == "set_prop" then 
           local prop_key = argv.get_next_unused()

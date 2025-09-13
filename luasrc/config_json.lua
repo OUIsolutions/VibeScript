@@ -5,8 +5,7 @@ private_vibescript.get_config_path = function()
     if config_path then
         return config_path
     end
-
-    local name = cvibescript.get_config_name()
+    local name = ".vibescript/"
     if os_name == "windows" then
         return os.getenv("APPDATA") .. "/"..name
     end
