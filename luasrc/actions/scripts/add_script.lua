@@ -64,8 +64,8 @@ private_vibescript.add_script  = function()
         scripts[#scripts+1] = script
     end
     set_prop("scripts", scripts)
-    if os_name == "linux" or os_name == "mac" then 
-        local code = string.format("vibescript %s \"$@\"", name)
+    if os_name == "linux" or os_name == "mac" then
+        local code = string.format("%s %s \"$@\"", argv.get_arg_by_index(1), name)
         local path
         if os_name == "linux" then
             path = os.getenv("HOME").."/.local/bin/"..name
@@ -75,7 +75,7 @@ private_vibescript.add_script  = function()
         dtw.write_file(path, code)
         os.execute("chmod +x "..path)
     elseif os_name == "windows" then
-        local code = string.format("@echo off\nvibescript %s %%*", name)
+        local code = string.format("@echo off\n%s %s %%*", argv.get_arg_by_index(1), name)
         local path = os.getenv("USERPROFILE").."\\AppData\\Local\\Microsoft\\WindowsApps\\"..name..".bat"
         dtw.write_file(path, code)
     end
