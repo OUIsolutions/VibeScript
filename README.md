@@ -1,7 +1,7 @@
 <div align="center">
 
 # VibeScript
-![Lua Logo](https://img.shields.io/badge/VibeScript-0.32.0-blue?style=for-the-badge&logo=lua)
+![Lua Logo](https://img.shields.io/badge/VibeScript-0.35.0-blue?style=for-the-badge&logo=lua)
 [![GitHub Release](https://img.shields.io/github/release/OUIsolutions/VibeScript.svg?style=for-the-badge)](https://github.com/OUIsolutions/VibeScript/releases)
 [![License](https://img.shields.io/badge/License-Unlicense-green.svg?style=for-the-badge)](https://github.com/OUIsolutions/VibeScript/blob/main/LICENSE)
 ![Status](https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge)
