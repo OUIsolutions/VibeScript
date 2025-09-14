@@ -1,82 +1,76 @@
-# 🚀 VibeScript Build Instructions d
+# VibeScript Build Instructions
 
-Welcome! This guide will help you build VibeScript step by step. Don't worry if you're new to this - we'll explain everything!
+This guide provides comprehensive instructions for building VibeScript from source. The following steps will walk you through the build process and requirements.
 
-## 📋 What You'll Need
+## Prerequisites
 
-Before we start, you need to install two tools on your computer:
+Before building VibeScript, you need to install the required build tools:
 
 ### 1. Install Darwin (Build Tool)
-Darwin is a tool that helps us build the project. Think of it like a smart assistant that knows how to compile code.
+Darwin is the primary build system used for compiling VibeScript. It manages the build process and handles cross-platform compilation.
 
-**On Linux, copy and paste this command in your terminal:**
+
+### Linux Installation 
 ```bash
-curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.3.0/darwin.out -o darwin.out && sudo chmod +x darwin.out && sudo mv darwin.out /usr/bin/darwin
+curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.13.0/darwin_linux_bin.out -o darwin.out && chmod +x darwin.out &&   mv darwin.out /usr/local/bin/darwin 
+```
+### Mac-Os Instalation
+```bash
+curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.13.0/darwin.c -o darwin.c && gcc darwin.c -o darwin.out && sudo mv darwin.out /usr/local/bin/darwin && rm darwin.c 
 ```
 
-If you want to create builds for different operating systems or customize the build process:
+## Build Options
 
-#### Create Your Own Amalgamation File
+For customizing the build process or creating builds for different platforms:
+
+#### Generate Amalgamation File
 ```bash
 darwin run_blueprint build/ --mode folder amalgamation_build
 ```
-**What this does:** Creates a fresh `amalgamation.c` file in the `release` folder.
+This command creates a fresh `amalgamation.c` file in the `release` folder.
+the **amalgamation.c** file contains all the VibeScript source code combined into a single file, making it easier to compile and distribute.
 
-#### Test Build for Linux Only
+
+#### Local Linux Build
+```bash
+darwin run_blueprint build/ --mode folder local_linux_build
 ```bash
 darwin run_blueprint build/ --mode folder local_linux_build
 ```
-**What this does:** Creates a `vibescript` program that only works on Linux.
+This creates a `vibescript` executable optimized for the local Linux environment.
 
-#### Build for All Platforms (Windows, Linux, etc.)
+#### Cross-Platform Build
 ```bash
 darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windows64_build rpm_static_build debian_static_build --contanizer podman
 ```
 
-**What this creates:**
-- `release/vibescript64.exe` - For 64-bit Windows
-- `release/vibescripti32.exe` - For 32-bit Windows  
-- `release/vibescript.out` - For Linux
-- `release/vibescript.deb` - For Debian/Ubuntu Linux
-- `release/vibescript.rpm` - For RedHat/CentOS Linux
+This comprehensive build creates the following executables:
+- `release/vibescript64.exe` - Windows 64-bit executable
+- `release/vibescripti32.exe` - Windows 32-bit executable
+- `release/vibescript.out` - Linux executable
+- `release/vibescript.deb` - Debian/Ubuntu package
+- `release/vibescript.rpm` - RedHat/CentOS package
 
-**Note:** You need Docker or Podman installed for this option.
+**Note:** Docker or Podman is required for cross-platform builds.
 
-## ✅ Step 3: Test Your Build
+## Build Verification
 
-After building, test if everything works:
+After completing the build process, verify the installation:
 
 ```bash
-# Make sure your program can run
+# Verify the build was successful
 ./vibescript --help
 ```
 
-If you see help text, congratulations! 🎉 You've successfully built VibeScript!
+A successful build will display the help documentation.
 
-## ⚙️ Advanced Configuration (Optional)
+## Configuration
 
-You can customize build settings by editing `build/config.lua`. The most important settings are:
+Build settings can be customized by modifying `build/config.lua`. Key configuration options include:
 
 ```lua
-PROJECT_NAME = "vibescript"        -- Name of your program
+PROJECT_NAME = "vibescript"        -- Project name
 VERSION      = "0.0.9"            -- Version number
-CONTANIZER   = "podman"            -- Use "docker" or "podman"
+CONTANIZER   = "podman"            -- Container engine (docker or podman)
 ```
-
-## 🆘 Need Help?
-
-- **"Command not found" error?** Make sure you installed Darwin and KeyObfuscate correctly
-- **Permission denied?** Try adding `sudo` before the command
-- **Build fails?** Make sure you created all three security keys in the `keys/` folder
-
-## 📝 Summary
-
-1. ✅ Install Darwin and KeyObfuscate tools
-2. ✅ Create security keys with KeyObfuscate  
-3. ✅ Choose Option A (Quick) or Option B (Advanced)
-4. ✅ Run the build command
-5. ✅ Test your new VibeScript program!
-
-That's it! You now have a working VibeScript build. Happy coding! 🚀
-
 
