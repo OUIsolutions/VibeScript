@@ -58,7 +58,6 @@ LuaCEmbedResponse *private_get_encrypted_data(LuaCEmbed *args){
     char *name_sha = dtw_generate_sha_from_any(name,name_size);
     char *full_path = dtw_concat_path(props_path,name_sha);
     free(name_sha);
-    
     // Load encrypted content from file
     long size;
     bool is_binary;

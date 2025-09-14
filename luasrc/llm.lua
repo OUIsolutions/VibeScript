@@ -1,4 +1,5 @@
 private_vibescript.configure_newRawLLMFunction = function()
+
     local models = get_prop("models",{})
     newRawLLM = function(model)
         local chosed_model = nil
