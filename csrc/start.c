@@ -11,10 +11,6 @@ int vibescript_start(lua_State *state){
     // Initialize machine UID
     private_set_uid();
 
-    #if defined(VIBE_EXTENSION_FUNC) && defined(VIBE_EXTENSION_LIB_NAME)
-        LuaCEmbed_load_lib_from_c(l,VIBE_EXTENSION_FUNC,VIBE_EXTENSION_LIB_NAME);
-    #endif  
-
     #ifdef _WIN32
         LuaCEmbed_set_global_string(l,"os_name","windows");
     #elif __APPLE__
@@ -31,6 +27,10 @@ int vibescript_start(lua_State *state){
     LuaCEmbed_add_callback(l,"save_encrypted_prop",private_save_encrypted_data);
     LuaCEmbed_add_callback(l,"get_encrypted_prop",private_get_encrypted_data);
  
+
+    #if defined(VIBE_EXTENSION_FUNC) && defined(VIBE_EXTENSION_LIB_NAME)
+        LuaCEmbed_load_lib_from_c(l,VIBE_EXTENSION_FUNC,VIBE_EXTENSION_LIB_NAME);
+    #endif  
 
 
     return LuaCembed_perform(l);
