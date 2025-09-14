@@ -22,9 +22,7 @@ LuaCEmbedResponse *private_save_encrypted_data(LuaCEmbed *args){
     char *full_path = dtw_concat_path(props_path,name_sha);
     free(name_sha);
 
-    printf("full path %s\n",full_path);
-    printf("appender size %ld\n",appender->length);
-    printf("appender value %s\n",appender->buffer);
+
     dtw_write_any_content(full_path,appender->buffer,appender->length);
     free(full_path);
     privateLuaDtwStringAppender_free(appender);
