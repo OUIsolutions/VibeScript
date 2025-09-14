@@ -17,12 +17,7 @@ private_vibescript.add_script  = function()
         error("Failed to get absolute path for file ("..file..")",0)
     end
     local scripts = get_prop("scripts", {})
-    for i=1,#scripts do
-        if scripts[i].name == name then
-            error("Script ("..name..") already exists",0)
-        end
-    end
-    
+
     local description = argv.get_flag_arg_by_index({ private_vibescript.DESCRIPTION },1)
     
     local script = {                
@@ -33,7 +28,18 @@ private_vibescript.add_script  = function()
     if description then
         script.description = description
     end
-    scripts[#scripts+1] = script
+    local replaced = false
+    for i=1,#scripts do
+        if scripts[i].name == name then
+            scripts[i] = script
+            replaced = true
+            break
+        end
+    end
+
+    if not replaced then
+        scripts[#scripts+1] = script
+    end
     set_prop("scripts", scripts)
     print("Script ("..name..") added successfully")
     if os_name == "linux" or os_name == "macos" then 

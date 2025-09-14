@@ -48,32 +48,32 @@ private_vibescript.internal_main = function()
      end
 
      if action == private_vibescript.CONFIGURE_MODEL then
-          return private_vibescript.add_model(config_json)
+          return private_vibescript.add_model()
      end
      if action == private_vibescript.LIST_MODELS then
-          return private_vibescript.list_models(config_json)
+          return private_vibescript.list_models()
      end
      if action == private_vibescript.REMOVE_MODEL then
-          return private_vibescript.remove_model(config_json)
+          return private_vibescript.remove_model()
      end
      if action == private_vibescript.SET_MODEL_AS_DEFAULT then
-          return private_vibescript.set_model_as_default(config_json)
+          return private_vibescript.set_model_as_default()
      end
 
      --if it gets here , it will make the normal operation, which is to interpret the first arg
      local script_name = action
      filename = script_name
      local found_filename = false
-
+     local scripts = get_prop("scripts", {})
      local name_num = tonumber(script_name)
-     for i = 1 , #config_json.scripts do
-          if config_json.scripts[i].name == script_name then
-               filename = config_json.scripts[i].file
+     for i = 1 , #scripts do
+          if scripts[i].name == script_name then
+               filename = scripts[i].file
                found_filename = true
                break
           end
           if name_num == i then
-               filename = config_json.scripts[i].file
+               filename = scripts[i].file
                found_filename = true
                break
           end
