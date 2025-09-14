@@ -1,48 +1,83 @@
 
-### Add Script By Reference
-To add a script, you just need to call **vibescript** passing **add_script** as the first argument, followed by the script name and the file path. Optionally, you can add a description:
+# Script Management
+
+This section covers the management of Lua scripts within VibeScript, including adding, removing, listing, and executing stored scripts.
+
+## Adding Scripts
+
+### Adding Scripts by File Reference
+
+To register a script from a local file path, use the `add_script` command with the `--file` flag:
 
 ```bash
-vibescript add_script --file /path/to/script.lua script_name
+vibescript add_script --file /path/to/script.lua <script_name>
 ```
 
-Or with a description:
+To include a description for better organization:
 
 ```bash
-vibescript add_script --file /path/to/script.lua script_name --description "Your script description"
-```
-### Add Script By Url 
-To add a script by URL, you just need to call **vibescript** passing **add_script** as the first argument, followed by the script name and the URL. Optionally, you can add a description:
-
-```bash
-vibescript add_script --url https://example.com/script.lua script_name
+vibescript add_script --file /path/to/script.lua <script_name> --description "Script description"
 ```
 
-### Making it a  copy instead of reference
-if you pass the --copy flag, it will make a copy of the script instead of just referencing it:
+### Adding Scripts by URL
+
+To register a script from a remote URL, use the `--url` flag:
 
 ```bash
-vibescript add_script --file /path/to/script.lua script_name --copy
+vibescript add_script --url https://example.com/script.lua <script_name>
 ```
 
-
-### Remove Script
-To remove a script, you just need to call **vibescript** passing **remove_script** as the first argument, followed by the script name:
+Optional description can be added:
 
 ```bash
-vibescript remove_script script_name
+vibescript add_script --url https://example.com/script.lua <script_name> --description "Remote script description"
 ```
 
-### List Scripts
-To list all scripts, you just need to call **vibescript** passing **list_scripts** as the first argument. Optionally, you can provide a prefix to filter the scripts:
+### Creating Script Copies
+
+By default, scripts are added by reference. To create a local copy instead of maintaining a reference, use the `--copy` flag:
 
 ```bash
-vibescript list_scripts [prefix]
+vibescript add_script --file /path/to/script.lua <script_name> --copy
 ```
-### Interpret a Script with a specified name 
-To interpret a script with a specified name, you just need to call **vibescript** passing **interpret_script** as the first argument, followed by the script name:
+
+This option is useful when you want to ensure the script remains available even if the original file is moved or deleted.
+
+## Removing Scripts
+
+To unregister a script from VibeScript:
 
 ```bash
-vibescript add_script --file /path/to/script.lua script_name
-vibescript script_name
+vibescript remove_script <script_name>
+```
+
+## Listing Scripts
+
+To view all registered scripts:
+
+```bash
+vibescript list_scripts
+```
+
+To filter scripts by name prefix:
+
+```bash
+vibescript list_scripts <prefix>
+```
+
+## Executing Registered Scripts
+
+To execute a previously registered script by name:
+
+```bash
+vibescript <script_name>
+```
+
+**Example workflow:**
+```bash
+# Register a script
+vibescript add_script --file /path/to/my_script.lua my_script
+
+# Execute the registered script
+vibescript my_script
 ```
