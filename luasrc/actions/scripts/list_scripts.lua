@@ -1,9 +1,10 @@
 
-private_vibescript.list_scripts = function(config_json)
+private_vibescript.list_scripts = function()
     local start_filtrage =  argv.get_next_unused()
-    
-    for i =1 , #config_json.scripts do
-        local current_script = config_json.scripts[i]
+    local scripts = get_prop("scripts", {})
+
+    for i =1 , #scripts do
+        local current_script = scripts[i]
         local print_script = false         
         if start_filtrage then
             if private_vibescript.is_str_inside(current_script.name, start_filtrage) then

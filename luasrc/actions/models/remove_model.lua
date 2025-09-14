@@ -1,4 +1,4 @@
-private_vibescript.remove_model = function(config_json)
+private_vibescript.remove_model = function()
     local model_name = argv.get_flag_arg_by_index({ private_vibescript.MODEL }, 1)
     if not model_name then
         error("No model (--" .. private_vibescript.MODEL .. ") provided", 0)
@@ -17,5 +17,5 @@ private_vibescript.remove_model = function(config_json)
         error("Model (" .. model_name .. ") does not exist", 0)
     end
 
-    private_vibescript.save_config_json(config_json)
+    set_prop("models", config_json.models)
 end

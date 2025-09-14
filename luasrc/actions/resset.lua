@@ -1,6 +1,4 @@
 
 private_vibescript.reset = function()
-    local path = private_vibescript.get_config_path()
-    
-    dtw.remove_any(path)
+    dtw.remove_any(private_vibescript.props_path)
 end 

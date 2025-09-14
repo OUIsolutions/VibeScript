@@ -3,15 +3,16 @@ private_vibescript.set_model_as_default = function(config_json)
     if not model_name then
         error("No model (--" .. private_vibescript.MODEL .. ") provided", 0)
     end
-
+    local models = get_prop(config_json, "models", {})
     local model_found = false
-    for i = 1, #config_json.models do
-        if config_json.models[i].name == model_name then
-            config_json.default_model = model_name
+    for i = 1, #models do
+        if models[i].name == model_name then
+            models[i].isdefault = true
             model_found = true
             break
         end
     end
+    set_prop(config_json, "models", models)
 
     if not model_found then
         error("Model (" .. model_name .. ") does not exist", 0)

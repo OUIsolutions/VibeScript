@@ -37,14 +37,14 @@ private_vibescript.internal_main = function()
           return private_vibescript.reset()
      end
      if action == private_vibescript.ADD_SCRIPT then
-          return private_vibescript.add_script(config_json)
+          return private_vibescript.add_script()
      end
     
      if action == private_vibescript.REMOVE_SCRIPT then
-          return private_vibescript.remove_script(config_json)
+          return private_vibescript.remove_script()
      end
      if action == private_vibescript.LIST_SCRIPTS or action == private_vibescript.LIST_SCRIPTS_OPTION2 then
-          return private_vibescript.list_scripts(config_json)
+          return private_vibescript.list_scripts()
      end
 
      if action == private_vibescript.CONFIGURE_MODEL then

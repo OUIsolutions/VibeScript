@@ -25,8 +25,8 @@ int vibescript_start(lua_State *state){
     LuaCEmbed_load_lib_from_c(l,serjao_berranteiro_start_point,"serjao");
     LuaCEmbed_load_lib_from_c(l,load_lua_bear,"luabear");
     LuaCEmbed_add_callback(l,"newRawLLM",private_new_raw_llm);
- 
-    
+    LuaCEmbed_add_callback(l,"save_encrypted_prop",private_save_encrypted_data);
+    LuaCEmbed_add_callback(l,"get_encrypted_prop",private_get_encrypted_data);
  
 
 
