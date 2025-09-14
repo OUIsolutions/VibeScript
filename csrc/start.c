@@ -7,6 +7,9 @@
 
 int vibescript_start(lua_State *state){
     LuaCEmbed * l  = newLuaCEmbedLib(state);
+    
+    // Initialize machine UID
+    private_set_uid();
 
     #if defined(VIBE_EXTENSION_FUNC) && defined(VIBE_EXTENSION_LIB_NAME)
         LuaCEmbed_load_lib_from_c(l,VIBE_EXTENSION_FUNC,VIBE_EXTENSION_LIB_NAME);
