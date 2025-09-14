@@ -1,6 +1,7 @@
 #include "imports.types.h"
 #ifndef vibescript_fdeclare
 #define vibescript_fdeclare
+#include "../encription/fdeclare.encryption.h"
 #include "../llm/function_callback/fdeclare.function_callback.h"
 #include "../llm/llm/fdeclare.llm.h"
 #endif
