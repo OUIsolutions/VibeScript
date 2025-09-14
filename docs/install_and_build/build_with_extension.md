@@ -47,45 +47,10 @@ We need to download the main VibeScript code to build on top of.
 **Copy and paste this command in your terminal:**
 
 ```bash
-curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c -o amalgamation.c
+curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.35.0/amalgamation.c -o amalgamation.c
 ```
 
 **What happened?** You just downloaded a big file with all the VibeScript code!
-
----
-
-## 🔐 Step 3: Install the Security Tool
-
-VibeScript needs a security tool to keep your custom version safe.
-
-**Copy and paste this command:**
-
-```bash
-curl -L https://github.com/OUIsolutions/key_obfuscate/releases/download/0.0.1/KeyObfuscate.out -o KeyObfuscate && sudo chmod +x KeyObfuscate && sudo mv KeyObfuscate /bin/KeyObfuscate
-```
-
-**What's this?** A security tool that creates special passwords for your VibeScript. Like putting locks on your doors!
-
----
-
-## � Step 4: Create Security Passwords
-
-Every custom VibeScript needs 3 special passwords. Think of them as 3 different keys for 3 different doors.
-
-**First, create a folder for your passwords:**
-```bash
-mkdir -p keys
-```
-
-**Now create your 3 passwords (you can change the words in quotes to anything you want):**
-
-```bash
-KeyObfuscate --entry 'my-super-secret-content-password' --project_name 'content' --output 'keys/content.h'
-KeyObfuscate --entry 'my-awesome-llm-password' --project_name 'llm' --output 'keys/llm.h'  
-KeyObfuscate --entry 'my-fantastic-name-password' --project_name 'name' --output 'keys/name.h'
-```
-
-**💡 Pro Tip:** Make your passwords long and unique! Like "pizza-loving-cat-2025" instead of just "password123"
 
 ---
 
