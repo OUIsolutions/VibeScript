@@ -8,9 +8,12 @@ private_vibescript.add_script  = function()
     if not name then
         error("No script name provided",0)
     end
+    local copy = argv.flags_exist({ "copy", "cp" })
+    
     if not dtw.isfile(file) then
         error("File ("..file..") does not exist",0)
     end
+
 
     local absolute = dtw.get_absolute_path(file)
     if not absolute then
