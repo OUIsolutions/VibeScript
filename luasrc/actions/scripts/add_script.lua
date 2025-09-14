@@ -46,7 +46,7 @@ private_vibescript.add_script  = function()
         local path
         if os_name == "linux" then
             path = os.getenv("HOME").."/.local/bin/"..name
-        else -- mac
+        if os_name == "mac" then
             path = "/usr/local/bin/"..name
         end
         dtw.write_file(path, code)
