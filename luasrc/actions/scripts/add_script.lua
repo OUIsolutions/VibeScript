@@ -41,9 +41,14 @@ private_vibescript.add_script  = function()
         scripts[#scripts+1] = script
     end
     set_prop("scripts", scripts)
-    if os_name == "linux"  then 
+    if os_name == "linux" or os_name == "mac" then 
         local code = string.format("vibescript %s \"$@\"", name)
-        local path = os.getenv("HOME").."/.local/bin/"..name
+        local path
+        if os_name == "linux" then
+            path = os.getenv("HOME").."/.local/bin/"..name
+        else -- mac
+            path = "/usr/local/bin/"..name
+        end
         dtw.write_file(path, code)
         os.execute("chmod +x "..path)
     end
