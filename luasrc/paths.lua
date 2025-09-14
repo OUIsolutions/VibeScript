@@ -7,8 +7,17 @@ private_vibescript.get_config_path = function()
     end
     local name = ".vibescript/"
     if os_name == "windows" then
-        return os.getenv("APPDATA") .. "/"..name
+        return os.getenv("APPDATA") .. "/"..name.."/"
     end
 
-    return os.getenv("HOME") ..  "/.config/"..name
+    return os.getenv("HOME") ..  "/.config/"..name.."/" 
+end
+private_vibescript.get_props_path = function()
+    local config_path = private_vibescript.get_config_path()
+    return config_path .. "/props/"
+end
+
+private_vibescript.get_amalgamation_path = function()
+    local config_path = private_vibescript.get_config_path()
+    return config_path .. "/amalgamation/"
 end
