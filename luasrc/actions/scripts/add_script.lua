@@ -42,7 +42,7 @@ private_vibescript.add_script  = function()
     end
     set_prop("scripts", scripts)
     print("Script ("..name..") added successfully")
-    if os_name == "linux" or os_name == "macos" then 
+    if os_name == "linux"  then 
         local code = string.format("vibescript %s \"$@\"", name)
         local path = os.getenv("HOME").."/.local/bin/"..name
         dtw.write_file(path, code)
