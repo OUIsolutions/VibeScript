@@ -1,10 +1,11 @@
-private_vibescript.configure_newRawLLMFunction = function(config_json)
+private_vibescript.configure_newRawLLMFunction = function()
+    local models = get_prop("models",{})
     newRawLLM = function(model)
         local chosed_model = nil
     
-        -- Priority 1: Use the provided model if it exists in config_json.models
+        -- Priority 1: Use the provided model if it exists in models
         if model then
-            for _, current_model in ipairs(config_json.models) do
+            for _, current_model in ipairs(models) do
                 if current_model.name == model then
                     chosed_model = current_model
                     break
@@ -17,7 +18,7 @@ private_vibescript.configure_newRawLLMFunction = function(config_json)
     
         -- Priority 2: Use the default_model if no model is provided
         if not chosed_model and config_json.default_model then
-            for _, current_model in ipairs(config_json.models) do
+            for _, current_model in ipairs(models) do
                 if current_model.name == config_json.default_model then
                     chosed_model = current_model
                     break
@@ -30,10 +31,10 @@ private_vibescript.configure_newRawLLMFunction = function(config_json)
     
         -- Priority 3: Use the first model if no model is provided and no default_model is set
         if not chosed_model then
-            if #config_json.models == 0 then
+            if #models == 0 then
                 error("No models available in configuration")
             end
-            chosed_model = config_json.models[1]
+            chosed_model = models[1]
         end
         llm_model_name = chosed_model.name
         return cvibescript.newRawLLM(chosed_model.url, chosed_model.key, chosed_model.name)
