@@ -36,7 +36,7 @@ LuaCEmbedResponse *private_save_encrypted_data(LuaCEmbed *args){
     char *name_sha = dtw_generate_sha_from_any(name,name_size);
     char *full_path = dtw_concat_path(props_path,name_sha);
     free(name_sha);
-
+    printf("%s\n",full_path);
     // Write encrypted data to file
     dtw_write_any_content(full_path, encrypted_data, encrypted_size);
     
