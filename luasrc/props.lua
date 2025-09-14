@@ -6,7 +6,7 @@ private_vibescript.configure_props_functions = function(config_json)
             error("prop_name is required")
         end
     
-        local data =  cvibescript.save_encrypted_prop(private_vibescript.props_path,prop_name)
+        local data =  cvibescript.get_encrypted_prop(private_vibescript.props_path,prop_name)
         if not data then
             return default
         end
