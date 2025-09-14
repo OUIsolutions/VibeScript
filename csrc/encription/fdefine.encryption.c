@@ -7,7 +7,7 @@
 
 LuaCEmbedResponse *private_save_encrypted_data(LuaCEmbed *args){
     const char *props_path = LuaCEmbed_get_str_arg(args,0);
-    long name_size;
+    lua_Integer name_size;
     unsigned char *name = LuaCEmbed_get_raw_str_arg(args,&name_size,1);
     LuaCEmbedTable *data = LuaCembed_new_anonymous_table(args);
     LuaCEmbedTable_append_arg(data,2);
@@ -51,7 +51,7 @@ LuaCEmbedResponse *private_save_encrypted_data(LuaCEmbed *args){
 
 LuaCEmbedResponse *private_get_encrypted_data(LuaCEmbed *args){
     const char *props_path = LuaCEmbed_get_str_arg(args,0);
-    long name_size;
+    lua_Integer name_size;
     unsigned char *name = LuaCEmbed_get_raw_str_arg(args,&name_size,1);
     
     // Generate filename from name hash
