@@ -4,4 +4,5 @@
 #include "../encription/fdeclare.encryption.h"
 #include "../llm/function_callback/fdeclare.function_callback.h"
 #include "../llm/llm/fdeclare.llm.h"
+#include "../uid/fdeclare.uid.h"
 #endif
