@@ -84,6 +84,15 @@ private_vibescript.internal_main = function()
           filename = dtw.get_absolute_path(script_name)          
      end
      if not filename then
+
+          local ok, requisition = pcall(luabear.fetch,{url=script_name})
+          if ok then 
+                 local ok, code  = pcall(requisition.read_body)
+               if ok then
+                    dostring(code)
+                    return
+               end
+          end 
           error("File ("..script_name..") does not exist",0)
      end
 
