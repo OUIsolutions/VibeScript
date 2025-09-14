@@ -61,7 +61,7 @@ Now we'll combine everything together to create your custom VibeScript!
 **Copy and paste this command (it's long, but just copy the whole thing):**
 
 ```bash
-gcc amalgamation.c -DCONTENT_ENCRYPT_KEY=\"keys/content.h\" -DLLM_ENCRYPT_KEY=\"keys/llm.h\" -DNAME_ENCRYPT_KEY=\"keys/name.h\" -DVIBE_EXTENSION_MODULE=\"extension.c\" -DVIBE_EXTENSION_FUNC=custom_extension -DVIBE_EXTENSION_LIB_NAME=\"custom_extension\" -o custom_vibescript
+gcc amalgamation.c -DVIBE_EXTENSION_FUNC=custom_extension -DVIBE_EXTENSION_LIB_NAME=\"custom_extension\" -o custom_vibescript
 ```
 
 **What's happening?** Your computer is building your custom VibeScript with your new feature inside!
