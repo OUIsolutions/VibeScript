@@ -55,11 +55,11 @@ darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build
 ```
 
 **What this creates:**
-- `vibescript64.exe` - For 64-bit Windows
-- `vibescripti32.exe` - For 32-bit Windows  
-- `vibescript.out` - For Linux
-- `vibescript.deb` - For Debian/Ubuntu Linux
-- `vibescript.rpm` - For RedHat/CentOS Linux
+- `release/vibescript64.exe` - For 64-bit Windows
+- `release/vibescripti32.exe` - For 32-bit Windows  
+- `release/vibescript.out` - For Linux
+- `release/vibescript.deb` - For Debian/Ubuntu Linux
+- `release/vibescript.rpm` - For RedHat/CentOS Linux
 
 **Note:** You need Docker or Podman installed for this option.
 
