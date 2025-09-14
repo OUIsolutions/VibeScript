@@ -41,11 +41,13 @@ private_vibescript.add_script  = function()
         scripts[#scripts+1] = script
     end
     set_prop("scripts", scripts)
-    print("Script ("..name..") added successfully")
     if os_name == "linux"  then 
         local code = string.format("vibescript %s \"$@\"", name)
         local path = os.getenv("HOME").."/.local/bin/"..name
         dtw.write_file(path, code)
         os.execute("chmod +x "..path)
     end
+
+    print("Script ("..name..") added successfully")
+
 end 
