@@ -25,9 +25,6 @@ private_vibescript.configure_newRawLLMFunction = function()
                     break
                 end
             end
-            if not chosed_model then
-                error("Default model not found in configuration")
-            end
         end
     
         -- Priority 3: Use the first model if no model is provided and no default_model is set
