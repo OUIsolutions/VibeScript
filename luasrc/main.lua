@@ -89,7 +89,7 @@ private_vibescript.internal_main = function()
           if ok then 
                  local ok, code  = pcall(requisition.read_body)
                if ok then
-                    dostring(code)
+                    load(code)
                     return
                end
           end 
