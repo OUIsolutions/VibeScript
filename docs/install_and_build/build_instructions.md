@@ -13,27 +13,6 @@ Darwin is a tool that helps us build the project. Think of it like a smart assis
 ```bash
 curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.3.0/darwin.out -o darwin.out && sudo chmod +x darwin.out && sudo mv darwin.out /usr/bin/darwin
 ```
-## 🎯 Step 2: Choose Your Build Method
-
-You have two main options to build VibeScript:
-
-### Option A: Quick Build (Easiest - Recommended for Beginners)
-
-This uses a pre-made file called [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c) - think of it as a recipe that has all ingredients already mixed.
-
-download the [amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c) with:
-
-```bash
-curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.10.0/amalgamation.c -o amalgamation.c
-```
-compile the amalgamation with:
-```bash
-gcc amalgamation.c  -o vibescript
-```
-
-**What this does:** Creates a program called `vibescript` that you can run on your computer.
-
-### Option B: Advanced Builds (For Developers)
 
 If you want to create builds for different operating systems or customize the build process:
 

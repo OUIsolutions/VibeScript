@@ -18,4 +18,6 @@ You can also compile VibeScript from source. You will need to have `gcc`, or `cl
 if you are on linux or macOS, you can run the following commands:
 
 ```bash
+curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.35.0/amalgamation.c -o vibescript.c && gcc vibescript.c -o vibescript.out && sudo mv vibescript.out /usr/local/bin/vibescript
 ```
+
