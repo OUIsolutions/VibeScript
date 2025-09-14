@@ -11,6 +11,8 @@ LuaCEmbedResponse *private_save_encrypted_data(LuaCEmbed *args){
     unsigned char *name = LuaCEmbed_get_raw_str_arg(args,&name_size,1);
     LuaCEmbedTable *data = LuaCembed_new_anonymous_table(args);
     LuaCEmbedTable_append_arg(data,2);
+    printf("saving prop %s\n",name);
+    printf("props path %s\n",props_path);
 
     privateLuaDtwStringAppender *appender = newprivateLuaDtwStringAppender();
     ldtw_serialize_first_value_of_table(appender, data);
