@@ -18,15 +18,15 @@ private_vibescript.configure_newRawLLMFunction = function()
         end
     
         -- Priority 2: Use the default_model if no model is provided
-        if not chosed_model and config_json.default_model then
+        if not chosed_model  then
             for _, current_model in ipairs(models) do
-                if current_model.name == config_json.default_model then
+                if current_model.isdefault then
                     chosed_model = current_model
                     break
                 end
             end
             if not chosed_model then
-                error("Default model not found in configuration: " .. config_json.default_model)
+                error("Default model not found in configuration")
             end
         end
     
