@@ -25,7 +25,7 @@ function alpine_static_build()
 
 
         },
-        command = compiler..[[ --static /release/amalgamation.c   -DDEFINE_DEPENDENCIES -o /release/alpine_static_bin.out]]
+        command = compiler..[[ --static /release/amalgamation.c   -o /release/alpine_static_bin.out]]
 
     })
 end

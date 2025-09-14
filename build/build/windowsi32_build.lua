@@ -23,6 +23,6 @@ function windowsi32_build()
             { "././keys", "/keys" },
 
         },
-        command = compiler..[[ --static -DDEFINE_DEPENDENCIES -o /release/windowsi32.exe -lws2_32]]
+        command = compiler..[[ --static  -o /release/windowsi32.exe -lws2_32]]
     })
 end

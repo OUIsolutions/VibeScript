@@ -20,7 +20,7 @@ LuaCEmbedResponse *private_save_encrypted_data(LuaCEmbed *args){
     DtwEncriptionInterface *enc = newDtwAES_Custom_CBC_v1_interface(private_machine_uid);
     if(!enc){
         privateLuaDtwStringAppender_free(appender);
-        return LuaCEmbed_send_error(args, "Failed to create encryption interface");
+        return LuaCEmbed_send_error("Failed to create encryption interface");
     }
 
     // Encrypt the serialized data
@@ -29,7 +29,7 @@ LuaCEmbedResponse *private_save_encrypted_data(LuaCEmbed *args){
     if(!encrypted_data){
         privateLuaDtwStringAppender_free(appender);
         DtwEncriptionInterface_free(enc);
-        return LuaCEmbed_send_error(args, "Failed to encrypt data");
+        return LuaCEmbed_send_error( "Failed to encrypt data");
     }
 
     // Generate filename from name hash
@@ -72,7 +72,7 @@ LuaCEmbedResponse *private_get_encrypted_data(LuaCEmbed *args){
     DtwEncriptionInterface *enc = newDtwAES_Custom_CBC_v1_interface(private_machine_uid);
     if(!enc){
         free(encrypted_content);
-        return LuaCEmbed_send_error(args, "Failed to create encryption interface");
+        return LuaCEmbed_send_error("Failed to create encryption interface");
     }
 
     // Decrypt the content
@@ -85,7 +85,7 @@ LuaCEmbedResponse *private_get_encrypted_data(LuaCEmbed *args){
     DtwEncriptionInterface_free(enc);
     
     if(!decrypted_content){
-        return LuaCEmbed_send_error(args, "Failed to decrypt data");
+        return LuaCEmbed_send_error( "Failed to decrypt data");
     }
 
     // Send the decrypted content as evaluation
