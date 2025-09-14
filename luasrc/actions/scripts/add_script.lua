@@ -13,7 +13,7 @@ private_vibescript.add_script  = function()
     local already_copied = false
     if not dtw.isfile(file) then
 
-        local ok,requisition = luabear.fetch({url=file})
+        local ok,requisition = pcall(luabear.fetch,{url=file})
         if ok then
             local ok, content  = pcall(requisition.read_body)
             if ok then
