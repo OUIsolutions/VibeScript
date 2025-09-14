@@ -13,16 +13,19 @@ private_vibescript.add_script  = function()
     local already_copied = false
     if not dtw.isfile(file) then
 
-        local requisition = luabear.fetch({url=file})
-        local ok, content  = pcall(requisition.read_body)
-        if ok then 
-            local name_sha = dtw.generate_sha(name)
-            local path = private_vibescript.amalgamation_path .. name_sha .. ".lua"
-            dtw.write_file(path, content)
-            file = path
-            copy = true
-            already_copied = true 
-        else
+        local ok,requisition = luabear.fetch({url=file})
+        if ok then
+            local ok, content  = pcall(requisition.read_body)
+            if ok then
+                local name_sha = dtw.generate_sha(name)
+                local path = private_vibescript.amalgamation_path .. name_sha .. ".lua"
+                dtw.write_file(path, content)
+                file = path
+                copy = true
+                already_copied = true
+            end
+        end
+        if not already_copied then
             error("File ("..file..") does not exist",0)
         end
     end
