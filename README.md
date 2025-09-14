@@ -1,100 +1,103 @@
-# VibeScript
-
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-Unlicense-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub release](https://img.shields.io/github/release/OUIsolutions/VibeScript.svg)](https://github.com/OUIsolutions/VibeScript/releases/)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]() 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/OUIsolutions/VibeScript/pulls)
-
-**A custom Lua runtime for rapid LLM-powered automations**
-
-[Features](#features) • [Installation](#installation) • [Quick Start](#quick-start) • [Documentation](#documentation) • [Releases](#releases) • [License](#license)
+# VibeScript
+![Lua Logo](https://img.shields.io/badge/VibeScript-0.32.0-blue?style=for-the-badge&logo=lua)
+[![GitHub Release](https://img.shields.io/github/release/OUIsolutions/VibeScript.svg?style=for-the-badge)](https://github.com/OUIsolutions/VibeScript/releases)
+[![License](https://img.shields.io/badge/License-Unlicense-green.svg?style=for-the-badge)](https://github.com/OUIsolutions/VibeScript/blob/main/LICENSE)
+![Status](https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge)
+![Platforms](https://img.shields.io/badge/Platforms-Windows%20|%20Linux%20|%20macOS-lightgrey?style=for-the-badge)
 
 </div>
 
-## 📋 Overview
+---
 
-VibeScript is a specialized Lua runtime environment designed to facilitate fast automations through quick scripts. It seamlessly integrates LLM capabilities into Lua, enabling powerful AI-driven workflows with minimal setup.
+### Overview
 
-## ✨ Features
+VibeScript is a specialized Lua runtime environment designed for LLM-powered automations. It transforms Lua scripts into powerful AI-driven workflows with seamless integration of Large Language Model capabilities:
+
+1. **Configure your LLM model** 
+2. **Write Lua automation scripts**
+3. **Execute AI-powered workflows**
+
+This runtime is designed for developers who need to:
+- Create intelligent automation scripts with LLM integration
+- Perform file system operations with AI assistance
+- Build rapid prototypes for AI-driven applications
+- Deploy cross-platform automation tools
+
+### Key Features
 
 - **LLM Integration** - Direct access to LLM models from Lua scripts
-- **File System Operations** - Secure read/write capabilities for automation
-- **Multi-platform Support** - Works on Linux, Windows, and macOS
+- **Multi-platform support** - Run on Windows, Linux, and macOS
+- **File system operations** - Secure read/write capabilities for automation
+- **Zero dependencies** - Standalone executables with embedded runtime
 - **Simple API** - Intuitive Lua interface for complex LLM operations
-- **Configurable Models** - Support for various LLM providers
+- **Configurable models** - Support for various LLM providers
 
-## 🚀 Installation
 
-### Run These to install on Linux:
+### Linux Installation 
 ```bash
 curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/vibescript.out -o vibescript.out && chmod +x vibescript.out && sudo mv vibescript.out /usr/local/bin/vibescript
 ```
 
-## 🏁 Quick Start
-
-### 1. Configure an LLM Model
-
+### macOS Installation
 ```bash
-vibescript configure_model --model grok-2-latest --url https://api.x.ai/v1/chat/completions --key "your key"
+curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/vibescript.c -o vibescript.c && gcc vibescript.c -o vibescript && sudo mv vibescript /usr/local/bin/vibescript && rm vibescript.c
 ```
 
-See [CLI usage documentation](/docs/cli_usage.md) for more options.
+### Windows Installation
+Download the appropriate executable from the releases section below.
 
-### 2. Create Your First Script
+### AI/LLM Integration
 
-Create a file named `main.lua` with the following content:
+Want to learn how to use VibeScript with AI assistance? The built-in help system provides interactive examples for LLM integration and automation scripting.
 
-```lua
-llm = newLLM({
-    read = true,
-    write = true,
-    execute = true,
-    delete = true,
-    list = true
-})
-llm.add_user_prompt("list the src dir, and explain what's inside")
-response = llm.generate()
-print("Response: " .. response)
-```
+---
 
-### 3. Run Your Script
+## Releases
 
-```bash
-vibescript main.lua
-```
 
-Explore the [Native API documentation](/docs/native_api.md) to learn more about VibeScript's capabilities.
+|  **File**                                                                                                           | **What is**                                |
+|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+|[amalgamation.c](release/amalgamation.c) | Amalgamated source code containing all libraries  |
+|[vibescript.out](release/vibescript.out)   | Ready-to-use Linux binary           |
+|[vibescripti32.exe](release/vibescripti32.exe)       | Ready-to-use Windows 32-bit executable                         |
+|[vibescript.deb](release/vibescript.deb)       | Debian package for easy installation                             |
+|[vibescript.rpm](release/vibescript.rpm)       | RPM package for easy installation            |
 
-## 📦 Releases
 
-| File | Description |
-| --- | --- |
-| [vibescript.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/VibeScript.c) | Amalgamated source code |
-| [vibescript.deb](https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/VibeScript.deb) | Debian Package |
-| [vibescript.rpm](https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/VibeScript.rpm) | RPM Package |
-| [vibescript.out](https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/VibeScript.out) | Linux Executable |
-| [vibescript64.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/VibeScript64.exe) | Windows 64-bit Executable |
-| [vibescripti32.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.32.0/VibeScripti32.exe) | Windows 32-bit Executable |
 
-## 📚 Documentation
+## Documentation
 
-| Document | Description |
-| --- | --- |
-| [Native API](/docs/native_api.md) | LLM creation and usage examples |
-| [CLI Usage](/docs/cli_usage.md) | Command line interface reference |
-| [Build Instructions](/docs/build_instructions.md) | Build requirements and commands |
-| [Build with Extensions](/docs/build_with_extension.md) | How to add extension inside vibescript runtime|
-| [Build Toolchain](/docs/build_toolchain.md) | Build process and dependencies |
-| [Project Workflow](/docs/project_workflow.md) | Project Workflow Explanation |
-| [Build Workflow](/docs/build_workflow.md) | Build Workflow Explanation |
-| [Licenses](/docs/licenses.md) | List of licenses and copyrights |
+### CLI Usage
+| **Document**                                                    | **Description**                                         |
+|-----------------------------------------------------------------|---------------------------------------------------------|
+| [Extras](docs/cli_usage/extras.md)              | Additional CLI features and utilities                       |
+| [Interpreting](docs/cli_usage/interpreting.md)                           | Script interpretation and execution                               |
+| [LLM Operations](docs/cli_usage/llm_operations.md)                   | LLM model management and configuration                     |
+| [Script Memorizing](docs/cli_usage/script_memorizing.md)      | Script storage and management system                          |
 
-## 🤝 Contributing
+### Installation and Build
+| **Document**                                                    | **Description**                                         |
+|-----------------------------------------------------------------|---------------------------------------------------------|
+| [Build Instructions](docs/install_and_build/build_instructions.md)              | Build requirements and commands                       |
+| [Build with Extension](docs/install_and_build/build_with_extension.md)                           | How to add extensions inside VibeScript runtime                               |
+| [Install](docs/install_and_build/install.md)                   | Installation guide for all platforms                     |
 
-Contributions are welcome! Feel free to submit a pull request or open an issue.
+### Native API
+| **Document**                                                    | **Description**                                         |
+|-----------------------------------------------------------------|---------------------------------------------------------|
+| [Built-in Libraries](docs/native_api/buildin_librarys.md)              | Available libraries and their usage                       |
+| [LLM Operations](docs/native_api/llm_operations.md)                           | LLM integration and API functions                               |
+| [Props Handling](docs/native_api/props_handling.md)                   | Property and configuration management                     |
+
+### Other
+| **Document**                                                    | **Description**                                         |
+|-----------------------------------------------------------------|---------------------------------------------------------|
+| [Licenses](docs/licenses.md)      | List of licenses and copyrights                          |
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [licenses.md](/docs/licenses.md) file for details.
+This project is licensed under the Unlicense - see the [LICENSE](LICENSE) file for details.
+
+---
