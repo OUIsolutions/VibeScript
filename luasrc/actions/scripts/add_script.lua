@@ -51,6 +51,10 @@ private_vibescript.add_script  = function()
         end
         dtw.write_file(path, code)
         os.execute("chmod +x "..path)
+    elseif os_name == "windows" then
+        local code = string.format("@echo off\nvibescript %s %%*", name)
+        local path = os.getenv("USERPROFILE").."\\AppData\\Local\\Microsoft\\WindowsApps\\"..name..".bat"
+        dtw.write_file(path, code)
     end
 
     print("Script ("..name..") added successfully")
