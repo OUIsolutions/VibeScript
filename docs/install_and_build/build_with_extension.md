@@ -1,110 +1,109 @@
 
-# Building VibeScript with Custom Extensions 🚀
+# Building VibeScript with Custom Extensions
 
-**What is this?** VibeScript lets you add your own custom features! Think of it like adding new superpowers to the program.
+**Overview:** VibeScript supports custom extensions that allow you to add additional functionality to the core system.
 
-**Who is this for?** Complete beginners who want to customize VibeScript.
+**Audience:** Developers who want to extend VibeScript with custom features.
 
-**Time needed:** About 10 minutes
-
----
-
-## 📋 What You'll Need
-
-- A computer with Linux
-- A terminal (command line)
-- Basic copy-paste skills
-
-**That's it!** No programming experience required.
+**Estimated time:** Approximately 10 minutes
 
 ---
 
-## 🛠️ Step 1: Create Your Custom Feature
+## Prerequisites
 
-First, we'll create a simple custom feature. Don't worry about understanding the code - just copy and paste!
+- Linux operating system
+- Terminal access
+- Basic command line familiarity
 
-**Create a file called `extension.c` and put this code inside:**
+No advanced programming experience is required.
+
+---
+
+## Step 1: Create Your Custom Extension
+
+Create a custom extension by implementing a simple function. The following example demonstrates the basic structure.
+
+**Create a file named `extension.c` with the following content:**
 
 ```c
 int custom_extension(lua_State *state){
     LuaCEmbed * l  = newLuaCEmbedLib(state);
-    printf("🎉 Hello from your custom extension!\n");
+    printf("Hello from your custom extension!\n");
 
-    LuaCEmbed_set_string_lib_prop(l, "custom_message", "This is YOUR custom message!");
+    LuaCEmbed_set_string_lib_prop(l, "custom_message", "This is your custom message!");
 
     return LuaCembed_perform(l);
 }
 ```
 
-**What does this do?** This creates a simple custom feature that will show a message when you use it.
+**Function description:** This creates a basic custom extension that outputs a message and sets a string property accessible from Lua.
 
 ---
 
-## 📥 Step 2: Download the Main VibeScript Code
+## Step 2: Download VibeScript Source
 
-We need to download the main VibeScript code to build on top of.
+Download the VibeScript amalgamation file, which contains all the necessary source code.
 
-**Copy and paste this command in your terminal:**
+**Execute the following command:**
 
 ```bash
 curl -L https://github.com/OUIsolutions/VibeScript/releases/download/0.35.0/amalgamation.c -o amalgamation.c
 ```
 
-**What happened?** You just downloaded a big file with all the VibeScript code!
+This downloads the complete VibeScript source code in a single file format.
 
 ---
 
-## 🔨 Step 5: Build Your Custom VibeScript
+## Step 3: Compile with Extension
 
-Now we'll combine everything together to create your custom VibeScript!
+Compile VibeScript with your custom extension using the following command:
 
-**Copy and paste this command (it's long, but just copy the whole thing):**
+**Execute the compilation command:**
 
 ```bash
 gcc amalgamation.c  -DVIBE_EXTENSION_MODULE=\"extension.c\" -DVIBE_EXTENSION_FUNC=custom_extension -DVIBE_EXTENSION_LIB_NAME=\"custom_extension\" -o custom_vibescript
 ```
 
-**What's happening?** Your computer is building your custom VibeScript with your new feature inside!
+This command compiles the VibeScript source with your custom extension integrated.
 
 ---
 
-## 🧪 Step 6: Test Your Custom VibeScript
+## Step 4: Test the Extension
 
-Let's make sure your custom feature works!
+Verify that your custom extension functions correctly by creating a test script.
 
-**Create a test file called `main.lua` with this content:**
+**Create a test file named `main.lua` with the following content:**
 
 ```lua
-print("Testing my custom VibeScript...")
+print("Testing custom VibeScript extension...")
 print(custom_extension.custom_message)
-print("It works! 🎉")
+print("Extension test completed successfully.")
 ```
 
-**Now test it:**
+**Execute the test:**
 
 ```bash
 ./custom_vibescript main.lua 
 ```
 
-**What you should see:**
+**Expected output:**
 ```
-Testing my custom VibeScript...
-🎉 Hello from your custom extension!
-This is YOUR custom message!
-It works! 🎉
+Testing custom VibeScript extension...
+Hello from your custom extension!
+This is your custom message!
+Extension test completed successfully.
 ```
 
 ---
 
-## 🎉 Congratulations!
+## Conclusion
 
-You just built your first custom VibeScript! 
+You have successfully built VibeScript with a custom extension.
 
-**What you accomplished:**
-- ✅ Created a custom feature
-- ✅ Downloaded the VibeScript code
-- ✅ Set up security
-- ✅ Built your custom version
-- ✅ Tested it successfully
+**Summary of completed tasks:**
+- Created a custom extension function
+- Downloaded the VibeScript source code
+- Compiled VibeScript with the extension
+- Verified the extension functionality
 
-**What's next?** You can now modify the `extension.c` file to add your own custom features!
+**Next steps:** You can now modify the `extension.c` file to implement additional custom features as needed.
