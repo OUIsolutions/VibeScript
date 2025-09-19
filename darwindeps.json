@@ -108,7 +108,7 @@
     "type": "gitrelease",
     "repo": "OUIsolutions/LuaShip",
     "file": "LuaShip.lua",
-    "tag": "0.2.0",
+    "tag": "0.2.1",
     "dest": "dependencies/LuaShip.lua"
   },
   {
