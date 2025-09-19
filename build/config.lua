@@ -1,5 +1,5 @@
 PROJECT_NAME = "vibescript"
-CONTANIZER   =  darwin.argv.get_flag_arg_by_index({ "contanizer", }, 1,"sudo docker" ) 
+CONTANIZER   =  darwin.argv.get_flag_arg_by_index({ "contanizer", }, 1,"docker" ) 
 VERSION      = "0.0.1"
 LICENSE      = "MIT"
 URL          = "https://github.com/OUIsolutions/Ai-RagTemplate"
