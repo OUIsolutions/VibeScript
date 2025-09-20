@@ -22,6 +22,17 @@ private_vibescript.internal_main = function()
           end
           return 0
      end
+     if action == "eval" then 
+          local all_args = {}
+          while true do 
+               local arg = argv.get_next_unused()
+               if not arg then break end
+               table.insert(all_args,arg)
+          end
+          local command = table.concat(all_args," ")
+           load(command)()
+          return 0
+     end 
 
      
      if action == "version" or action == "--version"  then 
