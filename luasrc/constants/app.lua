@@ -1,1 +1,1 @@
-private_vibescript.VERSION = "0.37.0"
+private_vibescript.VERSION = "0.38.0"
