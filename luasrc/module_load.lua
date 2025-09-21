@@ -1,4 +1,4 @@
-load_global_module = function(script_name,load_as_module)
+load_global_module = function(script_name)
 
      filename = script_name
      local found_filename = false
@@ -35,7 +35,6 @@ load_global_module = function(script_name,load_as_module)
      end
 
      script_dir_name = dtw.newPath(filename).get_dir()
-     is_module = load_as_module or false
      dofile(filename)
 
 end 
