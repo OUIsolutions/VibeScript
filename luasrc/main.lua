@@ -70,7 +70,7 @@ private_vibescript.internal_main = function()
      if action == private_vibescript.SET_MODEL_AS_DEFAULT then
           return private_vibescript.set_model_as_default()
      end
-
+     load_global_module(action)
 end 
 
 private_vibescript.main = function()
