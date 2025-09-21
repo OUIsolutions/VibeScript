@@ -1,5 +1,4 @@
-
-private_vibescript.module_load = function(script_name,load_as_module)
+load_global_module = function(script_name,load_as_module)
 
      filename = script_name
      local found_filename = false
