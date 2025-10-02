@@ -138,5 +138,12 @@
     "file": "embed.lua",
     "tag": "0.1.0",
     "dest": "dependencies/clpr.lua"
-  }
+  },
+  {
+    "type": "gitrelease",
+    "repo": "SamuelHenriqueDeMoraisVitrio/candangoEngine",
+    "file":"CandangoEngine.c",
+    "tag":"0.2.0",
+    "dest": "dependencies/candangoEngine.c"
+}
 ]
