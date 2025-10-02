@@ -45,14 +45,14 @@
     "type": "gitrelease",
     "repo": "OUIsolutions/LuaCEmbed",
     "file": "LuaCEmbed.c",
-    "tag": "0.11.0",
+    "tag": "0.12.0",
     "dest": "dependencies/LuaCEmbed.c"
   },
   {
     "type": "gitrelease",
     "repo": "OUIsolutions/LuaCEmbed",
     "file": "LuaCEmbed.h",
-    "tag": "0.11.0",
+    "tag": "0.12.0",
     "dest": "dependencies/LuaCEmbed.h"
   },
   {
