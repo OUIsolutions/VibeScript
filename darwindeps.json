@@ -143,7 +143,7 @@
     "type": "gitrelease",
     "repo": "SamuelHenriqueDeMoraisVitrio/candangoEngine",
     "file":"CandangoEngine.c",
-    "tag":"0.2.0",
+    "tag":"0.2.1",
     "dest": "dependencies/candangoEngine.c"
 }
 ]
