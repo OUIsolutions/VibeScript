@@ -36,7 +36,7 @@ load_global_module = function(script_name,is_main)
      
      script_dir_name = dtw.newPath(filename).get_dir()
      is_main_script = is_main
-     dofile(filename)
+     local result = dofile(filename)
      is_main_script = false
-
+     return result
 end 
