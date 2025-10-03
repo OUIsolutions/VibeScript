@@ -1,12 +1,12 @@
 {
    "replacers": {
        "BIG_VERSION": "0",
-       "SMALL_VERSION": "40",
+       "SMALL_VERSION": "41",
        "PATCH_VERSION": "0"
    },
    "release": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
    "tag": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
-   "description": "first automated version with shypard",
+   "description": "implemented the module load as a external lib load",
    "assets": [
         "release/amalgamation.c", 
         "release/vibescript.deb",
