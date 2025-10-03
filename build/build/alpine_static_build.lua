@@ -21,8 +21,6 @@ function alpine_static_build()
     image.start({
         volumes = {
             { "././release", "/release" },
-            { "././keys", "/keys" },
-
 
         },
         command = compiler..[[ --static /release/amalgamation.c   -o /release/alpine_static_bin.out]]

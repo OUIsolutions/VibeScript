@@ -20,8 +20,6 @@ function windowsi32_build()
     image.start({
         volumes = {
             { "././release", "/release" },
-            { "././keys", "/keys" },
-
         },
         command = compiler..[[ --static /release/amalgamation.c  -o /release/windowsi32.exe -lws2_32]]
     })
