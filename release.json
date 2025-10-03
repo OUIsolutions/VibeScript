@@ -1,0 +1,17 @@
+{
+   "replacers": {
+       "BIG_VERSION": "0",
+       "SMALL_VERSION": "40",
+       "PATCH_VERSION": "0"
+   },
+   "release": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
+   "tag": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
+   "description": "first automated version with shypard",
+   "assets": [
+        "release/amalgamation.c", 
+        "release/vibescript.deb",
+        "release/vibescript.out",
+        "release/vibescript.rpm",
+        "release/vibescripti32.exe"
+    ]
+}
