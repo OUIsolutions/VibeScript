@@ -1,2 +1,1 @@
-cd .. && vibescript cachify  --src luasrc/ csrc/ darw
-indeps.json --cmd 'rm -rf dependencies/ && rm -rf release && darwin install && darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windows64_build rpm_static_build debian_static_build --contanizer podman '
+cd .. && vibescript cachify  --src luasrc/ csrc/ darwindeps.json --cmd 'rm -rf dependencies/ && rm -rf release && darwin install && darwin run_blueprint build/ --mode folder amalgamation_build alpine_static_build windowsi32_build windows64_build rpm_static_build debian_static_build --contanizer podman '
