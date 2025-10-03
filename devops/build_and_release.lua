@@ -1,5 +1,6 @@
 
-
+load_global_module("shipyard")
+if true then return end 
 dtw.remove_any("dependencies")
 dtw.remove_any("release")
 os.execute("darwin install")
