@@ -10,10 +10,10 @@ amalgamation.c
 extension.c
 *.o
 plan.md
-full_build.sh
 .commit_changes.txt
 .clpr
 teste.html
+.cachify
 prompt.md
 test.c
 response.md
