@@ -1,1 +1,1 @@
-cd .. && vibescript cachify  --src luasrc/ csrc/ darwindeps.json devops --cmd 'sh devops/full_build.sh && sh releasefy.sh' 
+cd .. && vibescript cachify  --src luasrc/ csrc/ darwindeps.json devops --cmd 'sh devops/full_build.sh && sh generate_release.sh' 
