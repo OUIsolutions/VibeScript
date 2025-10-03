@@ -1,0 +1,1 @@
+os.execute([[cd .. &&  cachify  --src luasrc/ csrc/ darwindeps.json devops --cmd 'vibescript devops/build_and_release.lua'  ]])
