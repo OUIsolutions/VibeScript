@@ -1,4 +1,4 @@
-load_global_module = function(script_name)
+load_global_module = function(script_name,is_main)
 
      filename = script_name
      local found_filename = false
@@ -33,8 +33,10 @@ load_global_module = function(script_name)
           end 
           error("File ("..script_name..") does not exist",0)
      end
-
+     
      script_dir_name = dtw.newPath(filename).get_dir()
+     is_main_script = is_main
      dofile(filename)
+     is_main_script = false
 
 end 
