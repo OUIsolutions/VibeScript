@@ -46,10 +46,8 @@ function main()
             print("⚙️ Detected source changes — preparing new release...")
             dtw.remove_any("release")
 
-            -- Incrementa PATCH_VERSION
             shipyard.increment_replacer("release.json", "PATCH_VERSION")
 
-            -- Commita e envia para o repositório
             os.execute("git add .")
             os.execute("git commit -m 'release: prepare new VibeScript release'")
             os.execute("git push")
