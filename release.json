@@ -1,0 +1,13 @@
+{
+
+    "replacers": {
+        "BIG_VERSION": "0",
+        "SMALL_VERSION": "2",
+        "PATCH_VERSION": "0"
+    },
+    "release": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
+    "tag": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
+    "description": "new release to VibeScript",
+    "assets":	["release/vibescript.out", "release/amalgamation.c", "release/vibescript.deb", "release/vibescript.rpm", "release/vibescripti32.exe"]
+
+}
