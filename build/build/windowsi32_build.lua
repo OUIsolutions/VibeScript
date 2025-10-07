@@ -21,6 +21,14 @@ function windowsi32_build()
         volumes = {
             { "././release", "/release" },
         },
-        command = compiler..[[ --static /release/amalgamation.c  -o /release/windowsi32.exe -lws2_32]]
+        command = compiler..[[ --static /release/amalgamation.c  -o /release/vibescripti32.exe -lws2_32]]
     })
 end
+
+darwin.add_recipe({
+    name = "windowsi32_build",
+    description = "Builds a static Windows 32-bit executable (windowsi32.exe) using MinGW",
+    outs = { "release/vibescripti32.exe" },
+    inputs = { "release/amalgamation.c", "csrc", "luasrc", "dependencies", "assets" },
+    callback = windowsi32_build
+})

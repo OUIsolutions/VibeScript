@@ -81,8 +81,16 @@ chmod +x %{buildroot}/usr/local/bin/PROJECT_NAME
     for _, file in ipairs(rpms) do
         if darwin.dtw.ends_with(file, ".rpm") then
             --it will have only one rpm
-            darwin.dtw.copy_any_overwriting(file, "release/rpm_static_build.rpm")
+            darwin.dtw.copy_any_overwriting(file, "release/vibescript.rpm")
             break
         end
     end
 end
+
+darwin.add_recipe({
+    name = "rpm_static_build",
+    description = "Packages the static binary as an RPM package for RHEL/CentOS/AlmaLinux",
+    outs = {"release/vibescript.rpm"},
+    inputs = {"release/alpine_static_bin.out", "csrc", "luasrc", "dependencies", "assets"},
+    callback = rpm_static_build
+})

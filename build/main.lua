@@ -6,7 +6,6 @@ function main()
 
     local build_funcs = create_build_funcs()
 
-
     darwin.dtw.remove_any("release")
     darwin.dtw.remove_any(".cache")
     local i = 1

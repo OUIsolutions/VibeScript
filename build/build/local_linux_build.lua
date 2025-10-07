@@ -5,3 +5,11 @@ function local_linux_build()
     os.execute(comand)
    
 end
+
+darwin.add_recipe({
+    name = "local_linux_build",
+    description = "builds the project locally on Linux using gcc",
+    outs = {"vibescript"},
+    inputs = {"release/amalgamation.c", "../keys/content.h", "../keys/llm.h", "../keys/name.h"},
+    callback = local_linux_build
+})

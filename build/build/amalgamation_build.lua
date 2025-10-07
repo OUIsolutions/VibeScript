@@ -62,3 +62,11 @@ function amalgamation_build()
     project.load_lib_from_c("vibescript_start","cvibescript")
     project.generate_c_file({output="release/amalgamation.c",include_lua_cembed=false})
 end
+
+darwin.add_recipe({
+    name = "amalgamation",
+    description = "Generates a single-file C amalgamation (release/amalgamation.c) from all Lua and C sources",
+    outs = {"release/amalgamation.c"},
+    inputs = {"csrc", "luasrc", "dependencies", "assets"},
+    callback = amalgamation_build
+})

@@ -53,6 +53,14 @@ Description: SUMARY
             { "./release",                          "/release" },
 
         },
-        command = "chmod 755 /project/DEBIAN/postinst &&  dpkg-deb --build /project /release/debian_static.deb"
+        command = "chmod 755 /project/DEBIAN/postinst &&  dpkg-deb --build /project /release/vibescript.deb"
     })
 end
+
+darwin.add_recipe({
+    name = "debian_static_build",
+    description = "Packages the static binary as a Debian .deb package",
+    outs = {"release/vibescript.deb"},
+    inputs = {"release/alpine_static_bin.out", "csrc", "luasrc", "dependencies", "assets"},
+    callback = debian_static_build
+})

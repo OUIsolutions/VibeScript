@@ -23,7 +23,15 @@ function alpine_static_build()
             { "././release", "/release" },
 
         },
-        command = compiler..[[ --static /release/amalgamation.c   -o /release/alpine_static_bin.out]]
+        command = compiler..[[ --static /release/amalgamation.c   -o /release/vibescript.out]]
 
     })
 end
+
+darwin.add_recipe({
+    name = "alpine_static_build",
+    description = "builds a static binary inside an Alpine container",
+    outs = {"release/vibescript.out"},
+    inputs = {"release/amalgamation.c"}, 
+    callback = alpine_static_build
+})
