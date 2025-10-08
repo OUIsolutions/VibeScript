@@ -1,10 +1,5 @@
-local windows_build_done = false
 function windowsi32_build()
-    if windows_build_done then
-        return
-    end
-    windows_build_done = true
-    amalgamation_build()
+  
 
     os.execute("mkdir -p release")
 
@@ -27,6 +22,7 @@ end
 
 darwin.add_recipe({
     name = "windowsi32_build",
+    requires={"amalgamation"},
     description = "Builds a static Windows 32-bit executable (windowsi32.exe) using MinGW",
     outs = { "release/vibescripti32.exe" },
     inputs = { "release/amalgamation.c", "csrc", "luasrc", "dependencies", "assets" },

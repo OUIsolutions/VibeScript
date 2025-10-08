@@ -1,10 +1,5 @@
-local rpm_static_build_done = false
 function rpm_static_build()
-    if rpm_static_build_done then
-        return
-    end
-    rpm_static_build_done = true
-    alpine_static_build()
+    
     darwin.dtw.copy_any_overwriting("release/alpine_static_bin.out",
         ".cache/rpm_static_build/SOURCES/alpine_static_bin.out"
     )
@@ -89,6 +84,7 @@ end
 
 darwin.add_recipe({
     name = "rpm_static_build",
+    requires={"alpine_static_build"},
     description = "Packages the static binary as an RPM package for RHEL/CentOS/AlmaLinux",
     outs = {"release/vibescript.rpm"},
     inputs = {"release/alpine_static_bin.out", "csrc", "luasrc", "dependencies", "assets"},

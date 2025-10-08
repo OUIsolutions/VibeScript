@@ -1,9 +1,5 @@
-local alreay_amalamated_done = false
 function amalgamation_build()
-    if alreay_amalamated_done then
-        return
-    end
-    alreay_amalamated_done = true
+
 
     darwin.silverchain.generate({
         src = "csrc",

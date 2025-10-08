@@ -1,10 +1,4 @@
-local debian_static_build_done = false
 function debian_static_build()
-    if debian_static_build_done then
-        return
-    end
-    debian_static_build_done = true
-    alpine_static_build()
 
 
     local control = [[
@@ -59,6 +53,7 @@ end
 
 darwin.add_recipe({
     name = "debian_static_build",
+    requires={"alpine_static_build"},
     description = "Packages the static binary as a Debian .deb package",
     outs = {"release/vibescript.deb"},
     inputs = {"release/alpine_static_bin.out", "csrc", "luasrc", "dependencies", "assets"},
