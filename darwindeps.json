@@ -1,149 +1,148 @@
-[
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/DoTheWorld",
-    "file": "doTheWorld.h",
-    "tag": "11.1.0",
-    "dest": "dependencies/doTheWorld.h"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/DoTheWorld",
-    "file": "doTheWorldOne.c",
-    "tag": "11.1.0",
-    "dest": "dependencies/doTheWorld.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/BearHttpsClient",
-    "file": "BearHttpsClient.h",
-    "tag": "0.9.2",
-    "dest": "dependencies/BearHttpsClient.h"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/BearHttpsClient",
-    "file": "BearHttpsClient.c",
-    "tag": "0.9.2",
-    "dest": "dependencies/BearHttpsClient.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI",
-    "file": "SDK_OpenAI.c",
-    "tag": "0.0.10",
-    "dest": "dependencies/SDK_OpenAI.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI",
-    "file": "SDK_OpenAI.h",
-    "tag": "0.0.10",
-    "dest": "dependencies/SDK_OpenAI.h"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/LuaCEmbed",
-    "file": "LuaCEmbed.c",
-    "tag": "0.12.0",
-    "dest": "dependencies/LuaCEmbed.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/LuaCEmbed",
-    "file": "LuaCEmbed.h",
-    "tag": "0.12.0",
-    "dest": "dependencies/LuaCEmbed.h"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/LuaDoTheWorld",
-    "file": "luaDoTheWorld_no_dep.c",
-    "tag": "0.14.0",
-    "dest": "dependencies/luaDoTheWorld_no_dep.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/LuaFluidJson",
-    "file": "luaFluidJson_no_dep.c",
-    "tag": "0.6.1",
-    "dest": "dependencies/luaFluidJson_no_dep.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/Lua-Bear",
-    "file": "luaBear_no_dep.c",
-    "tag": "0.3.2",
-    "dest": "dependencies/luaBear_no_dep.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/CWebStudio",
-    "file": "CWebStudio.h",
-    "tag": "5.0.1",
-    "dest": "dependencies/CWebStudio.h"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/CWebStudio",
-    "file": "CWebStudioOne.c",
-    "tag": "5.0.1",
-    "dest": "dependencies/CWebStudioOne.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer",
-    "file": "serjao_no_dep.c",
-    "tag": "V6.1",
-    "dest": "dependencies/serjao_no_dep.c"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/LuaArgv",
-    "file": "luargv.lua",
-    "tag": "0.07",
-    "dest": "dependencies/luargv.lua"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/LuaShip",
-    "file": "LuaShip.lua",
-    "tag": "0.2.1",
-    "dest": "dependencies/LuaShip.lua"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/LuaWebDriver",
-    "file": "luaWebDriver.lua",
-    "tag": "1.7.0",
-    "dest": "dependencies/luaWebDriver.lua"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "SamuelHenriqueDeMoraisVitrio/LuaBerrante",
-    "file": "LuaBerrante.lua",
-    "tag": "V0.0.1",
-    "dest": "dependencies/LuaBerrante.lua"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "mateusmoutinho/LuaHeritage",
-    "file": "heregitage.lua",
-    "tag": "1.0.0",
-    "dest": "dependencies/heregitage.lua"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/clpr",
-    "file": "embed.lua",
-    "tag": "0.1.0",
-    "dest": "dependencies/clpr.lua"
-  },
-  {
-    "type": "gitrelease",
-    "repo": "SamuelHenriqueDeMoraisVitrio/candangoEngine",
-    "file":"CandangoEngine.c",
-    "tag":"0.2.2",
-    "dest": "dependencies/candangoEngine.c"
-}
-]
+[{
+		"dest":	"dependencies/doTheWorld.h",
+		"file":	"doTheWorld.h",
+		"repo":	"OUIsolutions/DoTheWorld",
+		"tag":	"11.1.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-08-21T06:47:28Z"
+	}, {
+		"dest":	"dependencies/doTheWorld.c",
+		"file":	"doTheWorldOne.c",
+		"repo":	"OUIsolutions/DoTheWorld",
+		"tag":	"11.1.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-08-21T06:47:27Z"
+	}, {
+		"dest":	"dependencies/BearHttpsClient.h",
+		"file":	"BearHttpsClient.h",
+		"repo":	"OUIsolutions/BearHttpsClient",
+		"tag":	"0.9.2",
+		"type":	"gitrelease",
+		"updated_at":	"2025-09-12T18:43:51Z"
+	}, {
+		"dest":	"dependencies/BearHttpsClient.c",
+		"file":	"BearHttpsClient.c",
+		"repo":	"OUIsolutions/BearHttpsClient",
+		"tag":	"0.9.2",
+		"type":	"gitrelease",
+		"updated_at":	"2025-09-12T18:43:46Z"
+	}, {
+		"dest":	"dependencies/SDK_OpenAI.c",
+		"file":	"SDK_OpenAI.c",
+		"repo":	"SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI",
+		"tag":	"0.0.10",
+		"type":	"gitrelease",
+		"updated_at":	"2025-04-01T17:15:57Z"
+	}, {
+		"dest":	"dependencies/SDK_OpenAI.h",
+		"file":	"SDK_OpenAI.h",
+		"repo":	"SamuelHenriqueDeMoraisVitrio/ClientSDKOpenAI",
+		"tag":	"0.0.10",
+		"type":	"gitrelease",
+		"updated_at":	"2025-04-01T17:15:57Z"
+	}, {
+		"dest":	"dependencies/LuaCEmbed.c",
+		"file":	"LuaCEmbed.c",
+		"repo":	"OUIsolutions/LuaCEmbed",
+		"tag":	"0.13.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-10-05T12:21:19Z"
+	}, {
+		"dest":	"dependencies/LuaCEmbed.h",
+		"file":	"LuaCEmbed.h",
+		"repo":	"OUIsolutions/LuaCEmbed",
+		"tag":	"0.13.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-10-05T12:21:20Z"
+	}, {
+		"dest":	"dependencies/luaDoTheWorld_no_dep.c",
+		"file":	"luaDoTheWorld_no_dep.c",
+		"repo":	"OUIsolutions/LuaDoTheWorld",
+		"tag":	"0.14.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-08-21T06:49:00Z"
+	}, {
+		"dest":	"dependencies/luaFluidJson_no_dep.c",
+		"file":	"luaFluidJson_no_dep.c",
+		"repo":	"OUIsolutions/LuaFluidJson",
+		"tag":	"0.6.1",
+		"type":	"gitrelease",
+		"updated_at":	"2025-05-15T02:01:32Z"
+	}, {
+		"dest":	"dependencies/luaBear_no_dep.c",
+		"file":	"luaBear_no_dep.c",
+		"repo":	"OUIsolutions/Lua-Bear",
+		"tag":	"0.3.2",
+		"type":	"gitrelease",
+		"updated_at":	"2025-09-12T17:46:30Z"
+	}, {
+		"dest":	"dependencies/CWebStudio.h",
+		"file":	"CWebStudio.h",
+		"repo":	"OUIsolutions/CWebStudio",
+		"tag":	"5.0.1",
+		"type":	"gitrelease",
+		"updated_at":	"2025-08-22T23:40:23Z"
+	}, {
+		"dest":	"dependencies/CWebStudioOne.c",
+		"file":	"CWebStudioOne.c",
+		"repo":	"OUIsolutions/CWebStudio",
+		"tag":	"5.0.1",
+		"type":	"gitrelease",
+		"updated_at":	"2025-08-22T23:40:23Z"
+	}, {
+		"dest":	"dependencies/serjao_no_dep.c",
+		"file":	"serjao_no_dep.c",
+		"repo":	"SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer",
+		"tag":	"V6.1",
+		"type":	"gitrelease",
+		"updated_at":	"2025-09-12T18:22:48Z"
+	}, {
+		"dest":	"dependencies/luargv.lua",
+		"file":	"luargv.lua",
+		"repo":	"OUIsolutions/LuaArgv",
+		"tag":	"0.1.1",
+		"type":	"gitrelease",
+		"updated_at":	"2025-09-29T18:11:25Z"
+	}, {
+		"dest":	"dependencies/LuaShip.lua",
+		"file":	"LuaShip.lua",
+		"repo":	"OUIsolutions/LuaShip",
+		"tag":	"0.2.1",
+		"type":	"gitrelease",
+		"updated_at":	"2025-09-19T22:59:54Z"
+	}, {
+		"dest":	"dependencies/luaWebDriver.lua",
+		"file":	"luaWebDriver.lua",
+		"repo":	"OUIsolutions/LuaWebDriver",
+		"tag":	"1.7.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-09-03T15:16:45Z"
+	}, {
+		"dest":	"dependencies/LuaBerrante.lua",
+		"file":	"LuaBerrante.lua",
+		"repo":	"SamuelHenriqueDeMoraisVitrio/LuaBerrante",
+		"tag":	"V0.0.1",
+		"type":	"gitrelease",
+		"updated_at":	"2025-06-26T21:40:44Z"
+	}, {
+		"dest":	"dependencies/heregitage.lua",
+		"file":	"heregitage.lua",
+		"repo":	"mateusmoutinho/LuaHeritage",
+		"tag":	"1.0.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-07-10T05:04:49Z"
+	}, {
+		"dest":	"dependencies/clpr.lua",
+		"file":	"embed.lua",
+		"repo":	"OUIsolutions/clpr",
+		"tag":	"0.2.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-10-08T00:24:06Z"
+	}, {
+		"dest":	"dependencies/candangoEngine.c",
+		"file":	"CandangoEngine.c",
+		"repo":	"SamuelHenriqueDeMoraisVitrio/candangoEngine",
+		"tag":	"0.2.2",
+		"type":	"gitrelease",
+		"updated_at":	"2025-10-03T03:01:28Z"
+	}]
