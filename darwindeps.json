@@ -137,7 +137,7 @@
 		"repo":	"OUIsolutions/clpr",
 		"tag":	"0.2.0",
 		"type":	"gitrelease",
-		"updated_at":	"2025-10-08T00:24:06Z"
+		"updated_at":	"2025-10-09T14:01:02Z"
 	}, {
 		"dest":	"dependencies/candangoEngine.c",
 		"file":	"CandangoEngine.c",
