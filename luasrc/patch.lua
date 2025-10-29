@@ -1,11 +1,23 @@
 private_vibescript.configure_patch = function ()
-    function ApllyPatch(patch)
+    function ApplyPatch(patch)
+
+
+
         if not patch then
             error("No patch provided")
         end
         if not patch.repo then 
             error("No repo provided in patch")
         end
+
+        if not patch.src then
+            patch.src = "."
+        end
+        if not patch.dest then
+            patch.dest = "."
+        end
+
+
         local patch_dest = os.getenv("HOME").."/.vibescript_patches/"
         local hasher = dtw.newHasher()
         hasher.digest(patch.repo)
@@ -17,7 +29,6 @@ private_vibescript.configure_patch = function ()
         end 
         local git_pull_command = "cd "..patch_folder.." && git pull"
         os.execute(git_pull_command)
-        
 
     end
 end
