@@ -22,6 +22,7 @@ private_vibescript.internal_main = function()
           end
           return 0
      end
+     --- mensagem de teste aaa
      if action == "eval" then 
           local all_args = {}
           while true do 
@@ -35,6 +36,10 @@ private_vibescript.internal_main = function()
      end 
 
      
+
+
+
+
      if action == "version" or action == "--version"  then 
           print("vibescript "..private_vibescript.VERSION)
           return

@@ -11,6 +11,7 @@ darwin.add_recipe({
     requires={"amalgamation"},
     description = "builds the project locally on Linux using gcc",
     outs = {"vibescript"},
-    inputs = {"release/amalgamation.c", "../keys/content.h", "../keys/llm.h", "../keys/name.h"},
+    inputs = {"csrc", "luasrc", "dependencies", "assets"},
+
     callback = local_linux_build
 })
