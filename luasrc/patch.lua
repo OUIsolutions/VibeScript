@@ -31,6 +31,11 @@ end
 private_vibescript.configure_patch = function ()
     function ApplyPatch(patch)
         print(private_vibescript.match_pattern(".git/config",".git/*"))
+        print(private_vibescript.match_pattern("teste","teste"))
+        print(private_vibescript.match_pattern("teste",".git/*"))
+        print(private_vibescript.match_pattern(".git/config",".git/"))
+        print(private_vibescript.match_pattern("config/teste","*config/teste"))
+
         if true then return end 
 
         if not patch then
