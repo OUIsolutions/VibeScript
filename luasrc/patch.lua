@@ -1,18 +1,37 @@
 
+private_vibescript.match_pattern = function (item,pattern)
+
+    local start_char = string.sub(pattern,1,1)
+    if start_char == "*" then
+        pattern = string.sub(pattern,2)
+        return dtw.ends_with(item,pattern)
+    end
+    
+    local end_char = string.sub(pattern,-1,-1)
+    if end_char == "*" then
+        pattern = string.sub(pattern,1,-2)
+        return dtw.starts_with(item,pattern)
+    end
+    return item == pattern
+end
+
 private_vibescript.remove_itens_of_list = function (itens,itens_to_exclude)
     local filtered_itens = {}
     for i=1,#itens do
         local item = itens[i]
         local exclude_item = false
-        
-   
+        for j=1,#itens_to_exclude do
+            local possible_exclusion = itens_to_exclude[j]
+            
+        end  
     end
+    return filtered_itens
 end
 
 private_vibescript.configure_patch = function ()
     function ApplyPatch(patch)
-
-
+        print(private_vibescript.match_pattern(".git/config",".git/*"))
+        if true then return end 
 
         if not patch then
             error("No patch provided")
