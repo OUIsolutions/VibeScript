@@ -4,6 +4,8 @@ private_vibescript.configure_newRawLLMFunction = function()
     newRawLLM = function(model)
         local chosed_model = nil
     
+
+        
         -- Priority 1: Use the provided model if it exists in models
         if model then
             for _, current_model in ipairs(models) do
