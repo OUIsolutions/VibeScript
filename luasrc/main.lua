@@ -37,9 +37,6 @@ private_vibescript.internal_main = function()
 
      
 
-
-
-
      if action == "version" or action == "--version"  then 
           print("vibescript "..private_vibescript.VERSION)
           return
