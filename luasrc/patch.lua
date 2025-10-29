@@ -23,7 +23,7 @@ private_vibescript.remove_itens_of_list = function (itens,itens_to_exclude)
         for j=1,#itens_to_exclude do
             local possible_exclusion = itens_to_exclude[j]
             if(private_vibescript.match_pattern(item,possible_exclusion)) then
-                print("Excluding item: "..item.." by pattern: "..possible_exclusion)
+                --("Excluding item: "..item.." by pattern: "..possible_exclusion)
                 exclude_item = true
                 break
             end
@@ -80,7 +80,8 @@ private_vibescript.configure_patch = function ()
             local item = filtered_itens[i]
             local item_path = repo_src.."/"..item
             local dest_path = patch.dest.."/"..item
-            print("Applying patch item: "..item," to dest: "..dest_path)
+          --  print("Applying patch item: "..item," to dest: "..dest_path)
+            dtw.copy_any_overwriting(item_path,dest_path)
         end 
 
 
