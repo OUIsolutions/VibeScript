@@ -22,7 +22,7 @@ private_vibescript.internal_main = function()
           end
           return 0
      end
-     --- mensagem de teste aaa
+     --- mensagem de teste aaa   
      if action == "eval" then 
           local all_args = {}
           while true do 
