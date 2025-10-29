@@ -22,21 +22,22 @@ private_vibescript.remove_itens_of_list = function (itens,itens_to_exclude)
         local exclude_item = false
         for j=1,#itens_to_exclude do
             local possible_exclusion = itens_to_exclude[j]
-            
+            if(private_vibescript.match_pattern(item,possible_exclusion)) then
+                print("Excluding item: "..item.." by pattern: "..possible_exclusion)
+                exclude_item = true
+                break
+            end
         end  
+        if not exclude_item then
+            table.insert(filtered_itens,item)
+        end
     end
     return filtered_itens
 end
 
 private_vibescript.configure_patch = function ()
     function ApplyPatch(patch)
-        print(private_vibescript.match_pattern(".git/config",".git/*"))
-        print(private_vibescript.match_pattern("teste","teste"))
-        print(private_vibescript.match_pattern("teste",".git/*"))
-        print(private_vibescript.match_pattern(".git/config",".git/"))
-        print(private_vibescript.match_pattern("config/teste","*config/teste"))
-
-        if true then return end 
+        
 
         if not patch then
             error("No patch provided")
@@ -70,6 +71,14 @@ private_vibescript.configure_patch = function ()
         local internal_excudes = {
             ".git/*"
         }
+        local filtered_itens = private_vibescript.remove_itens_of_list(itens_to_copy,internal_excudes)  
+        if patch.excludes then
+            filtered_itens = private_vibescript.remove_itens_of_list(filtered_itens,patch.excludes)  
+        end
+        for i=1,#filtered_itens do 
+            local item = filtered_itens[i]
+            print("Applying patch item: "..item)
+        end 
 
 
     end
