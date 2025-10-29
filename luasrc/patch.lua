@@ -66,7 +66,8 @@ private_vibescript.configure_patch = function ()
         local git_pull_command = "cd "..patch_folder.." && git pull"
         os.execute(git_pull_command)
 
-        local itens_to_copy = dtw.list_files_recursively(patch_folder.."/"..patch.src)
+        local repo_src  = patch_folder.."/"..patch.src
+        local itens_to_copy = dtw.list_files_recursively(repo_src)
 
         local internal_excudes = {
             ".git/*"
@@ -77,7 +78,9 @@ private_vibescript.configure_patch = function ()
         end
         for i=1,#filtered_itens do 
             local item = filtered_itens[i]
-            print("Applying patch item: "..item)
+            local item_path = repo_src.."/"..item
+            local dest_path = patch.dest.."/"..item
+            print("Applying patch item: "..item," to dest: "..dest_path)
         end 
 
 
