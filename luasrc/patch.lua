@@ -7,12 +7,17 @@ private_vibescript.configure_patch = function ()
             error("No repo provided in patch")
         end
         local patch_dest = os.getenv("HOME").."/.vibescript_patches/"
-        local hasher = dtw.newHash()
+        local hasher = dtw.newHasher()
         hasher.digest(patch.repo)
 
         local patch_folder = patch_dest..hasher.get_value()
         dtw.create_dir_recursively(patch_folder)
-        os.execute("git clone "..patch.repo.." "..patch_folder)
+        if not dtw.isdir(patch_folder) then 
+            os.execute("git clone "..patch.repo.." "..patch_folder)
+        end 
+        local git_pull_command = "cd "..patch_folder.." && git pull"
+        os.execute(git_pull_command)
+        
 
     end
 end
