@@ -80,7 +80,7 @@ private_vibescript.configure_patch = function ()
             local item = filtered_itens[i]
             local item_path = repo_src.."/"..item
             local dest_path = patch.dest.."/"..item
-          --  print("Applying patch item: "..item," to dest: "..dest_path)
+             print("Applying patch item: "..item," to dest: "..dest_path)
             dtw.copy_any_overwriting(item_path,dest_path)
         end 
 
