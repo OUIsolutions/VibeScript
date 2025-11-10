@@ -4,10 +4,11 @@ private_vibescript.remove_model = function()
         error("No model (--" .. private_vibescript.MODEL .. ") provided", 0)
     end
 
+    local models = get_prop("models", {})
     local model_found = false
-    for i = 1, #config_json.models do
-        if config_json.models[i].name == model_name then
-            table.remove(config_json.models, i)
+    for i = 1, #models do
+        if models[i].name == model_name then
+            table.remove(models, i)
             model_found = true
             break
         end
@@ -17,5 +18,5 @@ private_vibescript.remove_model = function()
         error("Model (" .. model_name .. ") does not exist", 0)
     end
 
-    set_prop("models", config_json.models)
+    set_prop("models", models)
 end
