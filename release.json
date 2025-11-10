@@ -2,12 +2,12 @@
 
     "replacers": {
         "BIG_VERSION": "0",
-        "SMALL_VERSION": "45",
-        "PATCH_VERSION": "1"
+        "SMALL_VERSION": "46",
+        "PATCH_VERSION": "0"
     },
     "release": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
     "tag": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
-    "description": "new release to VibeScript",
+    "description": "fix on models storage",
     "assets":	["release/vibescript.out", "release/amalgamation.c", "release/vibescript.deb", "release/vibescript.rpm", "release/vibescripti32.exe"]
 
 }
