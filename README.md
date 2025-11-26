@@ -1,7 +1,7 @@
 <div align="center">
 
 # VibeScript
-![Lua Logo](https://img.shields.io/badge/VibeScript-0.35.0-blue?style=for-the-badge&logo=lua)
+![Lua Logo](https://img.shields.io/badge/VibeScript-0.47.0-blue?style=for-the-badge&logo=lua)
 [![GitHub Release](https://img.shields.io/github/release/OUIsolutions/VibeScript.svg?style=for-the-badge)](https://github.com/OUIsolutions/VibeScript/releases)
 [![License](https://img.shields.io/badge/License-Unlicense-green.svg?style=for-the-badge)](https://github.com/OUIsolutions/VibeScript/blob/main/LICENSE)
 ![Status](https://img.shields.io/badge/Status-Stable-brightgreen?style=for-the-badge)
@@ -59,11 +59,11 @@ Want to learn how to use VibeScript with AI assistance? The built-in help system
 
 |  **File**                                                                                                           | **What is**                                |
 |---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-|[amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.35.0/amalgamation.c) | Amalgamated source code containing all libraries  |
-|[vibescript.out](https://github.com/OUIsolutions/VibeScript/releases/download/0.35.0/vibescript.out)   | Ready-to-use Linux binary           |
-|[vibescripti32.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.35.0/vibescripti32.exe)       | Ready-to-use Windows 32-bit executable                         |
-|[vibescript.deb](https://github.com/OUIsolutions/VibeScript/releases/download/0.35.0/vibescript.deb)       | Debian package for easy installation                             |
-|[vibescript.rpm](https://github.com/OUIsolutions/VibeScript/releases/download/0.35.0/vibescript.rpm)       | RPM package for easy installation            |
+|[amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/amalgamation.c) | Amalgamated source code containing all libraries  |
+|[vibescript.out](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/vibescript.out)   | Ready-to-use Linux binary           |
+|[vibescripti32.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/vibescripti32.exe)       | Ready-to-use Windows 32-bit executable                         |
+|[vibescript.deb](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/vibescript.deb)       | Debian package for easy installation                             |
+|[vibescript.rpm](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/vibescript.rpm)       | RPM package for easy installation            |
 
 
 
