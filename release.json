@@ -7,7 +7,7 @@
     },
     "release": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
     "tag": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
-    "description": "fix on models storage",
+    "description": "fix on cwebstudio",
     "assets":	["release/vibescript.out", "release/amalgamation.c", "release/vibescript.deb", "release/vibescript.rpm", "release/vibescripti32.exe"]
 
 }
