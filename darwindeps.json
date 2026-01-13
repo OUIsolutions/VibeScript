@@ -6,7 +6,7 @@
 		"type":	"gitrelease",
 		"updated_at":	"2025-08-21T06:47:28Z"
 	}, {
-		"dest":	"dependencies/doTheWorld.c",
+		"dest":	"dependencies/doTheWorldOne.c",
 		"file":	"doTheWorldOne.c",
 		"repo":	"OUIsolutions/DoTheWorld",
 		"tag":	"11.1.0",
