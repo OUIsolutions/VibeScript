@@ -1,7 +1,7 @@
 function rpm_static_build()
     
-    darwin.dtw.copy_any_overwriting("release/alpine_static_bin.out",
-        ".cache/rpm_static_build/SOURCES/alpine_static_bin.out"
+    darwin.dtw.copy_any_overwriting("release/vibescript.out",
+        ".cache/rpm_static_build/SOURCES/vibescript.out"
     )
 
     local formmatted_rpm = [[
@@ -9,7 +9,7 @@ Name:           PROJECT_NAME
 Version:        VERSION
 Release:        1%{?dist}
 Summary:        SUMARY
-Source0:        alpine_static_bin.out
+Source0:        vibescript.out
 
 License:        LICENSE
 URL:           PROJECT_URL
@@ -28,7 +28,7 @@ DESCRIPITION
 
 %install
 mkdir -p %{buildroot}/usr/local/bin
-cp %{_sourcedir}/alpine_static_bin.out   %{buildroot}/usr/local/bin/PROJECT_NAME
+cp %{_sourcedir}/vibescript.out   %{buildroot}/usr/local/bin/PROJECT_NAME
 chmod +x %{buildroot}/usr/local/bin/PROJECT_NAME
 %files
 /usr/local/bin/PROJECT_NAME
@@ -87,6 +87,6 @@ darwin.add_recipe({
     requires={"alpine_static_build"},
     description = "Packages the static binary as an RPM package for RHEL/CentOS/AlmaLinux",
     outs = {"release/vibescript.rpm"},
-    inputs = {"release/alpine_static_bin.out", "csrc", "luasrc", "dependencies", "assets"},
+    inputs = {"release/vibescript.out", "csrc", "luasrc", "dependencies", "assets"},
     callback = rpm_static_build
 })
