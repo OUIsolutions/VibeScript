@@ -7,6 +7,6 @@
 #include "../../dependencies/LuaCEmbed.c"
 #undef error
 #include "../../dependencies/doTheWorldOne.c"
-#include "../../dependencies/BearHttpsClient.c"
+#include "../../dependencies/BearHttpsClientOne.c"
 #include "../../dependencies/SDK_OpenAI.c"
 #include "../../dependencies/CWebStudioOne.c"

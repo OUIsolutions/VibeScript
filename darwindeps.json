@@ -20,8 +20,8 @@
 		"type":	"gitrelease",
 		"updated_at":	"2025-09-12T18:43:51Z"
 	}, {
-		"dest":	"dependencies/BearHttpsClient.c",
-		"file":	"BearHttpsClient.c",
+		"dest":	"dependencies/BearHttpsClientOne.c",
+		"file":	"BearHttpsClientOne.c",
 		"repo":	"OUIsolutions/BearHttpsClient",
 		"tag":	"0.9.2",
 		"type":	"gitrelease",
