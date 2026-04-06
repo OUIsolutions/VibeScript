@@ -41,13 +41,12 @@ Description: SUMARY
     image.provider = CONTANIZER
 
     image.start({
-        flags = { "-it" },
         volumes = {
             { "./.cache/debian_static_build/project", "/project" },
             { "./release",                          "/release" },
 
         },
-        command = "chmod 755 /project/DEBIAN/postinst &&  dpkg-deb --build /project /release/vibescript.deb"
+        command = "chmod 755 /project/DEBIAN && chmod 755 /project/DEBIAN/postinst &&  dpkg-deb --build /project /release/vibescript.deb"
     })
 end
 
