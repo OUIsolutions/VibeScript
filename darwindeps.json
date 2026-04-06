@@ -16,16 +16,16 @@
 		"dest":	"dependencies/BearHttpsClient.h",
 		"file":	"BearHttpsClient.h",
 		"repo":	"OUIsolutions/BearHttpsClient",
-		"tag":	"0.9.4",
+		"tag":	"0.10.0",
 		"type":	"gitrelease",
-		"updated_at":	"2026-02-26T10:37:18Z"
+		"updated_at":	"2026-04-06T18:26:12Z"
 	}, {
 		"dest":	"dependencies/BearHttpsClientOne.c",
 		"file":	"BearHttpsClientOne.c",
 		"repo":	"OUIsolutions/BearHttpsClient",
-		"tag":	"0.9.4",
+		"tag":	"0.10.0",
 		"type":	"gitrelease",
-		"updated_at":	"2026-02-26T10:37:20Z"
+		"updated_at":	"2026-04-06T18:30:43Z"
 	}, {
 		"dest":	"dependencies/SDK_OpenAI.c",
 		"file":	"SDK_OpenAI.c",

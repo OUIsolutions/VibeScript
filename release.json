@@ -1,13 +1,17 @@
 {
-
     "replacers": {
         "BIG_VERSION": "0",
-        "SMALL_VERSION": "47",
-        "PATCH_VERSION": "1"
+        "SMALL_VERSION": "48",
+        "PATCH_VERSION": "0"
     },
     "release": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
     "tag": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
-    "description": "fix on cwebstudio",
-    "assets":	["release/vibescript.out", "release/amalgamation.c", "release/vibescript.deb", "release/vibescript.rpm", "release/vibescripti32.exe"]
-
+    "description": "fix on bearhttps",
+    "assets": [
+        "release/vibescript.out",
+        "release/amalgamation.c",
+        "release/vibescript.deb",
+        "release/vibescript.rpm",
+        "release/vibescripti32.exe"
+    ]
 }
