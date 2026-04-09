@@ -29,6 +29,12 @@ function amalgamation_build()
     project.add_lua_code("end\n")
     project.add_lua_code("ship = ship()\n")
 
+
+    project.add_lua_code("lplot = function()\n")
+    project.add_lua_file("dependencies/lplot.lua")
+    project.add_lua_code("end\n")
+    project.add_lua_code("lplot = lplot()\n")
+
     project.add_lua_code("webdriver = function()\n")
     project.add_lua_file("dependencies/luaWebDriver.lua")
     project.add_lua_code("end\n")
