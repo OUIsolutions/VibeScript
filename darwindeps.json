@@ -145,16 +145,11 @@
 		"tag":	"0.2.2",
 		"type":	"gitrelease",
 		"updated_at":	"2025-10-03T03:01:28Z"
-	},
-	 {
+	}, {
 		"dest":	"dependencies/lplot.lua",
-		"file":"lplot.lua",
+		"file":	"lplot.lua",
 		"repo":	"OUIsolutions/LPlot",
 		"tag":	"0.0.2",
 		"type":	"gitrelease",
-		"updated_at":	"2026-04-09T16:36:04Z"
-	}
-
-
-
-]
+		"updated_at":	"2026-04-09T15:53:40Z"
+	}]
