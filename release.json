@@ -1,12 +1,12 @@
 {
     "replacers": {
         "BIG_VERSION": "0",
-        "SMALL_VERSION": "48",
+        "SMALL_VERSION": "49",
         "PATCH_VERSION": "0"
     },
     "release": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
     "tag": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
-    "description": "fix on bearhttps",
+    "description": "add lplot library",
     "assets": [
         "release/vibescript.out",
         "release/amalgamation.c",
