@@ -59,11 +59,11 @@ Want to learn how to use VibeScript with AI assistance? The built-in help system
 
 |  **File**                                                                                                           | **What is**                                |
 |---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-|[amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/amalgamation.c) | Amalgamated source code containing all libraries  |
-|[vibescript.out](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/vibescript.out)   | Ready-to-use Linux binary           |
-|[vibescripti32.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/vibescripti32.exe)       | Ready-to-use Windows 32-bit executable                         |
-|[vibescript.deb](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/vibescript.deb)       | Debian package for easy installation                             |
-|[vibescript.rpm](https://github.com/OUIsolutions/VibeScript/releases/download/0.47.0/vibescript.rpm)       | RPM package for easy installation            |
+|[amalgamation.c](https://github.com/OUIsolutions/VibeScript/releases/download/0.50.0/amalgamation.c) | Amalgamated source code containing all libraries  |
+|[vibescript.out](https://github.com/OUIsolutions/VibeScript/releases/download/0.50.0/vibescript.out)   | Ready-to-use Linux binary           |
+|[vibescripti32.exe](https://github.com/OUIsolutions/VibeScript/releases/download/0.50.0/vibescripti32.exe)       | Ready-to-use Windows 32-bit executable                         |
+|[vibescript.deb](https://github.com/OUIsolutions/VibeScript/releases/download/0.50.0/vibescript.deb)       | Debian package for easy installation                             |
+|[vibescript.rpm](https://github.com/OUIsolutions/VibeScript/releases/download/0.50.0/vibescript.rpm)       | RPM package for easy installation            |
 
 
 

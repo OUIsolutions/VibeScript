@@ -1,7 +1,7 @@
 {
     "replacers": {
         "BIG_VERSION": "0",
-        "SMALL_VERSION": "49",
+        "SMALL_VERSION": "50",
         "PATCH_VERSION": "0"
     },
     "release": "{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
